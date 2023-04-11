@@ -7,7 +7,7 @@ import { UIContext } from "lib/context";
 
 export function Navbar({ activeSection, setActiveSection }: any) {
   const [isChecked, setIsChecked] = useState(false);
-  const menuItems = ["about", "projects"];
+  const menuItems = ["about", "projects", "contact"];
   const [selected, setSelected] = useState(0);
   const [hideNavUnderline, setHideNavUnderline] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,9 +25,9 @@ export function Navbar({ activeSection, setActiveSection }: any) {
   const [isScrolling, setIsScrolling] = useState(false);
   const handleScroll = (to: any, direction: any) => {
     if (to === "contact" || to == "hero") {
-      setHideNavUnderline(true);
+      // setHideNavUnderline(true);
     } else {
-      setHideNavUnderline(false);
+      // setHideNavUnderline(false);
     }
     console.log(isScrolling, "isScrolling", to);
     setIsScrolling(true);
@@ -78,14 +78,15 @@ export function Navbar({ activeSection, setActiveSection }: any) {
                       className={`absolute -bottom-1 h-1 w-full bg-primary underline`}
                     />
                   )}
-                  <Link offset={-100} to={section} smooth={true} duration={350}>
+
+                  <Link offset={-100} to={section} smooth={false} duration={50}>
                     {section}
                   </Link>
                 </motion.li>
               ))}
             </ul>
           </LayoutGroup>
-          <Link
+          {/* <Link
             offset={-100}
             spy={true}
             to="contact"
@@ -93,7 +94,7 @@ export function Navbar({ activeSection, setActiveSection }: any) {
             duration={350}
           >
             <button className="btn-primary btn lowercase">Contact</button>
-          </Link>
+          </Link> */}
           <label className="swap swap-rotate">
             <input
               type="checkbox"

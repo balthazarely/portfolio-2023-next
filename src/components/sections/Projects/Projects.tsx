@@ -4,6 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { projectContainerVariants, projectElements } from "lib/animations";
+import { projectsForHomePage } from "lib/content";
+import Image from "next/image";
 
 export function Projects() {
   const [filterBy, setFilterBy] = useState("all");
@@ -18,71 +20,10 @@ export function Projects() {
     }
   }, [animation, inView]);
 
-  const [projects, setProjects] = useState([
-    {
-      name: "freebird",
-      type: "professional",
-      id: 0,
-    },
-    {
-      name: "tonic website",
-      type: "professional",
-      id: 1,
-    },
-    {
-      name: "freebird",
-      type: "professional",
-      id: 2,
-    },
-    {
-      name: "tonic website",
-      type: "professional",
-      id: 3,
-    },
-    {
-      name: "movieApp",
-      type: "personal",
-      id: 4,
-    },
-    {
-      name: "movieApp",
-      type: "personal",
-      id: 5,
-    },
-    {
-      name: "movieApp",
-      type: "personal",
-      id: 6,
-    },
-    {
-      name: "songDive",
-      type: "personal",
-      id: 7,
-    },
-    {
-      name: "design projects",
-      type: "design",
-      id: 8,
-    },
-    {
-      name: "design projects",
-      type: "design",
-      id: 9,
-    },
-    {
-      name: "design projects",
-      type: "design",
-      id: 10,
-    },
-    {
-      name: "design projects",
-      type: "design",
-      id: 11,
-    },
-  ]);
+  const [projects, setProjects] = useState(projectsForHomePage);
 
   const projectsForGrid = projects.filter((project: any) =>
-    filterBy !== "all" ? project.type === filterBy : project
+    filterBy !== "all" ? project.category === filterBy : project
   );
 
   const listChildElement = {
@@ -120,23 +61,12 @@ export function Projects() {
           ref={ref}
           animate={inView || asAnimationHappened ? "visible" : "hidden"}
           variants={projectContainerVariants}
-          className="mt-4 grid grid-cols-3 gap-2"
+          className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 "
           exit={{ opacity: 0 }}
         >
           <AnimatePresence>
             {projectsForGrid.map((project: any, idx: number) => (
-              <motion.div variants={projectElements} key={project.id}>
-                <motion.div
-                  layout
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.25 }}
-                  className={`flex gap-6 border-2 bg-gray-500`}
-                >
-                  <div className={`h-96 w-full   `}>{project.name}</div>
-                </motion.div>
-              </motion.div>
+              <SingleProjects project={project} key={project.id} />
             ))}
           </AnimatePresence>
         </motion.div>
@@ -165,16 +95,84 @@ function ProjectFilter({ setFilterBy, filterBy }: any) {
 }
 
 function SingleProjects({ project }: any) {
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
+  const overlayVariants = {
+    hidden: {
+      opacity: 0,
+      transition: {
+        duration: 0.8,
+      },
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+      },
+    },
+  };
+
+  const textOverlayVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        type: "spring",
+        bounce: 0.35,
+      },
+    },
+  };
+
   return (
     <motion.div
-      layout
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.25 }}
-      className="flex gap-6 border-2"
+      variants={projectElements}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      whileHover="visible"
+      whileTap="visible"
     >
-      <div className="h-96 w-full bg-gray-200">{project.name}</div>
+      <motion.div
+        layout
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.25 }}
+        className={`relative flex h-full  w-full  gap-6   object-cover `}
+      >
+        <Image
+          className=" z-20  h-full w-full object-cover"
+          alt={project.name}
+          src={project.image}
+          height={200}
+          width={200}
+        />
+        <motion.div
+          className="absolute  left-0 top-0 z-30 h-full w-full cursor-pointer overflow-hidden bg-gradient-to-t from-neutral to-transparent  "
+          initial="hidden"
+          variants={overlayVariants}
+          animate={isHovered ? "visible" : "hidden"}
+        >
+          <motion.div
+            variants={textOverlayVariants}
+            animate={isHovered ? "visible" : "hidden"}
+            className="absolute bottom-0 left-0 h-32 w-full p-4"
+          >
+            <div className="text-2xl font-bold text-white">{project.name}</div>
+            <div className="text-sm text-white">
+              Small probec to saklh sn 2 asjfhhafz zs97
+            </div>
+            <div className="mt-2 flex flex-wrap gap-2 text-sm text-white">
+              {project.tech.map((tech: string) => (
+                <div className="badge-primary badge badge-sm ">{tech}</div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 }

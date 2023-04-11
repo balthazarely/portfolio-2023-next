@@ -6,46 +6,18 @@ import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import { MdDesignServices } from "react-icons/md";
+import { devskills, otherSkills } from "lib/content";
 
 export function About() {
   const [flipped, setFlipped] = useState(true);
   const [ref, inView, entry] = useInView({ threshold: 0.4 });
   const animation = useAnimation();
 
-  const devskills = [
-    "JavaScript",
-    "CSS/SCSS",
-    "HTML5",
-    "React",
-    "NextJs/Gatsby",
-    "HydrogenJS",
-    "Angular",
-    "GraphQL",
-    "Shopify",
-    "TailwindCSS",
-    "Bootstrap",
-    "Express JS",
-    "Firebase",
-    "MongoDB",
-    "Framer Motion",
-    "GSAP",
-  ];
-
   useEffect(() => {
     if (inView) {
       animation.start("visible");
     }
   }, [animation, inView]);
-
-  const designSkills = [
-    "Graphic Design",
-    "Project Management",
-    "Public Speaking",
-    "Adobe Suite",
-    "Sketch/Figma/XD",
-    "Print Production",
-    "Logo Design",
-  ];
 
   const handleFlip = () => {
     setFlipped(!flipped);
@@ -155,7 +127,7 @@ export function About() {
                 variants={listParentContainer}
                 className="mt-1 grid grid-cols-2 pl-2 text-sm leading-6"
               >
-                {designSkills.map((skill: string) => (
+                {otherSkills.map((skill: string) => (
                   <motion.li
                     variants={listChildElement}
                     key={skill}
