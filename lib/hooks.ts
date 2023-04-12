@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 
 export function useLockBodyScroll(isLocked: boolean): void {
-  useLayoutEffect((): (() => void) => {
+  useEffect((): (() => void) => {
     const originalStyle: string = window.getComputedStyle(
       document.body
     ).overflow;

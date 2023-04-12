@@ -6,6 +6,10 @@ const UIReducer = (state: any, action: any) => {
       return { ...state, navDrawerOpen: true };
     case "CLOSE_NAV_DRAWER":
       return { ...state, navDrawerOpen: false };
+    case "SET_SELECTED_PROJECT":
+      return { ...state, selectedProject: action.payload };
+    case "CLEAR_SELECTED_PROJECT":
+      return { ...state, selectedProject: null };
     default:
       return state;
   }
@@ -13,10 +17,12 @@ const UIReducer = (state: any, action: any) => {
 
 type InitialStateType = {
   navDrawerOpen: boolean;
+  selectedProject: any;
 };
 
 const initialState = {
   navDrawerOpen: false,
+  selectedProject: null,
 };
 
 export const UIContext = createContext<{

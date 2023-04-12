@@ -1,11 +1,12 @@
 import { PageWrapper } from "@/components/layout";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { projectContainerVariants, projectElements } from "lib/animations";
 import { projectsForHomePage } from "lib/content";
 import Image from "next/image";
+import { UIContext } from "lib/context";
 
 export function Projects() {
   const [filterBy, setFilterBy] = useState("all");
@@ -98,6 +99,7 @@ function SingleProjects({ project }: any) {
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
+  const { dispatch } = useContext(UIContext);
 
   const overlayVariants = {
     hidden: {
@@ -128,15 +130,16 @@ function SingleProjects({ project }: any) {
   };
 
   return (
-    <motion.div
-      variants={projectElements}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      whileHover="visible"
-      whileTap="visible"
-    >
+    <motion.div variants={projectElements}>
       <motion.div
         layout
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        // onClick={() =>
+        //   dispatch({ type: "SET_SELECTED_PROJECT", payload: project })
+        // }
+        whileHover="visible"
+        whileTap="visible"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

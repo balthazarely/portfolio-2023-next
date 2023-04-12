@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-    extend: {},
+    extend: {
+      aspectRatio: {
+        "3/4": "3 / 4",
+      },
+    },
   },
   plugins: [require("prettier-plugin-tailwindcss"), require("daisyui")],
   daisyui: {

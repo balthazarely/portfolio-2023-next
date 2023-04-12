@@ -53,7 +53,7 @@ export const projectsForHomePage = [
     id: 2,
   },
   {
-    name: "Sing Dive",
+    name: "Song Dive",
     category: "personal",
     type: "Web App",
     tech: ["React", "ExpressJS", "Spotify API", "TailwindCSS"],

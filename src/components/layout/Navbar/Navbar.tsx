@@ -51,7 +51,7 @@ export function Navbar({ activeSection, setActiveSection }: any) {
   }, [isChecked]);
 
   return (
-    <div className="fixed z-50 h-24 w-full bg-base-100 py-6 ">
+    <div className="fixed z-30 h-24 w-full bg-base-100 py-6 ">
       <PageWrapper className="flex items-center justify-between">
         <div className="cursor-pointer text-3xl font-bold">
           <Link offset={-100} to="hero" smooth={true} duration={350}>
@@ -95,7 +95,7 @@ export function Navbar({ activeSection, setActiveSection }: any) {
           >
             <button className="btn-primary btn lowercase">Contact</button>
           </Link> */}
-          <label className="swap swap-rotate">
+          <label className="swap-rotate swap">
             <input
               type="checkbox"
               onChange={(e) => setIsChecked(e.target.checked)}
