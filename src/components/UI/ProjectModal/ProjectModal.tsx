@@ -86,6 +86,7 @@ export function ProjectModal() {
           {state.selectedProject.otherImages?.map((img: any, idx: number) => {
             return (
               <img
+                key={idx}
                 src={state.selectedProject.otherImages[idx]}
                 className={`${
                   imageSelected === idx + 1 && imageSelected !== 0
@@ -183,7 +184,7 @@ export function ProjectModal() {
               className=" flex flex-wrap gap-2 text-sm text-white"
             >
               {state.selectedProject.tech.map((tech: string) => (
-                <div key={tech} className="badge badge-primary badge-sm ">
+                <div key={tech} className="badge-primary badge badge-sm ">
                   {tech}
                 </div>
               ))}
