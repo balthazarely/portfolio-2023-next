@@ -1,13 +1,9 @@
 import { PageWrapper } from "@/components/layout";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { HiCheck, HiArrowRight, HiCode } from "react-icons/hi";
+import { useEffect } from "react";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { BsGithub, BsLinkedin, BsFileEarmarkPdf } from "react-icons/bs";
-
-import { MdDesignServices } from "react-icons/md";
-import { devskills, otherSkills } from "lib/content";
 
 export function Links() {
   const [ref, inView, entry] = useInView({ threshold: 0.2 });
@@ -91,7 +87,7 @@ export function Links() {
       animate={animation}
       className=""
     >
-      <PageWrapper className="py-32">
+      <PageWrapper className="py-32 ">
         <motion.div
           variants={singleCard}
           className=" flex flex-col items-center justify-center"
@@ -115,21 +111,35 @@ export function Links() {
             variants={singleCard}
             className=" col-span-1 flex items-center justify-center gap-3 p-6   "
           >
-            <div className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-all duration-200 hover:-translate-y-2 hover:bg-base-200">
+            <a
+              href="https://github.com/balthazarely"
+              target="_BLANK"
+              className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-all duration-200 hover:-translate-y-2 hover:bg-base-200"
+            >
               <BsGithub className="text-3xl group-hover:text-primary" />
               <div className="text-sm font-bold">github</div>
-            </div>
-            <div className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-all duration-200 hover:-translate-y-2 hover:bg-base-200">
+            </a>
+            <a
+              href="https://www.linkedin.com/in/balthazarely"
+              target="_BLANK"
+              className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-all duration-200 hover:-translate-y-2 hover:bg-base-200"
+            >
               <BsLinkedin className="text-3xl group-hover:text-primary" />
               <div className="text-sm font-bold">linkedin</div>
-            </div>
-            <div className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-all duration-200 hover:-translate-y-2 hover:bg-base-200">
+            </a>
+            <a
+              href="/balthazar_ely_resume_2023.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-all duration-200 hover:-translate-y-2 hover:bg-base-200"
+            >
               <BsFileEarmarkPdf className="text-3xl group-hover:text-primary" />
               <div className="text-sm font-bold">resume</div>
-            </div>
+            </a>
           </motion.div>
         </motion.div>
       </PageWrapper>
+      <div className="mx-auto max-w-lg border-b-2  border-base-content border-opacity-20 "></div>
     </motion.div>
   );
 }

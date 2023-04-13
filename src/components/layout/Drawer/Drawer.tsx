@@ -18,7 +18,6 @@ export function Drawer() {
   const menuOpenAnimationVariant = {
     closed: {
       x: "100%",
-      // display: "block",
       transition: {
         duration: 0.5,
         type: "spring",
@@ -29,7 +28,7 @@ export function Drawer() {
       },
     },
     open: {
-      x: "20px",
+      x: "-18.7rem",
       transition: {
         duration: 0.5,
         type: "spring",
@@ -69,9 +68,9 @@ export function Drawer() {
         animate={state.navDrawerOpen ? "open" : "closed"}
         variants={menuOpenAnimationVariant}
         transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-        className="fixed right-0 top-0 z-[70] h-screen w-full max-w-xs bg-base-100 p-5  shadow-lg"
+        className="fixed -right-80  top-0 z-[70] h-screen w-full max-w-xs bg-base-100 p-5  shadow-lg"
       >
-        <div className="flex w-full justify-end px-4">
+        <div className="mt-1 flex w-full justify-end px-4">
           <Hamburger toggled={state.navDrawerOpen} toggle={toggleDrawer} />
         </div>
         <motion.div

@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import { Link } from "react-scroll";
 
 export function Hero() {
-  const [ref, inView, entry] = useInView({ threshold: 0.2 });
+  const [ref, inView] = useInView({ threshold: 0.2 });
   const animation = useAnimation();
 
   useEffect(() => {

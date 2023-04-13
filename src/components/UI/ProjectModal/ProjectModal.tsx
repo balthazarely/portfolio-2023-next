@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { HiChevronRight, HiChevronLeft, HiX } from "react-icons/hi";
-import Link from "next/link";
+import { UIContext } from "lib/context";
 
-export default function ProjectModal({ selected, setSelected }: any) {
+export function ProjectModal() {
   const [imageSelected, setImageSelected] = useState(0);
+  const { state, dispatch } = useContext(UIContext);
 
   useEffect(() => {
     setImageSelected(0);
-  }, [selected]);
+  }, [state.selectedProject]);
 
-  if (!selected) {
+  if (!state.selectedProject) {
     return <></>;
   }
 
@@ -59,7 +60,8 @@ export default function ProjectModal({ selected, setSelected }: any) {
   return (
     <div
       onClick={(e) => {
-        setSelected(null);
+        // setSelected(null);
+        dispatch({ type: "CLEAR_SELECTED_PROJECT" });
       }}
       className={`fixed inset-0 z-50 flex cursor-pointer items-center justify-center   `}
     >
@@ -74,22 +76,22 @@ export default function ProjectModal({ selected, setSelected }: any) {
             e.stopPropagation();
           }}
           className="relative z-50 mx-auto mt-4   h-[300px] w-[400px] sm:h-[375px] sm:w-[500px] md:h-[450px] md:w-[600px] "
-          layoutId={`card-${selected.id}`}
+          layoutId={`card-${state.selectedProject.id}`}
         >
           <img
-            src={selected.url}
+            src={state.selectedProject.url}
             className={`${
               imageSelected === 0 ? "opacity-100" : "opacity-0"
             } absolute top-0   object-contain transition-opacity duration-200`}
           />
           <img
-            src={selected.otherImages[0]}
+            src={state.selectedProject.otherImages[0]}
             className={`${
               imageSelected === 1 ? "opacity-100" : "opacity-0"
             } absolute top-0  object-contain transition-opacity duration-200`}
           />
           <img
-            src={selected.otherImages[1]}
+            src={state.selectedProject.otherImages[1]}
             className={`${
               imageSelected === 2 ? "opacity-100" : "opacity-0"
             } absolute top-0   object-contain transition-opacity duration-200`}
@@ -118,7 +120,8 @@ export default function ProjectModal({ selected, setSelected }: any) {
           <div className="absolute left-2 top-2 ">
             <button
               onClick={(e) => {
-                setSelected(null);
+                // setSelected(null);
+                dispatch({ type: "CLEAR_SELECTED_PROJECT" });
               }}
               className="btn-sm btn-circle btn"
             >
@@ -169,14 +172,16 @@ export default function ProjectModal({ selected, setSelected }: any) {
               variants={containerInnerElements}
               className="mt-10 text-2xl font-bold "
             >
-              {selected.title}
+              {state.selectedProject.title}
             </motion.div>
             <motion.div
               variants={containerInnerElements}
               className=" flex flex-wrap gap-2 text-sm text-white"
             >
-              {selected.tech.map((tech: string) => (
-                <div className="badge badge-primary badge-sm ">{tech}</div>
+              {state.selectedProject.tech.map((tech: string) => (
+                <div key={tech} className="badge badge-primary badge-sm ">
+                  {tech}
+                </div>
               ))}
             </motion.div>
             <motion.div variants={containerInnerElements} className="text-sm">

@@ -3,7 +3,6 @@ import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { PageWrapper } from "@/components/layout";
 import { useInView } from "react-intersection-observer";
 import { projectContainerVariants, projectElements } from "lib/animations";
-import Image from "next/image";
 import { UIContext } from "lib/context";
 
 const items = [
@@ -180,7 +179,7 @@ const items = [
   // },
 ];
 
-const Card = ({ setSelected, item, tempSelected }: any) => {
+const Card = ({ item, tempSelected }: any) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
@@ -238,7 +237,7 @@ const Card = ({ setSelected, item, tempSelected }: any) => {
           alt={item.title}
           src={item.url}
           onClick={() => {
-            setSelected(item);
+            dispatch({ type: "SET_SELECTED_PROJECT", payload: item });
           }}
         />
         <motion.div
@@ -248,7 +247,7 @@ const Card = ({ setSelected, item, tempSelected }: any) => {
           <div className=" text-2xl font-bold text-white">{item.title}</div>
           <div className="mt-2 flex flex-wrap gap-2 text-sm text-white">
             {item.tech.map((tech: string, idx: number) => (
-              <div key={idx} className="badge-primary badge badge-sm ">
+              <div key={idx} className="badge badge-primary badge-sm ">
                 {tech}
               </div>
             ))}
@@ -271,7 +270,7 @@ const Card = ({ setSelected, item, tempSelected }: any) => {
             </div>
             <div className="mt-2 flex flex-wrap gap-2 text-sm text-white">
               {item.tech.map((tech: string, idx: number) => (
-                <div key={idx} className="badge-primary badge badge-sm ">
+                <div key={idx} className="badge badge-primary badge-sm ">
                   {tech}
                 </div>
               ))}
@@ -283,7 +282,9 @@ const Card = ({ setSelected, item, tempSelected }: any) => {
   );
 };
 
-export function ProjectsNew({ setSelected, selected }: any) {
+export function ProjectsNew() {
+  const { state } = useContext(UIContext);
+
   const [ref, inView, entry] = useInView({ threshold: 0.1 });
   const [asAnimationHappened, setAnimationHappened] = useState(false);
   const [tempSelected, setTempSelected] = useState<any>(null);
@@ -304,14 +305,14 @@ export function ProjectsNew({ setSelected, selected }: any) {
   }, [animation, inView]);
 
   useEffect(() => {
-    if (selected !== null) {
-      setTempSelected(selected);
+    if (state.selectedProject !== null) {
+      setTempSelected(state.selectedProject);
     } else {
       setTimeout(() => {
-        setTempSelected(selected);
+        setTempSelected(state.selectedProject);
       }, 500);
     }
-  }, [selected]);
+  }, [state.selectedProject]);
 
   const listChildElement = {
     hidden: {
@@ -355,7 +356,7 @@ export function ProjectsNew({ setSelected, selected }: any) {
             {projectsForGrid.map((item) => (
               <Card
                 key={item.id}
-                setSelected={setSelected}
+                // setSelected={setSelected}
                 tempSelected={tempSelected}
                 item={item}
               />
