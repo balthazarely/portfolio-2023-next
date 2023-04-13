@@ -13,7 +13,7 @@ export function Drawer() {
     if (width > 640) {
       dispatch({ type: "CLOSE_NAV_DRAWER" });
     }
-  }, [width, state.navDrawerOpen]);
+  }, [width, state.navDrawerOpen, dispatch]);
 
   const menuOpenAnimationVariant = {
     closed: {

@@ -179,21 +179,21 @@ export function ProjectModal() {
               className=" flex flex-wrap gap-2 text-sm text-white"
             >
               {state.selectedProject.tech.map((tech: string) => (
-                <div key={tech} className="badge badge-primary badge-sm ">
+                <div key={tech} className="badge-primary badge badge-sm ">
                   {tech}
                 </div>
               ))}
             </motion.div>
             <motion.div variants={containerInnerElements} className="text-sm">
-              PlowOps is one of the world's first snow plow tracking
+              PlowOps is one of the world&apos;s first snow plow tracking
               applications and it is sold to cities around the country. My
               involvement with the product included making the website, PlowOps
-              is one of the world's first snow plow tracking applications and it
-              is sold to cities around the country. My involvement with the
-              product included making the website, PlowOps is one of the world's
-              first snow plow tracking applications and it is sold to cities
-              around the country. My involvement with the product included
-              making the website,
+              is one of the world&apos;s first snow plow tracking applications
+              and it is sold to cities around the country. My involvement with
+              the product included making the website, PlowOps is one of the
+              world&apos;s first snow plow tracking applications and it is sold
+              to cities around the country. My involvement with the product
+              included making the website,
             </motion.div>
             <motion.div
               variants={containerInnerElements}

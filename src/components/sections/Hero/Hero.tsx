@@ -50,8 +50,8 @@ export function Hero() {
             variants={containerInnerElements}
             className="h-full text-center text-4xl font-bold leading-snug sm:text-left"
           >
-            Hi, I'm <span className="text-primary">Balthazar.</span> I am a UI
-            Engineer with a passion for building
+            Hi, I&apos;m <span className="text-primary">Balthazar.</span> I am a
+            UI Engineer with a passion for building
             <span className="text-primary"> beautiful things.</span>
           </motion.div>
           <motion.div

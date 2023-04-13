@@ -66,7 +66,7 @@ export function Projects() {
           exit={{ opacity: 0 }}
         >
           <AnimatePresence>
-            {projectsForGrid.map((project: any, idx: number) => (
+            {projectsForGrid.map((project: any) => (
               <SingleProjects project={project} key={project.id} />
             ))}
           </AnimatePresence>
@@ -80,9 +80,9 @@ function ProjectFilter({ setFilterBy, filterBy }: any) {
   const projectTypes = ["all", "professional", "personal", "design"];
   return (
     <motion.div className="flex gap-2">
-      {projectTypes.map((proj: any) => (
+      {projectTypes.map((proj: any, idx: number) => (
         <button
-          key={proj.id}
+          key={idx}
           onClick={() => setFilterBy(proj)}
           className={` btn-sm btn ${
             filterBy === proj ? "btn-primary " : " btn-ghost"
@@ -170,7 +170,9 @@ function SingleProjects({ project }: any) {
             </div>
             <div className="mt-2 flex flex-wrap gap-2 text-sm text-white">
               {project.tech.map((tech: string) => (
-                <div className="badge-primary badge badge-sm ">{tech}</div>
+                <div key={tech} className="badge-primary badge badge-sm ">
+                  {tech}
+                </div>
               ))}
             </div>
           </motion.div>
