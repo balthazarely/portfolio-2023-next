@@ -44,7 +44,7 @@ export function ProjectModal() {
   };
 
   const nextImage = (e: any) => {
-    if (imageSelected < 2) {
+    if (imageSelected < state.selectedProject.otherImages.length) {
       setImageSelected(imageSelected + 1);
     }
     e.stopPropagation();
@@ -60,7 +60,6 @@ export function ProjectModal() {
   return (
     <div
       onClick={(e) => {
-        // setSelected(null);
         dispatch({ type: "CLEAR_SELECTED_PROJECT" });
       }}
       className={`fixed inset-0 z-50 flex cursor-pointer items-center justify-center   `}
@@ -75,29 +74,28 @@ export function ProjectModal() {
           onClick={(e) => {
             e.stopPropagation();
           }}
-          className="relative z-50 mx-auto mt-4   h-[300px] w-[400px] sm:h-[375px] sm:w-[500px] md:h-[450px] md:w-[600px] "
+          className="relative z-50 mx-auto mt-4 h-[300px]  w-[400px] bg-white sm:h-[375px] sm:w-[500px] md:h-[450px] md:w-[600px] "
           layoutId={`card-${state.selectedProject.id}`}
         >
           <img
             src={state.selectedProject.url}
             className={`${
               imageSelected === 0 ? "opacity-100" : "opacity-0"
-            } absolute top-0   object-contain transition-opacity duration-200`}
+            } absolute top-0   object-contain`}
           />
-          <img
-            src={state.selectedProject.otherImages[0]}
-            className={`${
-              imageSelected === 1 ? "opacity-100" : "opacity-0"
-            } absolute top-0  object-contain transition-opacity duration-200`}
-          />
-          <img
-            src={state.selectedProject.otherImages[1]}
-            className={`${
-              imageSelected === 2 ? "opacity-100" : "opacity-0"
-            } absolute top-0   object-contain transition-opacity duration-200`}
-          />
+          {state.selectedProject.otherImages?.map((img: any, idx: number) => {
+            return (
+              <img
+                src={state.selectedProject.otherImages[idx]}
+                className={`${
+                  imageSelected === idx + 1 && imageSelected !== 0
+                    ? "opacity-100"
+                    : "opacity-0"
+                } absolute top-0  object-contain`}
+              />
+            );
+          })}
         </motion.div>
-
         <motion.div
           initial={{
             opacity: 0,
@@ -170,16 +168,22 @@ export function ProjectModal() {
           >
             <motion.div
               variants={containerInnerElements}
-              className="mt-10 text-2xl font-bold "
+              className="mt-10 flex items-center justify-between text-2xl font-bold"
             >
-              {state.selectedProject.title}
+              <div>{state.selectedProject.title}</div>
+              <div className="font-base text-sm">
+                {imageSelected + 1} /{" "}
+                {state.selectedProject.otherImages
+                  ? state.selectedProject.otherImages.length + 1
+                  : "1"}
+              </div>
             </motion.div>
             <motion.div
               variants={containerInnerElements}
               className=" flex flex-wrap gap-2 text-sm text-white"
             >
               {state.selectedProject.tech.map((tech: string) => (
-                <div key={tech} className="badge-primary badge badge-sm ">
+                <div key={tech} className="badge badge-primary badge-sm ">
                   {tech}
                 </div>
               ))}

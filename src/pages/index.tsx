@@ -1,3 +1,4 @@
+import { Footer } from "@/components/layout";
 import {
   About,
   Contact,
@@ -47,7 +48,7 @@ export default function Home({ setActiveSection }: any) {
         <Contact />
       </div>
       <div id="footer">
-        <div className="h-44 bg-primary">Footer</div>
+        <Footer />
       </div>
     </>
   );

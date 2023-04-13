@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { BsGithub, BsLinkedin, BsFileEarmarkPdf } from "react-icons/bs";
+import { BsGithub, BsLinkedin, BsFileEarmarkArrowUpFill } from "react-icons/bs";
 
 export function NewLinks() {
   const [ref, inView, entry] = useInView({ threshold: 0.2 });
@@ -96,7 +96,7 @@ export function NewLinks() {
             links <span className="-ml-1 text-primary">.</span>
           </div>
 
-          <div className="mt-4">
+          <div className="mt-4 text-center">
             I am a passionate web developer with extensive experience
           </div>
         </motion.div>
@@ -133,7 +133,7 @@ export function NewLinks() {
               rel="noopener noreferrer"
               className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-all duration-200 hover:-translate-y-2 hover:bg-base-200"
             >
-              <BsFileEarmarkPdf className="text-3xl group-hover:text-primary" />
+              <BsFileEarmarkArrowUpFill className="text-3xl group-hover:text-primary" />
               <div className="text-sm font-bold">resume</div>
             </a>
           </motion.div>

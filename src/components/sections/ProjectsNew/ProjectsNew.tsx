@@ -4,180 +4,7 @@ import { PageWrapper } from "@/components/layout";
 import { useInView } from "react-intersection-observer";
 import { projectContainerVariants, projectElements } from "lib/animations";
 import { UIContext } from "lib/context";
-
-const items = [
-  {
-    id: 1,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "Plow Ops",
-    description: "TEST dolor",
-    tech: ["Angular 10", "GatsbyJs", "Material UI", "TailwindCSS"],
-    category: "professional",
-  },
-  {
-    id: 2,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-    // url: "/images/project-thumbnails/hei.jpeg",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "Hartman Ely Investments",
-    description: "TEST dolor",
-    tech: ["NextJS", "TailwindCSS"],
-    category: "professional",
-  },
-  {
-    id: 3,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-    // url: "/images/project-thumbnails/accuterra.jpg",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "AccuTerra",
-    description: "TEST dolor",
-    tech: ["GatsbyJs", "Maps"],
-    category: "professional",
-  },
-  {
-    id: 4,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-    // url: "/images/project-thumbnails/plow-ops.jpeg",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "MovieBin",
-    category: "personal",
-    type: "Web App",
-    tech: ["NextJS", "Firebase", "API", "TailwindCSS"],
-  },
-  {
-    id: 5,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-
-    // url: "/images/project-thumbnails/songdive.jpeg",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "Song Dive",
-    description: "TEST dolor",
-    tech: ["React", "ExpressJS", "Spotify API", "TailwindCSS"],
-    category: "personal",
-  },
-  {
-    id: 6,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-
-    // url: "/images/project-thumbnails/freebird.png",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "Freebird Shoes",
-    description: "TEST dolor",
-    tech: ["Shopify", "HydrogenJS", "jQuery", "GraphQL", "SanityCMS"],
-    category: "professional",
-  },
-  {
-    id: 7,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-
-    // url: "/images/project-thumbnails/privett.png",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "Privett Hachery",
-    description: "TEST dolor",
-    tech: ["Angular 10", "Bootstrap"],
-    category: "professional",
-  },
-  {
-    id: 8,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-
-    // url: "/images/project-thumbnails/identity-records.jpeg",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "Identity Records",
-    description: "TEST dolor",
-    tech: ["GatsbyJs", "Styled Components", "SanityCMS"],
-    category: "professional",
-  },
-  {
-    id: 9,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-
-    // url: "/images/project-thumbnails/bannerbox.jpeg",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "Bannerbox",
-    description: "TEST dolor",
-    tech: ["React", "Firebase", "GSAP", "HTML Canvas", "DCO"],
-    category: "professional",
-  },
-  {
-    id: 10,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-
-    // url: "/images/project-thumbnails/logos.jpeg",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "Logos",
-    description: "TEST dolor",
-    tech: ["Illustrator"],
-    category: "design",
-  },
-  {
-    id: 11,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-
-    // url: "/images/project-thumbnails/brochures.jpeg",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "Brochures",
-    description: "TEST dolor",
-    tech: ["Photoshop", "InDesign", "Illustrator", "Lightroom"],
-    category: "professional",
-  },
-  {
-    id: 12,
-    url: "/images/project-thumbnails/plow-ops.jpeg",
-
-    // url: "/images/project-thumbnails/branding.jpeg",
-    otherImages: [
-      "/images/project-thumbnails/accuterra.jpg",
-      "/images/project-thumbnails/privett.png",
-    ],
-    title: "Branding",
-    description: "TEST dolor",
-    tech: ["Photoshop", "InDesign", "Illustrator", "Lightroom"],
-    category: "design",
-  },
-  // {
-  //   id: 13,
-  //   url: "/images/project-thumbnails/plow-ops.jpeg",
-  //   title: "Branding",
-  //   description: "TEST dolor",
-  //   tech: ["Photoshop", "InDesign", "Illustrator", "Lightroom"],
-  //   category: "design",
-  // },
-];
+import { items } from "lib/content";
 
 const Card = ({ item, tempSelected }: any) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -339,10 +166,12 @@ export function ProjectsNew() {
           variants={listChildElement}
           animate={animation}
           // animate={inView ? "visible" : "hidden"}
-          className="flex justify-between"
+          className="flex flex-col justify-between sm:flex-row"
         >
-          <div className="section-header">projects</div>
-          {/* <ProjectFilter setFilterBy={setFilterBy} filterBy={filterBy} /> */}
+          <div className="section-header text-center sm:text-left">
+            projects
+          </div>
+          <ProjectFilter setFilterBy={setFilterBy} filterBy={filterBy} />
         </motion.div>
         <motion.div
           initial="hidden"
@@ -371,12 +200,12 @@ export function ProjectsNew() {
 function ProjectFilter({ setFilterBy, filterBy }: any) {
   const projectTypes = ["all", "professional", "personal", "design"];
   return (
-    <motion.div className="flex gap-2">
+    <motion.div className="mb-4 mt-6 flex justify-center gap-2">
       {projectTypes.map((proj: any) => (
         <button
           key={proj.id}
           onClick={() => setFilterBy(proj)}
-          className={` btn-sm btn ${
+          className={` btn-sm btn lowercase ${
             filterBy === proj ? "btn-primary " : " btn-ghost"
           }`}
         >

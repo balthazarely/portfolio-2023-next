@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Cross as Hamburger } from "hamburger-react";
 import { Link } from "react-scroll";
 import { useWindowSize } from "react-use";
+import { DarkModeToggle } from "@/components/UI";
 
 export function Drawer() {
   const { state, dispatch } = useContext(UIContext);
@@ -127,6 +128,12 @@ export function Drawer() {
               contact
             </button>
           </Link>
+        </motion.div>
+        <motion.div
+          className="mr-6 py-1 pl-4  "
+          variants={containerInnerElements}
+        >
+          <DarkModeToggle />
         </motion.div>
       </motion.div>
     </>
