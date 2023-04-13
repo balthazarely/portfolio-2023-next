@@ -7,15 +7,14 @@ import { UIContext } from "lib/context";
 
 export function Navbar({ activeSection, setActiveSection }: any) {
   const [isChecked, setIsChecked] = useState(false);
-  const menuItems = ["about", "projects", "contact"];
+  const menuItems = ["about", "projects", "links", "contact"];
   const [selected, setSelected] = useState(0);
   const [hideNavUnderline, setHideNavUnderline] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { dispatch } = useContext(UIContext);
+  const { state, dispatch } = useContext(UIContext);
 
   const toggleDrawer = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-    if (!mobileMenuOpen) {
+    if (!state.navDrawerOpen) {
       dispatch({ type: "OPEN_NAV_DRAWER" });
     } else {
       dispatch({ type: "CLOSE_NAV_DRAWER" });
@@ -58,8 +57,8 @@ export function Navbar({ activeSection, setActiveSection }: any) {
             balthazar<span className="text-4xl text-primary">.</span>
           </Link>
         </div>
-        <div className="block border-2 border-red-200 sm:hidden">
-          <Hamburger toggled={mobileMenuOpen} toggle={toggleDrawer} />
+        <div className="block  sm:hidden">
+          <Hamburger toggle={toggleDrawer} />
         </div>
         <div className="hidden items-center gap-8 sm:flex">
           <LayoutGroup>
@@ -79,7 +78,7 @@ export function Navbar({ activeSection, setActiveSection }: any) {
                     />
                   )}
 
-                  <Link offset={-100} to={section} smooth={false} duration={50}>
+                  <Link offset={-50} to={section} smooth={false} duration={50}>
                     {section}
                   </Link>
                 </motion.li>

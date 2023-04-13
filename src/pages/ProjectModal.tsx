@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { HiChevronRight, HiChevronLeft, HiX } from "react-icons/hi";
+import Link from "next/link";
 
 export default function ProjectModal({ selected, setSelected }: any) {
   const [imageSelected, setImageSelected] = useState(0);
@@ -40,15 +41,8 @@ export default function ProjectModal({ selected, setSelected }: any) {
       },
     },
   };
-  const images = [
-    "/images/project-thumbnails/plow-ops.jpeg",
-    "/images/project-thumbnails/hei.jpeg",
-    "/images/project-thumbnails/freebird.png",
-  ];
 
   const nextImage = (e: any) => {
-    console.log("asfasfasfa");
-
     if (imageSelected < 2) {
       setImageSelected(imageSelected + 1);
     }
@@ -65,14 +59,21 @@ export default function ProjectModal({ selected, setSelected }: any) {
   return (
     <div
       onClick={(e) => {
-        // setSelected(null);
-        // e.stopPropagation();
+        setSelected(null);
       }}
-      className={`fixed inset-0 z-50 flex cursor-pointer items-center justify-center  `}
+      className={`fixed inset-0 z-50 flex cursor-pointer items-center justify-center   `}
     >
-      <div className="relative">
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className="relative "
+      >
         <motion.div
-          className="relative z-50 mx-auto mt-4 h-[300px] w-[400px]  sm:h-[450px] sm:w-[600px]  "
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+          className="relative z-50 mx-auto mt-4   h-[300px] w-[400px] sm:h-[375px] sm:w-[500px] md:h-[450px] md:w-[600px] "
           layoutId={`card-${selected.id}`}
         >
           <img
@@ -85,7 +86,7 @@ export default function ProjectModal({ selected, setSelected }: any) {
             src={selected.otherImages[0]}
             className={`${
               imageSelected === 1 ? "opacity-100" : "opacity-0"
-            } absolute top-0   object-contain transition-opacity duration-200`}
+            } absolute top-0  object-contain transition-opacity duration-200`}
           />
           <img
             src={selected.otherImages[1]}
@@ -94,27 +95,59 @@ export default function ProjectModal({ selected, setSelected }: any) {
             } absolute top-0   object-contain transition-opacity duration-200`}
           />
         </motion.div>
-        <div className="absolute left-0 top-0 z-[100] mt-16">
-          <button onClick={prevImage}>
-            <HiChevronLeft />
-          </button>
-          <button onClick={nextImage}>
-            <HiChevronRight />
-          </button>
-          <button onClick={nextImage}>
-            <HiX onClick={() => setSelected(null)} />
-          </button>
-        </div>
 
         <motion.div
-          className=" relative -z-50 mx-auto w-[400px] sm:w-[600px] "
           initial={{
             opacity: 0,
-            y: -500,
           }}
           animate={{
             opacity: 1,
-            y: -50,
+
+            transition: {
+              delay: 0.25,
+              type: "spring",
+              bounce: 0.3,
+            },
+          }}
+          transition={{
+            delay: 0.25,
+            duration: 0.25,
+          }}
+          className="absolute left-0 top-0 z-[100] mt-4  flex h-[300px] w-[400px] items-center  justify-between  bg-opacity-60 sm:h-[375px]  sm:w-[500px] md:h-[450px] md:w-[600px]"
+        >
+          <div className="absolute left-2 top-2 ">
+            <button
+              onClick={(e) => {
+                setSelected(null);
+              }}
+              className="btn-sm btn-circle btn"
+            >
+              <HiX />
+            </button>
+          </div>
+          <button
+            onClick={(e) => prevImage(e)}
+            className={` flex h-10 w-8 items-center justify-center bg-neutral bg-opacity-40 duration-150 hover:bg-opacity-100`}
+          >
+            <HiChevronLeft className="text-2xl font-bold text-white" />
+          </button>
+          <button
+            onClick={(e) => nextImage(e)}
+            className="flex h-10 w-8 items-center justify-center bg-neutral bg-opacity-40 duration-150 hover:bg-opacity-100"
+          >
+            <HiChevronRight className="text-2xl font-bold text-white" />
+          </button>
+        </motion.div>
+
+        <motion.div
+          className=" relative  mx-auto w-[400px]   sm:w-[500px] md:w-[600px] "
+          initial={{
+            opacity: 0,
+            y: -200,
+          }}
+          animate={{
+            opacity: 1,
+            y: -60,
             transition: {
               delay: 0.25,
               type: "spring",
@@ -143,16 +176,31 @@ export default function ProjectModal({ selected, setSelected }: any) {
               className=" flex flex-wrap gap-2 text-sm text-white"
             >
               {selected.tech.map((tech: string) => (
-                <div className="badge-primary badge badge-sm ">{tech}</div>
+                <div className="badge badge-primary badge-sm ">{tech}</div>
               ))}
-            </motion.div>{" "}
-            <motion.div variants={containerInnerElements} className="text-xs">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. Lorem Ipsum.
             </motion.div>
-            {imageSelected}{" "}
+            <motion.div variants={containerInnerElements} className="text-sm">
+              PlowOps is one of the world's first snow plow tracking
+              applications and it is sold to cities around the country. My
+              involvement with the product included making the website, PlowOps
+              is one of the world's first snow plow tracking applications and it
+              is sold to cities around the country. My involvement with the
+              product included making the website, PlowOps is one of the world's
+              first snow plow tracking applications and it is sold to cities
+              around the country. My involvement with the product included
+              making the website,
+            </motion.div>
+            <motion.div
+              variants={containerInnerElements}
+              className="flex justify-end gap-2 text-xs"
+            >
+              <button className=" btn-outline btn-primary btn-xs btn cursor-pointer lowercase">
+                live site
+              </button>
+              <button className=" btn-outline btn-primary btn-xs btn cursor-pointer lowercase">
+                Github
+              </button>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

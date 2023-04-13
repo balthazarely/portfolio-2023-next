@@ -2,21 +2,26 @@ import {
   About,
   Contact,
   Hero,
+  Links,
   Projects,
   ProjectsNew,
 } from "@/components/sections";
+import { UIContext } from "lib/context";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer"; // 1.9K gzipped
 import List from "./list";
 import Modal from "./modal";
 import ProjectModal from "./ProjectModal";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
 
 export default function Home({ setActiveSection }: any) {
   const [heroRef, heroInView] = useInView({ threshold: 0.2 });
   const [aboutRef, aboutInView] = useInView({ threshold: 0.2 });
   const [projectsRef, projectsInView] = useInView({ threshold: 0.2 });
+  const [linksRef, linksInView] = useInView({ threshold: 0.2 });
   const [contactRef, contactInView] = useInView({ threshold: 0.2 });
+  const { state } = useContext(UIContext);
 
   const router = useRouter();
   const { section } = router.query;
@@ -45,15 +50,22 @@ export default function Home({ setActiveSection }: any) {
       setActiveSection("about");
     } else if (projectsInView) {
       setActiveSection("projects");
+    } else if (linksInView) {
+      setActiveSection("links");
     } else if (contactInView) {
       setActiveSection("contact");
     }
-  }, [heroInView, aboutInView, projectsInView, contactInView]);
+  }, [heroInView, aboutInView, projectsInView, linksInView, contactInView]);
 
   const [selected, setSelected] = useState(null);
 
   return (
-    <div>
+    <motion.div
+    // animate={{
+    //   opacity: state.navDrawerOpen ? 0.5 : 1,
+    // }}
+    // transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+    >
       <div id="hero" ref={heroRef}>
         <Hero />
       </div>
@@ -69,7 +81,9 @@ export default function Home({ setActiveSection }: any) {
         {/* <List setSelected={setSelected} /> */}
         {/* <Modal selected={selected} setSelected={setSelected} /> */}
       </div>
-
+      <div id="links" ref={linksRef}>
+        <Links />
+      </div>
       <div id="contact" ref={contactRef}>
         <Contact />
       </div>
@@ -77,7 +91,7 @@ export default function Home({ setActiveSection }: any) {
         <div className="h-44 bg-primary">Footer</div>
       </div>
       <ModalBackground selected={selected} />
-    </div>
+    </motion.div>
   );
 }
 

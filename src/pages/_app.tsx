@@ -1,9 +1,9 @@
 import { Drawer, Layout, Navbar } from "@/components/layout";
 import "@/styles/globals.scss";
-import GlobalProvider from "lib/context";
+import GlobalProvider, { UIContext } from "lib/context";
 import type { AppProps } from "next/app";
 import { Poppins } from "next/font/google";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const poppins = Poppins({
   weight: ["400", "600", "700"],
@@ -12,6 +12,13 @@ const poppins = Poppins({
 
 export default function App({ Component, pageProps }: AppProps) {
   const [activeSection, setActiveSection] = useState("hero");
+  const [sideBar, setSideBar] = useState(false);
+  const { state, dispatch } = useContext(UIContext);
+
+  useEffect(() => {
+    console.log(state.navDrawerOpen);
+  }, [state]);
+
   return (
     <div className={poppins.className}>
       <GlobalProvider>

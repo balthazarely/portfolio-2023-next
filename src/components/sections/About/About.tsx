@@ -10,7 +10,7 @@ import { devskills, otherSkills } from "lib/content";
 
 export function About() {
   const [flipped, setFlipped] = useState(true);
-  const [ref, inView, entry] = useInView({ threshold: 0.4 });
+  const [ref, inView, entry] = useInView({ threshold: 0.2 });
   const animation = useAnimation();
 
   useEffect(() => {
@@ -111,7 +111,7 @@ export function About() {
         </motion.div>
         <motion.div
           variants={singleCard}
-          className="col-span-1  h-72 [perspective:1000px]"
+          className="col-span-1 h-72 [perspective:1000px]"
         >
           <div
             className={`relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] ${

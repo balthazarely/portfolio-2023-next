@@ -9,6 +9,7 @@ import {
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+import { Link } from "react-scroll";
 
 export function Hero() {
   const [ref, inView, entry] = useInView({ threshold: 0.2 });
@@ -66,7 +67,9 @@ export function Hero() {
           "
             variants={containerInnerElements}
           >
-            <button className="btn-primary btn mt-2  ">my work</button>
+            <Link offset={-100} to="projects" smooth={true} duration={600}>
+              <button className="btn-primary btn mt-2 ">my work</button>
+            </Link>
           </motion.div>
         </motion.div>
       </PageWrapper>

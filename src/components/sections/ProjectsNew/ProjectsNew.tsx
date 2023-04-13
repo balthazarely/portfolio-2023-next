@@ -233,7 +233,7 @@ const Card = ({ setSelected, item, tempSelected }: any) => {
         className={`relative  gap-6    `}
       >
         <motion.img
-          className=" cursor-pointer bg-red-400 "
+          className=" cursor-pointer "
           layoutId={`card-${item.id}`}
           alt={item.title}
           src={item.url}
@@ -242,7 +242,20 @@ const Card = ({ setSelected, item, tempSelected }: any) => {
           }}
         />
         <motion.div
-          className="pointer-events-none absolute  left-0 top-0 z-30 h-full w-full overflow-hidden bg-gradient-to-t from-neutral to-transparent  "
+          className="pointer-events-none absolute bottom-0  left-0 z-30 block h-1/2 w-full overflow-hidden bg-gradient-to-t from-neutral to-transparent px-4 pt-24 sm:hidden  "
+          variants={overlayVariants}
+        >
+          <div className=" text-2xl font-bold text-white">{item.title}</div>
+          <div className="mt-2 flex flex-wrap gap-2 text-sm text-white">
+            {item.tech.map((tech: string, idx: number) => (
+              <div key={idx} className="badge-primary badge badge-sm ">
+                {tech}
+              </div>
+            ))}
+          </div>
+        </motion.div>
+        <motion.div
+          className="pointer-events-none absolute left-0 top-0  z-30 hidden h-full w-full overflow-hidden bg-gradient-to-t from-neutral to-transparent sm:block  "
           initial="hidden"
           variants={overlayVariants}
           animate={isHovered ? "visible" : "hidden"}
@@ -271,7 +284,7 @@ const Card = ({ setSelected, item, tempSelected }: any) => {
 };
 
 export function ProjectsNew({ setSelected, selected }: any) {
-  const [ref, inView, entry] = useInView({ threshold: 0.2 });
+  const [ref, inView, entry] = useInView({ threshold: 0.1 });
   const [asAnimationHappened, setAnimationHappened] = useState(false);
   const [tempSelected, setTempSelected] = useState<any>(null);
   const animation = useAnimation();

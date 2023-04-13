@@ -14,7 +14,7 @@ type UserSubmitForm = {
 };
 
 export function Contact() {
-  const [ref, inView, entry] = useInView({ threshold: 0.4 });
+  const [ref, inView, entry] = useInView({ threshold: 0.2 });
   const animation = useAnimation();
 
   useEffect(() => {
@@ -90,7 +90,7 @@ export function Contact() {
         </motion.div>
         <motion.div
           variants={singleCard}
-          className="mt-4 h-full max-w-md text-base leading-7 "
+          className="mt-0 h-full max-w-md text-base leading-7 "
         >
           I am a passionate web developer with extensive experience in graphic
           design.
