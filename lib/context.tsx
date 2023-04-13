@@ -10,12 +10,6 @@ const UIReducer = (state: any, action: any) => {
       return { ...state, selectedProject: action.payload };
     case "CLEAR_SELECTED_PROJECT":
       return { ...state, selectedProject: null };
-    case "TOGGLE_DARK_MODE":
-      return { ...state, isDarkMode: !state.isDarkMode };
-    case "SET_DARK_MODE":
-      return { ...state, isDarkMode: true };
-    case "SET_LIGHT_MODE":
-      return { ...state, isDarkMode: false };
     case "SET_COLOR_MODE":
       return { ...state, colorMode: action.payload };
     default:
@@ -26,14 +20,12 @@ const UIReducer = (state: any, action: any) => {
 type InitialStateType = {
   navDrawerOpen: boolean;
   selectedProject: any;
-  isDarkMode: boolean;
   colorMode: string;
 };
 
 const initialState = {
   navDrawerOpen: false,
   selectedProject: null,
-  isDarkMode: false,
   colorMode: "light",
 };
 
