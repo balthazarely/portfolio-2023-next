@@ -2,7 +2,7 @@ import {
   About,
   Contact,
   Hero,
-  Links,
+  NewLinks,
   ProjectsNew,
 } from "@/components/sections";
 import { useEffect } from "react";
@@ -41,7 +41,7 @@ export default function Home({ setActiveSection }: any) {
         <ProjectsNew />
       </div>
       <div id="links" ref={linksRef}>
-        <Links />
+        <NewLinks />
       </div>
       <div id="contact" ref={contactRef}>
         <Contact />

@@ -5,7 +5,7 @@ import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { BsGithub, BsLinkedin, BsFileEarmarkPdf } from "react-icons/bs";
 
-export function Links() {
+export function NewLinks() {
   const [ref, inView, entry] = useInView({ threshold: 0.2 });
   const animation = useAnimation();
 
