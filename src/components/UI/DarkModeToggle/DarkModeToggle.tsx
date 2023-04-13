@@ -14,7 +14,7 @@ export function DarkModeToggle() {
       document.querySelector("html")?.setAttribute("data-theme", initialValue);
       dispatch({ type: "SET_COLOR_MODE", payload: initialValue });
     }
-  }, []);
+  }, [dispatch]);
 
   const toggleMode = (mode: string) => {
     localStorage.setItem("balthazar-portfolio-lightmode", JSON.stringify(mode));

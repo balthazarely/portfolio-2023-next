@@ -3,16 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-// import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as Yup from "yup";
 import { useForm, ValidationError } from "@formspree/react";
-
-type UserSubmitForm = {
-  fullname: string;
-  email: string;
-  message: string;
-};
 
 export function Contact() {
   const [ref, inView, entry] = useInView({ threshold: 0.2 });
@@ -72,8 +63,8 @@ export function Contact() {
         </motion.div>
         {state.succeeded ? (
           <div className="max-w-md rounded-md p-4">
-            Thank you for your submission. I'll be in touch with you as soon as
-            possible
+            Thank you for your submission. I&apos;ll be in touch with you as
+            soon as possible
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-8">
