@@ -74,7 +74,7 @@ const Card = ({ item, tempSelected }: any) => {
           <div className=" text-2xl font-bold text-white">{item.title}</div>
           <div className="mt-2 flex flex-wrap gap-2 text-sm text-white">
             {item.tech.map((tech: string, idx: number) => (
-              <div key={idx} className="badge badge-primary badge-sm ">
+              <div key={idx} className="badge-primary badge badge-sm ">
                 {tech}
               </div>
             ))}
@@ -95,7 +95,7 @@ const Card = ({ item, tempSelected }: any) => {
             <div className="text-sm text-white">{item.tagline}</div>
             <div className="mt-2 flex flex-wrap gap-2 text-sm text-white">
               {item.tech.map((tech: string, idx: number) => (
-                <div key={idx} className="badge badge-primary badge-sm ">
+                <div key={idx} className="badge-primary badge badge-sm ">
                   {tech}
                 </div>
               ))}
@@ -199,9 +199,9 @@ function ProjectFilter({ setFilterBy, filterBy }: any) {
   const projectTypes = ["all", "professional", "personal", "design"];
   return (
     <motion.div className="mb-4 mt-6 flex justify-center gap-2">
-      {projectTypes.map((proj: any) => (
+      {projectTypes.map((proj: any, idx: number) => (
         <button
-          key={proj.id}
+          key={idx}
           onClick={() => setFilterBy(proj)}
           className={` btn-sm btn lowercase ${
             filterBy === proj ? "btn-primary " : " btn-ghost"

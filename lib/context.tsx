@@ -16,6 +16,8 @@ const UIReducer = (state: any, action: any) => {
       return { ...state, isDarkMode: true };
     case "SET_LIGHT_MODE":
       return { ...state, isDarkMode: false };
+    case "SET_COLOR_MODE":
+      return { ...state, colorMode: action.payload };
     default:
       return state;
   }
@@ -25,12 +27,14 @@ type InitialStateType = {
   navDrawerOpen: boolean;
   selectedProject: any;
   isDarkMode: boolean;
+  colorMode: string;
 };
 
 const initialState = {
   navDrawerOpen: false,
   selectedProject: null,
   isDarkMode: false,
+  colorMode: "light",
 };
 
 export const UIContext = createContext<{

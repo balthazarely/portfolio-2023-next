@@ -114,7 +114,7 @@ export function About() {
           className="col-span-1 h-72 [perspective:1000px]"
         >
           <div
-            className={`relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] ${
+            className={`relative h-full w-full  transition-transform duration-500 [transform-style:preserve-3d] ${
               flipped ? "[transform:rotateY(180deg)]" : ""
             }`}
           >

@@ -11,8 +11,8 @@ module.exports = {
   plugins: [require("prettier-plugin-tailwindcss"), require("daisyui")],
   daisyui: {
     themes: [
-      // "light",
-      // "dark",
+      "dracula",
+      "winter",
       {
         light: {
           ...require("daisyui/src/colors/themes")["[data-theme=light]"],

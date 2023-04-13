@@ -114,7 +114,7 @@ export function NewLinks() {
             <a
               href="https://github.com/balthazarely"
               target="_BLANK"
-              className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-all duration-200 hover:-translate-y-2 hover:bg-base-200"
+              className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-transform duration-200 hover:-translate-y-2 hover:bg-base-200"
             >
               <BsGithub className="text-3xl group-hover:text-primary" />
               <div className="text-sm font-bold">github</div>
@@ -122,7 +122,7 @@ export function NewLinks() {
             <a
               href="https://www.linkedin.com/in/balthazarely"
               target="_BLANK"
-              className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-all duration-200 hover:-translate-y-2 hover:bg-base-200"
+              className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-transform duration-200 hover:-translate-y-2 hover:bg-base-200"
             >
               <BsLinkedin className="text-3xl group-hover:text-primary" />
               <div className="text-sm font-bold">linkedin</div>
@@ -131,7 +131,7 @@ export function NewLinks() {
               href="/balthazar_ely_resume_2023.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-all duration-200 hover:-translate-y-2 hover:bg-base-200"
+              className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-transform duration-200 hover:-translate-y-2 hover:bg-base-200"
             >
               <BsFileEarmarkArrowUpFill className="text-3xl group-hover:text-primary" />
               <div className="text-sm font-bold">resume</div>
