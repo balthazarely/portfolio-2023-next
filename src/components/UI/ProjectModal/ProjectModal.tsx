@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { HiChevronRight, HiChevronLeft, HiX } from "react-icons/hi";
 import { UIContext } from "lib/context";
+import Link from "next/link";
 
 export function ProjectModal() {
   const [imageSelected, setImageSelected] = useState(0);
@@ -50,7 +51,6 @@ export function ProjectModal() {
     e.stopPropagation();
   };
   const prevImage = (e: any) => {
-    console.log("asfasfasfa");
     if (imageSelected > 0) {
       setImageSelected(imageSelected - 1);
     }
@@ -118,8 +118,7 @@ export function ProjectModal() {
         >
           <div className="absolute left-2 top-2 ">
             <button
-              onClick={(e) => {
-                // setSelected(null);
+              onClick={() => {
                 dispatch({ type: "CLEAR_SELECTED_PROJECT" });
               }}
               className="btn-sm btn-circle btn"
@@ -172,7 +171,7 @@ export function ProjectModal() {
               className="mt-10 flex items-center justify-between text-2xl font-bold"
             >
               <div>{state.selectedProject.title}</div>
-              <div className="font-base text-sm">
+              <div className="text-xs font-light">
                 {imageSelected + 1} /{" "}
                 {state.selectedProject.otherImages
                   ? state.selectedProject.otherImages.length + 1
@@ -184,32 +183,32 @@ export function ProjectModal() {
               className=" flex flex-wrap gap-2 text-sm text-white"
             >
               {state.selectedProject.tech.map((tech: string) => (
-                <div key={tech} className="badge-primary badge badge-sm ">
+                <div key={tech} className="badge badge-primary badge-sm ">
                   {tech}
                 </div>
               ))}
             </motion.div>
             <motion.div variants={containerInnerElements} className="text-sm">
-              PlowOps is one of the world&apos;s first snow plow tracking
-              applications and it is sold to cities around the country. My
-              involvement with the product included making the website, PlowOps
-              is one of the world&apos;s first snow plow tracking applications
-              and it is sold to cities around the country. My involvement with
-              the product included making the website, PlowOps is one of the
-              world&apos;s first snow plow tracking applications and it is sold
-              to cities around the country. My involvement with the product
-              included making the website,
+              {state.selectedProject.description}
             </motion.div>
             <motion.div
               variants={containerInnerElements}
               className="flex justify-end gap-2 text-xs"
             >
-              <button className=" btn-outline btn-primary btn-xs btn cursor-pointer lowercase">
-                live site
-              </button>
-              <button className=" btn-outline btn-primary btn-xs btn cursor-pointer lowercase">
-                Github
-              </button>
+              {state.selectedProject.link && (
+                <a target="_BLANK" href={state.selectedProject.link}>
+                  <button className=" btn-outline btn-primary btn-xs btn cursor-pointer lowercase">
+                    live site
+                  </button>
+                </a>
+              )}
+              {state.selectedProject.github && (
+                <a target="_BLANK" href={state.selectedProject.github}>
+                  <button className=" btn-outline btn-primary btn-xs btn cursor-pointer lowercase">
+                    Github
+                  </button>
+                </a>
+              )}
             </motion.div>
           </motion.div>
         </motion.div>

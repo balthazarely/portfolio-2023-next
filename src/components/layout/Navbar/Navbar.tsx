@@ -6,8 +6,7 @@ import { Cross as Hamburger } from "hamburger-react";
 import { UIContext } from "lib/context";
 import { DarkModeToggle } from "@/components/UI";
 
-export function Navbar({ activeSection, setActiveSection }: any) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+export function Navbar({ activeSection }: any) {
   const menuItems = ["about", "projects", "links", "contact"];
   const [selected, setSelected] = useState(0);
   const [hideNavUnderline, setHideNavUnderline] = useState(false);
@@ -20,14 +19,6 @@ export function Navbar({ activeSection, setActiveSection }: any) {
       dispatch({ type: "CLOSE_NAV_DRAWER" });
     }
   };
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.querySelector("html")?.setAttribute("data-theme", "dark");
-    } else {
-      document.querySelector("html")?.setAttribute("data-theme", "light");
-    }
-  }, [isDarkMode]);
 
   return (
     <div className="fixed z-30 h-24 w-full bg-base-100 py-6 ">

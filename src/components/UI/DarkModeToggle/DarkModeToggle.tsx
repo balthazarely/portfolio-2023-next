@@ -5,25 +5,44 @@ export function DarkModeToggle() {
   const { state, dispatch } = useContext(UIContext);
 
   useEffect(() => {
-    if (state.isDarkMode) {
-      document.querySelector("html")?.setAttribute("data-theme", "dark");
-    } else {
-      document.querySelector("html")?.setAttribute("data-theme", "light");
+    const saved = localStorage.getItem("balthazar-portfolio-lightmode");
+    if (saved) {
+      const initialValue = JSON.parse(saved);
+      document.querySelector("html")?.setAttribute("data-theme", initialValue);
+      if (initialValue === "dark") {
+        dispatch({ type: "SET_DARK_MODE" });
+      } else {
+        dispatch({ type: "SET_LIGHT_MODE" });
+      }
     }
-  }, [state.isDarkMode]);
+  }, []);
+
+  const setMode = (mode: string) => {
+    document.querySelector("html")?.setAttribute("data-theme", mode);
+    localStorage.setItem("balthazar-portfolio-lightmode", JSON.stringify(mode));
+  };
+
+  const setColorMode = () => {
+    if (state.isDarkMode) {
+      dispatch({ type: "SET_LIGHT_MODE" });
+      setMode("light");
+    } else {
+      dispatch({ type: "SET_DARK_MODE" });
+      setMode("dark");
+    }
+  };
 
   return (
     <button className="btn-square btn-group btn flex items-center justify-center border-none bg-transparent transition-all duration-150 hover:bg-transparent  ">
       <label className="swap-rotate swap">
         <input
+          checked={state.isDarkMode}
           type="checkbox"
-          onChange={(e) => dispatch({ type: "TOGGLE_DARK_MODE" })}
+          onChange={setColorMode}
         />
 
         <svg
-          className={`${
-            state.isDarkMode ? "fill-white" : "fill-black"
-          } swap-on h-8 w-8`}
+          className={`swap-on h-8 w-8  fill-white`}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >
@@ -31,7 +50,7 @@ export function DarkModeToggle() {
         </svg>
 
         <svg
-          className="swap-off h-8 w-8"
+          className={` swap-off h-8 w-8  fill-black`}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
         >

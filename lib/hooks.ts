@@ -9,3 +9,19 @@ export function useLockBodyScroll(isLocked: boolean): void {
     return () => (document.body.style.overflow = originalStyle);
   }, [isLocked]);
 }
+
+export function useEscapeKeyPress(onEscape: any) {
+  useEffect(() => {
+    function handleKeyPress(event: any) {
+      if (event.keyCode === 27) {
+        onEscape();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [onEscape]);
+}

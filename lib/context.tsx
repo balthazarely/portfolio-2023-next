@@ -12,6 +12,10 @@ const UIReducer = (state: any, action: any) => {
       return { ...state, selectedProject: null };
     case "TOGGLE_DARK_MODE":
       return { ...state, isDarkMode: !state.isDarkMode };
+    case "SET_DARK_MODE":
+      return { ...state, isDarkMode: true };
+    case "SET_LIGHT_MODE":
+      return { ...state, isDarkMode: false };
     default:
       return state;
   }

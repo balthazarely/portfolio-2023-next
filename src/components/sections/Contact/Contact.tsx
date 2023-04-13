@@ -82,7 +82,7 @@ export function Contact() {
       initial="hidden"
       ref={ref}
       animate={animation}
-      className=""
+      className="bg-base-200"
     >
       <PageWrapper className="flex flex-col items-center justify-center gap-6   py-32 text-center ">
         <motion.div variants={singleCard} className=" section-header">

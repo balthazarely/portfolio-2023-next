@@ -23,16 +23,16 @@ export function Hero() {
 
   return (
     <div className="bg-base-200 pt-24 ">
-      <PageWrapper className="grid grid-cols-3 gap-6 py-32 sm:grid-cols-12">
+      <PageWrapper className="grid grid-cols-1 gap-0 py-32 sm:grid-cols-12 sm:gap-6">
         <motion.div
-          className="col-span-1 flex aspect-square justify-center sm:col-span-4"
+          className="col-span-1 flex  w-full justify-center  sm:col-span-4  sm:aspect-square"
           variants={imageContainer}
           initial="hidden"
           ref={ref}
           animate={animation}
         >
           <Image
-            className="rounded-full object-cover shadow-lg"
+            className="h-64 w-64 rounded-full object-cover shadow-lg sm:h-auto sm:w-auto"
             src="/images/balthazar-headshot.jpeg"
             alt="balthazar headshot"
             width={500}
@@ -44,7 +44,7 @@ export function Hero() {
           ref={ref}
           animate={animation}
           variants={container}
-          className="col-span-3 grid gap-2  sm:col-span-8 "
+          className="col-span-3 grid gap-2  sm:col-span-8  "
         >
           <motion.div
             variants={containerInnerElements}

@@ -139,7 +139,6 @@ export function NewLinks() {
           </motion.div>
         </motion.div>
       </PageWrapper>
-      <div className="mx-auto max-w-lg border-b-2  border-base-content border-opacity-20 "></div>
     </motion.div>
   );
 }

@@ -92,9 +92,7 @@ const Card = ({ item, tempSelected }: any) => {
             className="absolute bottom-0 left-0 h-32 w-full p-4"
           >
             <div className="text-2xl font-bold text-white">{item.title}</div>
-            <div className="text-sm text-white">
-              Small probec to saklh sn 2 asjfhhafz zs97
-            </div>
+            <div className="text-sm text-white">{item.tagline}</div>
             <div className="mt-2 flex flex-wrap gap-2 text-sm text-white">
               {item.tech.map((tech: string, idx: number) => (
                 <div key={idx} className="badge badge-primary badge-sm ">
