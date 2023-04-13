@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { projectContainerVariants, projectElements } from "lib/animations";
-import { projectsForHomePage } from "lib/content";
+import { items } from "lib/content";
 import Image from "next/image";
 import { UIContext } from "lib/context";
 
@@ -21,7 +21,7 @@ export function Projects() {
     }
   }, [animation, inView]);
 
-  const [projects, setProjects] = useState(projectsForHomePage);
+  const [projects, setProjects] = useState(items);
 
   const projectsForGrid = projects.filter((project: any) =>
     filterBy !== "all" ? project.category === filterBy : project
