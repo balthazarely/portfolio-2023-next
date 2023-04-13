@@ -47,9 +47,9 @@ export function DarkModeToggle() {
 
   return (
     <div className="relative h-8 w-8 ">
-      {colorIcons.map((icon: any) => {
+      {colorIcons.map((icon: any, idx: number) => {
         return (
-          <button onClick={() => toggleMode(icon.next)}>
+          <button key={idx} onClick={() => toggleMode(icon.next)}>
             <icon.icons
               className={` absolute left-0 top-0 h-8 w-8 transform text-xs  text-primary transition-all  duration-300 ${
                 state.colorMode === icon.title
