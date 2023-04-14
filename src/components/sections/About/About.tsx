@@ -126,7 +126,7 @@ export function About() {
                   className="flex items-center gap-1"
                 >
                   <HiCheck className="text-primary" />
-                  <motion.div className="">{skill}</motion.div>
+                  <motion.div className=" ">{skill}</motion.div>
                 </motion.li>
               ))}
             </motion.ul>
