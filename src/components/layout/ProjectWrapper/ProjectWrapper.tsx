@@ -191,10 +191,10 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
             >
               <motion.div
                 variants={containerInnerElementsRight}
-                className="embla overflow-hidden"
+                className="embla relative overflow-hidden"
                 ref={emblaRef}
               >
-                <div className="embla__container flex ">
+                <div className="embla__container  z-0 flex  ">
                   {projectImages?.map((image: string, idx: number) => {
                     return (
                       <div
@@ -213,7 +213,7 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
                     );
                   })}
                 </div>
-                <div className="b= absolute left-0 top-0 z-50 flex h-full  w-full justify-between ">
+                <div className="absolute left-1/2 top-0 flex h-full w-full max-w-[500px] -translate-x-1/2 cursor-pointer justify-between ">
                   <button onClick={scrollPrev}>
                     <HiChevronLeft className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
                   </button>
@@ -221,6 +221,14 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
                     <HiChevronRight className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
                   </button>
                 </div>
+                {/* <div className="babsolute left-0 top-0 z-50 flex h-full  w-full justify-between ">
+                  <button onClick={scrollPrev}>
+                    <HiChevronLeft className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
+                  </button>
+                  <button onClick={scrollNext}>
+                    <HiChevronRight className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
+                  </button>
+                </div> */}
               </motion.div>
             </motion.div>
           </PageWrapper>
