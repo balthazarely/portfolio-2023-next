@@ -1,7 +1,7 @@
 import { LayoutGroup, motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { PageWrapper } from "../PageWrapper";
-import { Link as ScrollLink, Events } from "react-scroll";
+import { Link as ScrollLink, scroller } from "react-scroll";
 import { Cross as Hamburger } from "hamburger-react";
 import { UIContext } from "lib/context";
 import { DarkModeToggle } from "@/components/UI";
@@ -9,13 +9,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 export function Navbar({ activeSection }: any) {
-  const router = useRouter();
-  const currentRoute = router.pathname;
+  const { state, dispatch } = useContext(UIContext);
   const menuItems = ["about", "projects", "links", "contact"];
   const [selected, setSelected] = useState(0);
   const [hideNavUnderline, setHideNavUnderline] = useState(false);
-
-  const { state, dispatch } = useContext(UIContext);
 
   const toggleDrawer = () => {
     if (!state.navDrawerOpen) {
@@ -25,26 +22,13 @@ export function Navbar({ activeSection }: any) {
     }
   };
 
-  // useEffect(() => {
-  //   const handleStart = (url: any) => {
-  //     url !== router.asPath && setHideNavUnderline(true);
-  //   };
-
-  //   const handleComplete = (url: any) => {
-  //     url === router.asPath &&
-  //       setTimeout(() => {
-  //         setHideNavUnderline(false);
-  //       }, 500);
-  //   };
-
-  //   router.events.on("routeChangeStart", handleStart);
-  //   router.events.on("routeChangeComplete", handleComplete);
-
-  //   return () => {
-  //     router.events.off("routeChangeStart", handleStart);
-  //     router.events.off("routeChangeComplete", handleComplete);
-  //   };
-  // });
+  const scrollToElement = (elementId: any) => {
+    scroller.scrollTo(elementId, {
+      duration: 50,
+      delay: 0,
+      smooth: false,
+    });
+  };
 
   return (
     <div className="fixed z-30 h-24 w-full bg-base-100 py-6 ">
@@ -75,15 +59,12 @@ export function Navbar({ activeSection }: any) {
                       className={`absolute -bottom-1 h-1 w-full bg-primary underline`}
                     />
                   )}
-
-                  <ScrollLink
-                    offset={-50}
-                    to={section}
-                    smooth={false}
-                    duration={50}
+                  <Link
+                    href={`/#${section}`}
+                    onClick={() => scrollToElement(section)}
                   >
                     {section}
-                  </ScrollLink>
+                  </Link>
                 </motion.li>
               ))}
             </ul>

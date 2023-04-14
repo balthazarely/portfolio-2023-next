@@ -40,6 +40,7 @@ export function ProjectModal() {
         duration: 1,
         type: "spring",
         bounce: 0.35,
+        delay: 0.35,
       },
     },
   };
@@ -83,7 +84,7 @@ export function ProjectModal() {
               imageSelected === 0 ? "opacity-100" : "opacity-0"
             } absolute top-0   object-contain`}
           />
-          {state.selectedProject.otherImages?.map((img: any, idx: number) => {
+          {/* {state.selectedProject.otherImages?.map((img: any, idx: number) => {
             return (
               <img
                 key={idx}
@@ -95,7 +96,7 @@ export function ProjectModal() {
                 } absolute top-0  object-contain`}
               />
             );
-          })}
+          })} */}
         </motion.div>
         <motion.div
           initial={{
@@ -116,7 +117,7 @@ export function ProjectModal() {
           }}
           className="absolute left-0 top-0 z-[100] mt-4  flex h-[300px] w-[400px] items-center  justify-between  bg-opacity-60 sm:h-[375px]  sm:w-[500px] md:h-[450px] md:w-[600px]"
         >
-          <div className="absolute left-2 top-2 ">
+          {/* <div className="absolute left-2 top-2 ">
             <button
               onClick={() => {
                 dispatch({ type: "CLEAR_SELECTED_PROJECT" });
@@ -125,8 +126,8 @@ export function ProjectModal() {
             >
               <HiX />
             </button>
-          </div>
-          <button
+          </div> */}
+          {/* <button
             onClick={(e) => prevImage(e)}
             className={` flex h-10 w-8 items-center justify-center bg-neutral bg-opacity-40 duration-150 hover:bg-opacity-100`}
           >
@@ -137,28 +138,29 @@ export function ProjectModal() {
             className="flex h-10 w-8 items-center justify-center bg-neutral bg-opacity-40 duration-150 hover:bg-opacity-100"
           >
             <HiChevronRight className="text-2xl font-bold text-white" />
-          </button>
+          </button> */}
         </motion.div>
 
         <motion.div
           className=" relative  mx-auto w-[400px]   sm:w-[500px] md:w-[600px] "
           initial={{
             opacity: 0,
-            y: -200,
+            // y: -200,
           }}
           animate={{
             opacity: 1,
-            y: -60,
+            // y: -60,
             transition: {
               delay: 0.25,
               type: "spring",
               bounce: 0.3,
+              // duration: 0.15,
             },
           }}
-          transition={{
-            delay: 0.25,
-            duration: 0.25,
-          }}
+          // transition={{
+          //   delay: 0.25,
+          //   duration: 0.15,
+          // }}
         >
           <motion.div
             className="flex flex-col gap-2 rounded-b-xl bg-base-100 p-8"
@@ -168,7 +170,7 @@ export function ProjectModal() {
           >
             <motion.div
               variants={containerInnerElements}
-              className="mt-10 flex items-center justify-between text-2xl font-bold"
+              className="flex items-center justify-between text-2xl font-bold"
             >
               <div>{state.selectedProject.title}</div>
               <div className="text-xs font-light">
@@ -183,19 +185,19 @@ export function ProjectModal() {
               className=" flex flex-wrap gap-2 text-sm text-white"
             >
               {state.selectedProject.tech.map((tech: string) => (
-                <div key={tech} className="badge badge-primary badge-sm ">
+                <div key={tech} className="badge-primary badge badge-sm ">
                   {tech}
                 </div>
               ))}
             </motion.div>
             <motion.div variants={containerInnerElements} className="text-sm">
-              {state.selectedProject.description.slice(0, 100)}
+              {state.selectedProject.description.slice(0, 100)}...
             </motion.div>
             <motion.div
               variants={containerInnerElements}
               className="flex justify-end gap-2 text-xs"
             >
-              <Link href={`/project/${state.selectedProject.slug}`}>
+              <Link href={`/project${state.selectedProject.slug}`}>
                 <button
                   onClick={() => dispatch({ type: "CLEAR_SELECTED_PROJECT" })}
                   className=" btn-primary btn-xs btn cursor-pointer lowercase"
