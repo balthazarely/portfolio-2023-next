@@ -89,9 +89,10 @@ export function ProjectWrapper({ setActiveSection, project }: any) {
 
   useEffect(() => {
     if (contentRefInView) {
-      setActiveSection("hero"); // TODO THIS SHOULD BE NOT HERE
+      setActiveSection("project-section"); // TODO THIS SHOULD BE NOT HERE
     }
   }, [contentRefInView]);
+
   const { url, otherImages } = project;
   let projectImages = [url];
 
@@ -174,10 +175,10 @@ export function ProjectWrapper({ setActiveSection, project }: any) {
             </div>
             <motion.div
               variants={containerInnerElementsRight}
-              className="embla  overflow-hidden"
+              className="embla overflow-hidden"
               ref={emblaRef}
             >
-              <div className="embla__container flex  ">
+              <div className="embla__container flex">
                 {projectImages?.map((image: any, idx: number) => {
                   return (
                     <div

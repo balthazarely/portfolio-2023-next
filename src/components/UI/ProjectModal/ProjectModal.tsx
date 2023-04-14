@@ -199,7 +199,7 @@ export function ProjectModal() {
             >
               <Link href={`/project${state.selectedProject.slug}`}>
                 <button
-                  onClick={() => dispatch({ type: "CLEAR_SELECTED_PROJECT" })}
+                  // onClick={() => dispatch({ type: "CLEAR_SELECTED_PROJECT" })}
                   className=" btn-primary btn-xs btn cursor-pointer lowercase"
                 >
                   read more
