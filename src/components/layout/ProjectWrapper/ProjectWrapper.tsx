@@ -200,7 +200,7 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
                       <div
                         key={idx}
                         style={{ flex: "0 0 100%" }}
-                        className="embla__slide  relative min-w-0 border-2"
+                        className="embla__slide  relative min-w-0 "
                       >
                         <Image
                           className="mx-auto  cursor-pointer object-contain shadow-lg "
