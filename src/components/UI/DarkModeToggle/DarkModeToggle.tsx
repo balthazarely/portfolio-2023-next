@@ -1,8 +1,8 @@
 import { UIContext } from "lib/context";
 import React, { useContext, useEffect } from "react";
 import { HiMoon } from "react-icons/hi";
-import { BsSun, BsSnow } from "react-icons/bs";
-import { GiVampireDracula, GiWireframeGlobe } from "react-icons/gi";
+import { BsSun, BsSnow, BsTreeFill } from "react-icons/bs";
+import { GiVampireDracula } from "react-icons/gi";
 
 export function DarkModeToggle() {
   const { state, dispatch } = useContext(UIContext);
@@ -41,11 +41,11 @@ export function DarkModeToggle() {
     {
       title: "winter",
       icons: BsSnow,
-      next: "wireframe",
+      next: "emerald",
     },
     {
-      title: "wireframe",
-      icons: GiWireframeGlobe,
+      title: "emerald",
+      icons: BsTreeFill,
       next: "dark",
     },
   ];
