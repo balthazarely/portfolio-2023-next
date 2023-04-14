@@ -89,7 +89,7 @@ export function ProjectWrapper({ setActiveSection, project }: any) {
 
   useEffect(() => {
     if (contentRefInView) {
-      setActiveSection("hero");
+      setActiveSection("hero"); // TODO THIS SHOULD BE NOT HERE
     }
   }, [contentRefInView]);
   const { url, otherImages } = project;
@@ -169,7 +169,7 @@ export function ProjectWrapper({ setActiveSection, project }: any) {
                 <HiChevronLeft className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
               </button>
               <button onClick={scrollNext}>
-                <HiChevronRight className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
+                <HiChevronRight className="pointer-events-auto text-3xl text-primary" />
               </button>
             </div>
             <motion.div
