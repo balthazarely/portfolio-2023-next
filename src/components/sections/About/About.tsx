@@ -105,7 +105,7 @@ export function About() {
           </div>
           <motion.div className="mt-4 h-full max-w-md text-center text-base leading-7 sm:text-left">
             I have worked for a number of companies, both on the consulting and
-            product side of things. Here are some of the technologies I've
+            product side of things. Here are some of the technologies I&apos;ve
             worked with most recently, as well as some design tools.
           </motion.div>
         </motion.div>
@@ -148,7 +148,10 @@ export function About() {
                 </button>
               </div>
             </div>
-            <div className="absolute inset-0  flex flex-col rounded-xl bg-base-200 p-4 shadow-lg [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            <div
+              style={{ backfaceVisibility: "hidden" }}
+              className="absolute inset-0  flex flex-col rounded-xl bg-base-200 p-4 shadow-lg [transform:rotateY(180deg)]"
+            >
               <div className="flex items-center gap-1 text-lg font-bold">
                 <HiCode className="text-2xl font-bold text-primary" />
                 dev skills.

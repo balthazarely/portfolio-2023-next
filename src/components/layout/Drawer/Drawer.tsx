@@ -103,6 +103,7 @@ export function Drawer() {
         {menuItems.map((section: string, idx: number) => {
           return (
             <motion.div
+              key={idx}
               className="mr-6 mt-6  py-1"
               variants={containerInnerElements}
             >

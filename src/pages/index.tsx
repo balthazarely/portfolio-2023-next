@@ -31,7 +31,14 @@ export default function Home() {
     } else if (contactInView) {
       dispatch({ type: "SET_ACTIVE_SECTION", payload: "contact" });
     }
-  }, [heroInView, aboutInView, projectsInView, linksInView, contactInView]);
+  }, [
+    heroInView,
+    aboutInView,
+    projectsInView,
+    linksInView,
+    contactInView,
+    dispatch,
+  ]);
 
   return (
     <>
