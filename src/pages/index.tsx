@@ -47,9 +47,6 @@ export default function Home({ setActiveSection }: any) {
       <div id="contact" ref={contactRef}>
         <Contact />
       </div>
-      <div id="footer">
-        <Footer />
-      </div>
     </>
   );
 }

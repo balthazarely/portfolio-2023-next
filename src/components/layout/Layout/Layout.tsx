@@ -1,6 +1,6 @@
 import { UIContext } from "lib/context";
 import { useEscapeKeyPress } from "lib/hooks";
-import React, { useContext, } from "react";
+import React, { useContext } from "react";
 
 export function Layout({ children }: any) {
   const { state, dispatch } = useContext(UIContext);

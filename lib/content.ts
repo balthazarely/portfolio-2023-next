@@ -30,7 +30,10 @@ export const otherSkills = [
 export const items = [
   {
     id: 1,
+    year: "2021",
+    client: "NeoTreks",
     url: "/images/project-images/plow-ops.jpg",
+    slug: "/plowops",
     otherImages: ["/images/project-images/plow-ops-1.jpg"],
     title: "Plow Ops",
     tagline: "innovative snow operations software",
@@ -43,7 +46,10 @@ export const items = [
   },
   {
     id: 2,
+    year: "2022",
+    client: "Hartman Ely Investments",
     url: "/images/project-images/hartman-ely.jpg",
+    slug: "/hartman-ely-investments",
     otherImages: ["/images/project-images/hartman-ely-1.jpg"],
     title: "Hartman Ely Investments",
     tagline: "sustainable investment company website",
@@ -56,7 +62,10 @@ export const items = [
   },
   {
     id: 3,
+    year: "2021",
+    client: "NeoTreks",
     url: "/images/project-images/accuterra.jpg",
+    slug: "/accuterra",
     otherImages: [
       "/images/project-images/accuterra-1.jpg",
       "/images/project-images/accuterra-2.jpg",
@@ -72,7 +81,10 @@ export const items = [
   },
   {
     id: 4,
+    year: "2022",
+    client: "me",
     url: "/images/project-images/songdive.jpg",
+    slug: "/songdive",
     otherImages: ["/images/project-images/songdive-1.jpg"],
     title: "Song Dive",
     tagline: "create playlists based on what you love",
@@ -85,12 +97,15 @@ export const items = [
   },
   {
     id: 5,
+    year: "2023",
+    client: "me",
     url: "/images/project-images/moviebin.jpg",
+    slug: "/moviemate",
     otherImages: [
       "/images/project-images/moviebin-1.jpg",
       "/images/project-images/moviebin-2.jpg",
     ],
-    title: "MovieBin",
+    title: "MovieMate",
     tagline: "create watchlists for your next movie night",
     category: "personal",
     description:
@@ -102,8 +117,11 @@ export const items = [
   },
   {
     id: 6,
+    year: "2022",
+    client: "Freebird",
     url: "/images/project-images/freebird.jpg",
     title: "Freebird Shoes",
+    slug: "/freebird",
     tagline: "high end women's shoes with Colorado flare.",
     description:
       "Freebird Shoes creates unique handcrafted boots and footwear, and runs a large ecommerce site based in Shopify, My work included writing custom Javascript/jQuery/Liquid to make custom features, integrating Yotpo/Klaviyo plugins, and creating a fully functioning Hydrogen (Shopify's React-based framework) shop, which used the GraphQL to interface with the Storefront API, and TailwindCss for styling.",
@@ -114,8 +132,11 @@ export const items = [
   },
   {
     id: 7,
+    year: "2021",
+    client: "NeoTreks",
     url: "/images/project-images/privett.jpg",
     otherImages: ["/images/project-images/privett-1.jpg"],
+    slug: "/privett",
     title: "Privett Hatchery",
     tagline: "chicken hatchery eccommerce site",
     description:
@@ -127,8 +148,11 @@ export const items = [
   },
   {
     id: 8,
+    year: "2020",
+    client: "me",
     url: "/images/project-images/identity.jpg",
     otherImages: ["/images/project-images/identity-1.jpg"],
+    slug: "/identity-records",
     title: "Identity Records",
     tagline: "record website idea built with Gatsby",
     description:
@@ -140,8 +164,11 @@ export const items = [
   },
   {
     id: 9,
+    year: "2020",
+    client: "Dish Network",
     url: "/images/project-images/bannerbox.jpg",
     title: "Bannerbox",
+    slug: "/bannerbox",
     tagline: "DCO animated banners",
     description:
       "This portfolio site was developed to showcase some of the HTML5 web banners I've developed over the last year. The site was built with React, and the animations were created using GSAP and Framer Motion. The styles were built entirely using Styled Components and did not use any UI Frameworks.",
@@ -152,7 +179,10 @@ export const items = [
   },
   {
     id: 10,
+    year: null,
+    client: null,
     url: "/images/project-images/logos.jpg",
+    slug: "/logos",
     otherImages: [
       "/images/project-images/logos-1.jpg",
       "/images/project-images/logos-2.jpg",
@@ -180,6 +210,9 @@ export const items = [
   },
   {
     id: 11,
+    year: null,
+    client: null,
+    slug: "/brochures",
     url: "/images/project-images/brochures.jpg",
     otherImages: [
       "/images/project-images/brochures-1.jpg",
@@ -202,7 +235,10 @@ export const items = [
   },
   {
     id: 12,
+    year: null,
+    client: null,
     url: "/images/project-images/branding.jpg",
+    slug: "/branding",
     otherImages: [
       "/images/project-images/branding-1.jpg",
       "/images/project-images/branding-2.jpg",

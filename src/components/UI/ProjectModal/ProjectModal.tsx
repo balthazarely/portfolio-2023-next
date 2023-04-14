@@ -189,26 +189,20 @@ export function ProjectModal() {
               ))}
             </motion.div>
             <motion.div variants={containerInnerElements} className="text-sm">
-              {state.selectedProject.description}
+              {state.selectedProject.description.slice(0, 100)}
             </motion.div>
             <motion.div
               variants={containerInnerElements}
               className="flex justify-end gap-2 text-xs"
             >
-              {state.selectedProject.link && (
-                <a target="_BLANK" href={state.selectedProject.link}>
-                  <button className=" btn-outline btn-primary btn-xs btn cursor-pointer lowercase">
-                    live site
-                  </button>
-                </a>
-              )}
-              {state.selectedProject.github && (
-                <a target="_BLANK" href={state.selectedProject.github}>
-                  <button className=" btn-outline btn-primary btn-xs btn cursor-pointer lowercase">
-                    Github
-                  </button>
-                </a>
-              )}
+              <Link href={`/project/${state.selectedProject.slug}`}>
+                <button
+                  onClick={() => dispatch({ type: "CLEAR_SELECTED_PROJECT" })}
+                  className=" btn-primary btn-xs btn cursor-pointer lowercase"
+                >
+                  read more
+                </button>
+              </Link>
             </motion.div>
           </motion.div>
         </motion.div>

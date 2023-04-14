@@ -1,4 +1,4 @@
-import { Drawer, Layout, Navbar } from "@/components/layout";
+import { Drawer, Footer, Layout, Navbar } from "@/components/layout";
 import { ModalBackground, ProjectModal } from "@/components/UI";
 import "@/styles/globals.scss";
 import GlobalProvider from "lib/context";
@@ -23,7 +23,14 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <Drawer />
         <Layout>
-          <Component setActiveSection={setActiveSection} {...pageProps} />
+          <div className="flex h-screen flex-col ">
+            {/* <div className="flex-grow "> */}
+            <Component setActiveSection={setActiveSection} {...pageProps} />
+            {/* </div> */}
+            <div className="flex flex-col gap-4">
+              <Footer />
+            </div>
+          </div>
         </Layout>
         <ProjectModal />
         <ModalBackground />
