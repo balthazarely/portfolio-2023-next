@@ -192,7 +192,7 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
                   <HiChevronLeft className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
                 </button>
                 <button onClick={scrollNext}>
-                  <HiChevronRight className="pointer-events-auto text-3xl text-primary" />
+                  <HiChevronRight className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
                 </button>
               </div>
               <motion.div

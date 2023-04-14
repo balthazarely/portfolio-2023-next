@@ -33,7 +33,7 @@ export function Layout({ children, route }: ILayout) {
           animate={{ opacity: 1, transition: { duration: 0.5 } }}
           exit={{ opacity: 0 }}
           className={`${
-            state.navDrawerOpen || state.selectedProject ? "blur-bg " : ""
+            state.navDrawerOpen || state.selectedProject ? " " : ""
           } z-50 flex h-screen  flex-col  `}
         >
           {children}

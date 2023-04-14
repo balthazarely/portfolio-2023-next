@@ -77,6 +77,7 @@ export function Drawer() {
       dispatch({ type: "CLOSE_NAV_DRAWER" });
     } else {
       scrollToElement(section);
+      dispatch({ type: "CLOSE_NAV_DRAWER" });
     }
   };
 
@@ -104,7 +105,7 @@ export function Drawer() {
           return (
             <motion.div
               key={idx}
-              className="mr-6 mt-6  py-1"
+              className="mr-6  py-1"
               variants={containerInnerElements}
             >
               <Link

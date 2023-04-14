@@ -7,7 +7,7 @@ export function ModalBackground() {
   return (
     <div
       className={` pointer-events-none ${
-        state.selectedProject ? "opacity-50" : "opacity-0"
+        state.selectedProject ? "opacity-60" : "opacity-0"
       }  duration-20 fixed left-0 top-0 z-40 h-full w-full cursor-pointer bg-black/50 transition-opacity`}
     ></div>
   );

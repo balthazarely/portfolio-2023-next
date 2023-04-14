@@ -30,12 +30,11 @@ export function Navbar() {
     });
   };
 
+  // ${
+  //   state.navDrawerOpen || state.selectedProject ? "blur-bg " : ""
+  // }
   return (
-    <div
-      className={`fixed z-30 h-24 w-full bg-base-100 py-6 ${
-        state.navDrawerOpen || state.selectedProject ? "blur-bg " : ""
-      }`}
-    >
+    <div className={`fixed z-30 h-24 w-full bg-base-100 py-6 `}>
       <PageWrapper className="flex items-center justify-between">
         <div className="cursor-pointer text-3xl font-bold">
           <Link href="/">

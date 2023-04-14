@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Footer />
         </Layout>
         <ProjectModal />
-        {/* <ModalBackground /> */}
+        <ModalBackground />
       </GlobalProvider>
     </div>
   );
