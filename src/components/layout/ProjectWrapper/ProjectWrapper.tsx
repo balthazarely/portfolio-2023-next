@@ -80,16 +80,17 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
   }, []);
 
   useEffect(() => {
-    if (inView) {
-      animation.start("visible");
-    }
-  }, [animation, inView]);
+    // if (inView) {
+    animation.start("visible");
+    dispatch({ type: "SET_ACTIVE_SECTION", payload: project.title });
+    // }
+  }, [animation]);
 
-  useEffect(() => {
-    if (contentRefInView) {
-      dispatch({ type: "SET_ACTIVE_SECTION", payload: project.title });
-    }
-  }, [contentRefInView]);
+  // useEffect(() => {
+  //   if (contentRefInView) {
+  //     dispatch({ type: "SET_ACTIVE_SECTION", payload: project.title });
+  //   }
+  // }, [contentRefInView]);
 
   const { url, otherImages } = project;
   let projectImages = [url];
