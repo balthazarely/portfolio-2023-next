@@ -12,6 +12,10 @@ const UIReducer = (state: any, action: any) => {
       return { ...state, selectedProject: null };
     case "SET_COLOR_MODE":
       return { ...state, colorMode: action.payload };
+    case "SHOW_LOADING_SCREEN":
+      return { ...state, loadingScreenActive: true };
+    case "HIDE_LOADING_SCREEN":
+      return { ...state, loadingScreenActive: false };
     default:
       return state;
   }
@@ -19,12 +23,14 @@ const UIReducer = (state: any, action: any) => {
 
 type InitialStateType = {
   navDrawerOpen: boolean;
+  loadingScreenActive: boolean;
   selectedProject: any;
   colorMode: string;
 };
 
 const initialState = {
   navDrawerOpen: false,
+  loadingScreenActive: true,
   selectedProject: null,
   colorMode: "light",
 };

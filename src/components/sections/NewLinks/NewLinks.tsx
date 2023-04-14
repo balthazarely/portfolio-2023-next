@@ -63,22 +63,6 @@ export function NewLinks() {
     },
   };
 
-  const listChildElement = {
-    hidden: {
-      x: -10,
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 1,
-        type: "spring",
-        bounce: 0.35,
-      },
-    },
-  };
-
   return (
     <motion.div
       variants={sectionContainer}

@@ -3,7 +3,7 @@ import { PageWrapper } from "../PageWrapper";
 
 export function Footer() {
   return (
-    <div className=" flex gap-1 bg-primary p-6 ">
+    <div className=" flex flex-col gap-4 bg-primary p-6 ">
       <PageWrapper className="flex flex-col items-center justify-between gap-1  sm:flex-row">
         <div className="flex">
           <BiCopyright className="mr-1 text-white" />

@@ -1,5 +1,5 @@
 import { Drawer, Footer, Layout, Navbar } from "@/components/layout";
-import { ModalBackground, ProjectModal } from "@/components/UI";
+import { LoadingScreen, ModalBackground, ProjectModal } from "@/components/UI";
 import "@/styles/globals.scss";
 import GlobalProvider from "lib/context";
 import type { AppProps } from "next/app";
@@ -22,15 +22,10 @@ export default function App({ Component, pageProps }: AppProps) {
           setActiveSection={setActiveSection}
         />
         <Drawer />
+        {/* <LoadingScreen /> */}
         <Layout>
-          <div className="flex h-screen flex-col ">
-            {/* <div className="flex-grow "> */}
-            <Component setActiveSection={setActiveSection} {...pageProps} />
-            {/* </div> */}
-            <div className="flex flex-col gap-4">
-              <Footer />
-            </div>
-          </div>
+          <Component setActiveSection={setActiveSection} {...pageProps} />
+          <Footer />
         </Layout>
         <ProjectModal />
         <ModalBackground />

@@ -67,7 +67,7 @@ export function Contact() {
             soon as possible
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <motion.div variants={singleCard} className="form-group relative">
               <input
                 required

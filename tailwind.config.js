@@ -13,6 +13,7 @@ module.exports = {
     themes: [
       "dracula",
       "winter",
+      "wireframe",
       {
         light: {
           ...require("daisyui/src/colors/themes")["[data-theme=light]"],

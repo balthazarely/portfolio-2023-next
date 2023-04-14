@@ -23,7 +23,7 @@ export function Layout({ children }: any) {
       <div
         className={`${
           state.navDrawerOpen || state.selectedProject ? "blur-bg " : ""
-        } z-10 transition-all duration-500`}
+        } z-10 flex h-screen  flex-col transition-all duration-500`}
       >
         {children}
       </div>

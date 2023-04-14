@@ -44,7 +44,7 @@ export function Hero() {
           ref={ref}
           animate={animation}
           variants={container}
-          className="col-span-3 grid gap-2  sm:col-span-8  "
+          className="col-span-3 mt-6 grid gap-2 sm:col-span-8  sm:mt-0  "
         >
           <motion.div
             variants={containerInnerElements}
