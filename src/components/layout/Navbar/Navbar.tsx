@@ -1,5 +1,5 @@
 import { LayoutGroup, motion } from "framer-motion";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { PageWrapper } from "../PageWrapper";
 import { Link as ScrollLink, scroller } from "react-scroll";
 import { Cross as Hamburger } from "hamburger-react";
@@ -8,13 +8,10 @@ import { DarkModeToggle } from "@/components/UI";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export function Navbar({ activeSection }: any) {
+export function Navbar() {
+  const router = useRouter();
   const { state, dispatch } = useContext(UIContext);
   const menuItems = ["about", "projects", "links", "contact"];
-  const [selected, setSelected] = useState(0);
-  const [hideNavUnderline, setHideNavUnderline] = useState(false);
-
-  const router = useRouter();
 
   const toggleDrawer = () => {
     if (!state.navDrawerOpen) {
@@ -24,7 +21,7 @@ export function Navbar({ activeSection }: any) {
     }
   };
 
-  const scrollToElement = (elementId: any) => {
+  const scrollToElement = (elementId: string) => {
     scroller.scrollTo(elementId, {
       duration: 50,
       delay: 0,
@@ -56,11 +53,9 @@ export function Navbar({ activeSection }: any) {
                 <motion.li
                   animate
                   key={i}
-                  className={`relative ${
-                    i === selected && "selected"
-                  } cursor-pointer text-sm font-semibold`}
+                  className={`relative  cursor-pointer text-sm font-semibold`}
                 >
-                  {activeSection === section && !hideNavUnderline && (
+                  {state.activeSection === section && (
                     <motion.div
                       layoutId="underline"
                       className={`absolute -bottom-1 h-1 w-full bg-primary underline`}
@@ -71,7 +66,7 @@ export function Navbar({ activeSection }: any) {
                     href={`/#${section}`}
                     onClick={() => {
                       if (router.pathname !== "/") {
-                        setTimeout(() => scrollToElement(section), 500);
+                        setTimeout(() => scrollToElement(section), 600);
                       } else {
                         scrollToElement(section);
                       }

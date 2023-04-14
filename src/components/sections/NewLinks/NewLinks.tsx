@@ -81,7 +81,7 @@ export function NewLinks() {
           </div>
 
           <div className="mt-4 text-center">
-            I am a passionate web developer with extensive experience
+            find me on these other platforms or view my resume.
           </div>
         </motion.div>
         <motion.div

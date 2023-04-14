@@ -5,8 +5,14 @@ import { useInView } from "react-intersection-observer";
 import { projectContainerVariants, projectElements } from "lib/animations";
 import { UIContext } from "lib/context";
 import { items } from "lib/content";
+import { Project } from "lib/types";
 
-const Card = ({ item, tempSelected }: any) => {
+interface ICard {
+  item: Project;
+  tempSelected: Project | null;
+}
+
+const Card = ({ item, tempSelected }: ICard) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
@@ -68,11 +74,11 @@ const Card = ({ item, tempSelected }: any) => {
           }}
         />
         <motion.div
-          className="pointer-events-none absolute bottom-0  left-0 z-30 block h-1/2 w-full overflow-hidden bg-gradient-to-t from-neutral to-transparent px-4 pt-24 sm:hidden  "
+          className="pointer-events-none absolute bottom-0  left-0 z-30  flex h-1/2 w-full flex-col justify-end overflow-hidden  bg-gradient-to-t from-neutral to-transparent px-4 pb-4  sm:hidden  "
           variants={overlayVariants}
         >
           <div className=" text-2xl font-bold text-white">{item.title}</div>
-          <div className="mt-2 flex flex-wrap gap-2 text-sm text-white">
+          <div className=" mt-2 flex flex-wrap gap-2 text-sm text-white">
             {item.tech.map((tech: string, idx: number) => (
               <div key={idx} className="badge-primary badge badge-sm ">
                 {tech}
@@ -111,14 +117,13 @@ export function ProjectsNew() {
   const { state } = useContext(UIContext);
 
   const [ref, inView, entry] = useInView({ threshold: 0.1 });
-  const [asAnimationHappened, setAnimationHappened] = useState(false);
-  const [tempSelected, setTempSelected] = useState<any>(null);
+  const [asAnimationHappened, setAnimationHappened] = useState<boolean>(false);
+  const [tempSelected, setTempSelected] = useState<Project | null>(null);
   const animation = useAnimation();
-  const [filterBy, setFilterBy] = useState("all");
+  const [filterBy, setFilterBy] = useState<string>("all");
+  const [projects, setProjects] = useState<Project[]>(items);
 
-  const [projects, setProjects] = useState<any[]>(items);
-
-  const projectsForGrid = projects.filter((project: any) =>
+  const projectsForGrid = projects.filter((project: Project) =>
     filterBy !== "all" ? project.category === filterBy : project
   );
 
@@ -163,7 +168,6 @@ export function ProjectsNew() {
           ref={ref}
           variants={listChildElement}
           animate={animation}
-          // animate={inView ? "visible" : "hidden"}
           className="flex flex-col justify-between sm:flex-row"
         >
           <div className="section-header text-center sm:text-left">
@@ -176,17 +180,12 @@ export function ProjectsNew() {
           ref={ref}
           animate={inView || asAnimationHappened ? "visible" : "hidden"}
           variants={projectContainerVariants}
-          className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 "
+          className="mt-4 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-2 "
           exit={{ opacity: 0 }}
         >
           <AnimatePresence>
             {projectsForGrid.map((item) => (
-              <Card
-                key={item.id}
-                // setSelected={setSelected}
-                tempSelected={tempSelected}
-                item={item}
-              />
+              <Card key={item.id} tempSelected={tempSelected} item={item} />
             ))}
           </AnimatePresence>
         </motion.div>
@@ -195,8 +194,14 @@ export function ProjectsNew() {
   );
 }
 
-function ProjectFilter({ setFilterBy, filterBy }: any) {
+interface IProjectFilter {
+  setFilterBy: (arg: string) => void;
+  filterBy: string;
+}
+
+function ProjectFilter({ setFilterBy, filterBy }: IProjectFilter) {
   const projectTypes = ["all", "professional", "personal", "design"];
+
   return (
     <motion.div className="mb-4 mt-6 flex justify-center gap-2">
       {projectTypes.map((proj: any, idx: number) => (

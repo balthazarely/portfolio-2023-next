@@ -104,9 +104,9 @@ export function About() {
             about <span className="text-primary">me.</span>
           </div>
           <motion.div className="mt-4 h-full max-w-md text-center text-base leading-7 sm:text-left">
-            I am a passionate web developer with extensive experience in graphic
-            design. I enjoy building web apps, beautiful user-interfaces, and
-            anything that involves Javascript.
+            I have worked for a number of companies, both on the consulting and
+            product side of things. Here are some of the technologies I've
+            worked with most recently, as well as some design tools.
           </motion.div>
         </motion.div>
         <motion.div

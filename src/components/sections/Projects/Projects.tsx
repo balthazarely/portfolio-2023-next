@@ -7,6 +7,7 @@ import { projectContainerVariants, projectElements } from "lib/animations";
 import { items } from "lib/content";
 import Image from "next/image";
 import { UIContext } from "lib/context";
+import { Project } from "lib/types";
 
 export function Projects() {
   const [filterBy, setFilterBy] = useState("all");
@@ -23,7 +24,7 @@ export function Projects() {
 
   const [projects, setProjects] = useState(items);
 
-  const projectsForGrid = projects.filter((project: any) =>
+  const projectsForGrid = projects.filter((project: Project) =>
     filterBy !== "all" ? project.category === filterBy : project
   );
 
@@ -66,7 +67,7 @@ export function Projects() {
           exit={{ opacity: 0 }}
         >
           <AnimatePresence>
-            {projectsForGrid.map((project: any) => (
+            {projectsForGrid.map((project: Project) => (
               <SingleProjects project={project} key={project.id} />
             ))}
           </AnimatePresence>
@@ -76,11 +77,16 @@ export function Projects() {
   );
 }
 
-function ProjectFilter({ setFilterBy, filterBy }: any) {
+interface IProjectFilter {
+  setFilterBy: (arg: string) => void;
+  filterBy: string;
+}
+
+function ProjectFilter({ setFilterBy, filterBy }: IProjectFilter) {
   const projectTypes = ["all", "professional", "personal", "design"];
   return (
     <motion.div className="flex gap-2">
-      {projectTypes.map((proj: any, idx: number) => (
+      {projectTypes.map((proj: string, idx: number) => (
         <button
           key={idx}
           onClick={() => setFilterBy(proj)}

@@ -1,11 +1,6 @@
 import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
-export default function Plowops({ setActiveSection }: any) {
-  return (
-    <ProjectWrapper
-      project={items[8]}
-      setActiveSection={setActiveSection}
-    ></ProjectWrapper>
-  );
+export default function Plowops() {
+  return <ProjectWrapper project={items[8]}></ProjectWrapper>;
 }

@@ -3,6 +3,8 @@ import React, { useContext, useEffect } from "react";
 import { HiMoon } from "react-icons/hi";
 import { BsSun, BsSnow, BsTreeFill } from "react-icons/bs";
 import { GiVampireDracula } from "react-icons/gi";
+import { IconType } from "react-icons";
+import { IColorIcons } from "lib/types";
 
 export function DarkModeToggle() {
   const { state, dispatch } = useContext(UIContext);
@@ -52,7 +54,7 @@ export function DarkModeToggle() {
 
   return (
     <div className="relative h-8 w-8 ">
-      {colorIcons.map((icon: any, idx: number) => {
+      {colorIcons.map((icon: IColorIcons, idx: number) => {
         return (
           <button key={idx} onClick={() => toggleMode(icon.next)}>
             <icon.icons

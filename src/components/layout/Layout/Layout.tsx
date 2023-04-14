@@ -3,7 +3,12 @@ import { useEscapeKeyPress } from "lib/hooks";
 import React, { useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-export function Layout({ children, route }: any) {
+interface ILayout {
+  children: React.ReactNode;
+  route: string;
+}
+
+export function Layout({ children, route }: ILayout) {
   const { state, dispatch } = useContext(UIContext);
 
   useEscapeKeyPress(() => {
@@ -29,7 +34,7 @@ export function Layout({ children, route }: any) {
           exit={{ opacity: 0 }}
           className={`${
             state.navDrawerOpen || state.selectedProject ? "blur-bg " : ""
-          } z-50 flex h-screen  flex-col `}
+          } z-50 flex h-screen  flex-col  `}
         >
           {children}
         </motion.div>

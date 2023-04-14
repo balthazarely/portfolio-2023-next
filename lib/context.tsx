@@ -1,6 +1,12 @@
 import { createContext, useReducer } from "react";
+import {
+  GlobalProviderProps,
+  InitialStateType,
+  Project,
+  UIAction,
+} from "./types";
 
-const UIReducer = (state: any, action: any) => {
+const UIReducer = (state: InitialStateType, action: UIAction) => {
   switch (action.type) {
     case "OPEN_NAV_DRAWER":
       return { ...state, navDrawerOpen: true };
@@ -16,16 +22,11 @@ const UIReducer = (state: any, action: any) => {
       return { ...state, loadingScreenActive: true };
     case "HIDE_LOADING_SCREEN":
       return { ...state, loadingScreenActive: false };
+    case "SET_ACTIVE_SECTION":
+      return { ...state, activeSection: action.payload };
     default:
       return state;
   }
-};
-
-type InitialStateType = {
-  navDrawerOpen: boolean;
-  loadingScreenActive: boolean;
-  selectedProject: any;
-  colorMode: string;
 };
 
 const initialState = {
@@ -33,6 +34,7 @@ const initialState = {
   loadingScreenActive: true,
   selectedProject: null,
   colorMode: "light",
+  activeSection: "hero",
 };
 
 export const UIContext = createContext<{
@@ -40,7 +42,7 @@ export const UIContext = createContext<{
   dispatch: React.Dispatch<any>;
 }>({ state: initialState, dispatch: () => null });
 
-const GlobalProvider = ({ children }: any) => {
+const GlobalProvider = ({ children }: GlobalProviderProps) => {
   const [state, dispatch] = useReducer(UIReducer, initialState);
 
   return (

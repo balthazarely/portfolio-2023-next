@@ -1,4 +1,3 @@
-import { Footer } from "@/components/layout";
 import {
   About,
   Contact,
@@ -6,39 +5,40 @@ import {
   NewLinks,
   ProjectsNew,
 } from "@/components/sections";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { NextSeo } from "next-seo";
+import { UIContext } from "lib/context";
 
-export default function Home({ setActiveSection }: any) {
+export default function Home() {
+  const { dispatch } = useContext(UIContext);
+
   const [heroRef, heroInView] = useInView({ threshold: 0.2 });
   const [aboutRef, aboutInView] = useInView({ threshold: 0.2 });
   const [projectsRef, projectsInView] = useInView({ threshold: 0.2 });
   const [linksRef, linksInView] = useInView({ threshold: 0.2 });
   const [contactRef, contactInView] = useInView({ threshold: 0.2 });
 
-  const router = useRouter();
-  useEffect(() => {
-    const hashValue = router.asPath.split("#")[1];
-    console.log(hashValue);
-  }, [router.asPath]);
-
   useEffect(() => {
     if (heroInView) {
-      setActiveSection("hero");
+      dispatch({ type: "SET_ACTIVE_SECTION", payload: "hero" });
     } else if (aboutInView) {
-      setActiveSection("about");
+      dispatch({ type: "SET_ACTIVE_SECTION", payload: "about" });
     } else if (projectsInView) {
-      setActiveSection("projects");
+      dispatch({ type: "SET_ACTIVE_SECTION", payload: "projects" });
     } else if (linksInView) {
-      setActiveSection("links");
+      dispatch({ type: "SET_ACTIVE_SECTION", payload: "links" });
     } else if (contactInView) {
-      setActiveSection("contact");
+      dispatch({ type: "SET_ACTIVE_SECTION", payload: "contact" });
     }
   }, [heroInView, aboutInView, projectsInView, linksInView, contactInView]);
 
   return (
     <>
+      <NextSeo
+        title="Balthazar Ely"
+        description="Portfolio page for UI Engineer/Front End Developer Balthazar Ely"
+      />
       <div id="hero" ref={heroRef}>
         <Hero />
       </div>

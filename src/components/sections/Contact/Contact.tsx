@@ -67,7 +67,10 @@ export function Contact() {
             soon as possible
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <form
+            onSubmit={handleSubmit}
+            className="flex w-full max-w-md flex-col gap-4 "
+          >
             <motion.div variants={singleCard} className="form-group relative">
               <input
                 required
@@ -75,7 +78,7 @@ export function Contact() {
                 type="text"
                 placeholder="your name"
                 name="name"
-                className="form-control input-bordered input w-96"
+                className="form-control input-bordered input w-full"
               />
               <ValidationError
                 prefix="Name"
@@ -89,7 +92,7 @@ export function Contact() {
                 id="email"
                 type="email"
                 name="email"
-                className="form-control input-bordered input w-96"
+                className="form-control input-bordered input w-full"
                 placeholder="your email"
               />
               <ValidationError
@@ -100,7 +103,7 @@ export function Contact() {
             </motion.div>
             <motion.div variants={singleCard} className="form-group relative">
               <textarea
-                className="form-control input textarea-bordered textarea h-44 w-96"
+                className="form-control input textarea-bordered textarea h-44 w-full"
                 id="message"
                 required
                 name="message"

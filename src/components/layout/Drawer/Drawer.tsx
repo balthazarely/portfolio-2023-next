@@ -2,13 +2,20 @@ import { UIContext } from "lib/context";
 import React, { useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Cross as Hamburger } from "hamburger-react";
-import { Link } from "react-scroll";
+// import { Link } from "react-scroll";
+import { Link as ScrollLink, scroller } from "react-scroll";
+
+import Link from "next/link";
+
 import { useWindowSize } from "react-use";
 import { DarkModeToggle } from "@/components/UI";
+import { useRouter } from "next/router";
 
 export function Drawer() {
   const { state, dispatch } = useContext(UIContext);
   const { width } = useWindowSize();
+  const menuItems = ["about", "projects", "links", "contact"];
+  const router = useRouter();
 
   useEffect(() => {
     if (width > 640) {
@@ -55,12 +62,31 @@ export function Drawer() {
       },
     },
   };
-  const toggleDrawer = () => {
+
+  const toggleHamburger = () => {
     if (!state.navDrawerOpen) {
       dispatch({ type: "OPEN_NAV_DRAWER" });
     } else {
       dispatch({ type: "CLOSE_NAV_DRAWER" });
     }
+  };
+
+  const toggleDrawer = (section: string) => {
+    if (router.pathname !== "/") {
+      setTimeout(() => scrollToElement(section), 500);
+      dispatch({ type: "CLOSE_NAV_DRAWER" });
+    } else {
+      scrollToElement(section);
+    }
+  };
+
+  const scrollToElement = (elementId: string) => {
+    scroller.scrollTo(elementId, {
+      duration: 50,
+      delay: 0,
+      smooth: false,
+      offset: -50,
+    });
   };
 
   return (
@@ -72,63 +98,27 @@ export function Drawer() {
         className="fixed -right-80  top-0 z-[70] h-screen w-full max-w-xs bg-base-100 p-5  shadow-lg"
       >
         <div className="mt-1 flex w-full justify-end px-4">
-          <Hamburger toggled={state.navDrawerOpen} toggle={toggleDrawer} />
+          <Hamburger toggled={state.navDrawerOpen} toggle={toggleHamburger} />
         </div>
-        <motion.div
-          className="mr-6 mt-6  py-1"
-          variants={containerInnerElements}
-        >
-          <Link
-            offset={-100}
-            to="about"
-            smooth={true}
-            duration={600}
-            onClick={toggleDrawer}
-          >
-            <button className="btn-primary btn-ghost btn flex w-full  justify-start rounded-none lowercase">
-              my work
-            </button>
-          </Link>
-        </motion.div>
-        <motion.div className="mr-6 py-1 " variants={containerInnerElements}>
-          <Link
-            offset={-100}
-            to="projects"
-            smooth={true}
-            duration={600}
-            onClick={toggleDrawer}
-          >
-            <button className="btn-primary btn-ghost btn flex w-full  justify-start rounded-none lowercase">
-              projects
-            </button>
-          </Link>
-        </motion.div>
-        <motion.div className="mr-6 py-1" variants={containerInnerElements}>
-          <Link
-            offset={-100}
-            to="links"
-            smooth={true}
-            duration={600}
-            onClick={toggleDrawer}
-          >
-            <button className="btn-primary btn-ghost btn flex w-full  justify-start rounded-none lowercase">
-              links
-            </button>
-          </Link>
-        </motion.div>
-        <motion.div className="mr-6 py-1  " variants={containerInnerElements}>
-          <Link
-            offset={-100}
-            to="contact"
-            smooth={true}
-            duration={600}
-            onClick={toggleDrawer}
-          >
-            <button className="btn-primary btn-ghost btn flex w-full  justify-start rounded-none lowercase">
-              contact
-            </button>
-          </Link>
-        </motion.div>
+        {menuItems.map((section: string, idx: number) => {
+          return (
+            <motion.div
+              className="mr-6 mt-6  py-1"
+              variants={containerInnerElements}
+            >
+              <Link
+                scroll={false}
+                href={`/#${section}`}
+                onClick={() => toggleDrawer(section)}
+              >
+                <button className="btn-primary btn-ghost btn flex w-full  justify-start rounded-none lowercase">
+                  {section}
+                </button>
+              </Link>
+            </motion.div>
+          );
+        })}
+
         <motion.div
           className="mr-6 py-1 pl-4  "
           variants={containerInnerElements}

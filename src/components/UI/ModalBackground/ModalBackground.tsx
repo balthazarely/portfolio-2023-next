@@ -2,7 +2,7 @@ import { UIContext } from "lib/context";
 import React, { useContext } from "react";
 
 export function ModalBackground() {
-  const { state, dispatch } = useContext(UIContext);
+  const { state } = useContext(UIContext);
 
   return (
     <div
