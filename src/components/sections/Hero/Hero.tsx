@@ -8,18 +8,19 @@ import {
 } from "lib/animations";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 
 export function Hero() {
   const [ref, inView] = useInView({ threshold: 0.2 });
+  const [headshotLoaded, setHeadshotLoaded] = useState(false);
   const animation = useAnimation();
 
   useEffect(() => {
-    if (inView) {
+    if (inView && headshotLoaded) {
       animation.start("visible");
     }
-  }, [animation, inView]);
+  }, [animation, inView, headshotLoaded]);
 
   return (
     <div className="bg-base-200 pt-24 ">
@@ -35,8 +36,9 @@ export function Hero() {
             className="h-64 w-64 rounded-full object-cover shadow-lg sm:h-auto sm:w-auto"
             src="/images/balthazar-headshot.jpeg"
             alt="balthazar headshot"
-            width={500}
-            height={500}
+            width={200}
+            height={200}
+            onLoad={() => setHeadshotLoaded(true)}
           />
         </motion.div>
         <motion.div

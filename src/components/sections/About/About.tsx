@@ -9,7 +9,7 @@ import { MdDesignServices } from "react-icons/md";
 import { devskills, otherSkills } from "lib/content";
 
 export function About() {
-  const [flipped, setFlipped] = useState(true);
+  // const [flipped, setFlipped] = useState(true);
   const [ref, inView, entry] = useInView({ threshold: 0.2 });
   const animation = useAnimation();
 
@@ -19,9 +19,9 @@ export function About() {
     }
   }, [animation, inView]);
 
-  const handleFlip = () => {
-    setFlipped(!flipped);
-  };
+  // const handleFlip = () => {
+  //   setFlipped(!flipped);
+  // };
 
   const sectionContainer = {
     hidden: {
@@ -109,11 +109,38 @@ export function About() {
             worked with most recently, as well as some design tools.
           </motion.div>
         </motion.div>
-        <motion.div
-          variants={singleCard}
-          className="col-span-1 h-72 [perspective:1000px]"
-        >
-          <div
+        <motion.div variants={singleCard} className="col-span-1 h-72 ">
+          <div className="flex flex-col rounded-xl bg-base-200 p-4 shadow-lg">
+            <div className="flex items-center gap-1 text-lg font-bold">
+              <HiCode className="text-2xl font-bold text-primary" />
+              dev skills.
+            </div>
+            <motion.ul
+              variants={listParentContainer}
+              className="mt-1 grid grid-cols-2 pl-2 text-sm leading-6"
+            >
+              {devskills.map((skill: string) => (
+                <motion.li
+                  variants={listChildElement}
+                  key={skill}
+                  className="flex items-center gap-1"
+                >
+                  <HiCheck className="text-primary" />
+                  <motion.div className="">{skill}</motion.div>
+                </motion.li>
+              ))}
+            </motion.ul>
+            {/* <div className="absolute bottom-3 right-3  flex items-center justify-end">
+              <button
+                onClick={handleFlip}
+                className="flex items-center  gap-1 text-xs font-semibold text-primary"
+              >
+                other skills
+                <HiArrowRight />
+              </button>
+            </div> */}
+          </div>
+          {/* <div
             className={`relative h-full w-full  transition-transform duration-500 [transform-style:preserve-3d] ${
               flipped ? "[transform:rotateY(180deg)]" : ""
             }`}
@@ -181,7 +208,7 @@ export function About() {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
         </motion.div>
       </PageWrapper>
     </motion.div>

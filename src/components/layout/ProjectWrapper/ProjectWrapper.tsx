@@ -181,36 +181,29 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
                 )}
               </motion.div>
             </motion.div>
+
             <motion.div
-              className="border- relative"
+              className="relative "
               variants={container}
               initial="hidden"
               ref={ref}
               animate={animation}
             >
-              <div className="pointer-events-none absolute left-0 top-0 z-50 mb-4 flex  h-full w-full  justify-between ">
-                <button onClick={scrollPrev}>
-                  <HiChevronLeft className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
-                </button>
-                <button onClick={scrollNext}>
-                  <HiChevronRight className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
-                </button>
-              </div>
               <motion.div
                 variants={containerInnerElementsRight}
                 className="embla overflow-hidden"
                 ref={emblaRef}
               >
-                <div className="embla__container flex">
+                <div className="embla__container flex ">
                   {projectImages?.map((image: string, idx: number) => {
                     return (
                       <div
                         key={idx}
                         style={{ flex: "0 0 100%" }}
-                        className="embla__slide  min-w-0 "
+                        className="embla__slide  relative min-w-0 border-2"
                       >
                         <Image
-                          className="mx-auto  object-contain shadow-lg "
+                          className="mx-auto  cursor-pointer object-contain shadow-lg "
                           src={image}
                           alt="project image"
                           width={500}
@@ -219,6 +212,14 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
                       </div>
                     );
                   })}
+                </div>
+                <div className="b= absolute left-0 top-0 z-50 flex h-full  w-full justify-between ">
+                  <button onClick={scrollPrev}>
+                    <HiChevronLeft className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
+                  </button>
+                  <button onClick={scrollNext}>
+                    <HiChevronRight className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
+                  </button>
                 </div>
               </motion.div>
             </motion.div>

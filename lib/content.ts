@@ -10,11 +10,11 @@ export const devskills = [
   "Shopify",
   "TailwindCSS",
   "Bootstrap",
-  "Express JS",
+  "ExpressJS",
   "Firebase",
   "MongoDB",
-  "Framer Motion",
-  "GSAP",
+  "Framer/GSAP",
+  "Adobe Suite/Figma",
 ];
 
 export const otherSkills = [

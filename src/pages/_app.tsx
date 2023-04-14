@@ -16,11 +16,15 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={poppins.className}>
       <GlobalProvider>
-        <Navbar />
-        <Drawer />
         <Layout route={router.route}>
-          <Component {...pageProps} />
-          <Footer />
+          <div className="flex h-screen flex-col">
+            <Navbar />
+            <Drawer />
+            <div className="flex flex-grow flex-col  ">
+              <Component {...pageProps} />
+            </div>
+            <Footer />
+          </div>
         </Layout>
         <ProjectModal />
         <ModalBackground />
