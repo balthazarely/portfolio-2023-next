@@ -3,10 +3,12 @@ import { motion } from "framer-motion";
 import { HiChevronRight, HiChevronLeft, HiX } from "react-icons/hi";
 import { UIContext } from "lib/context";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export function ProjectModal() {
   const [imageSelected, setImageSelected] = useState(0);
   const { state, dispatch } = useContext(UIContext);
+  const router = useRouter();
 
   useEffect(() => {
     setImageSelected(0);
@@ -15,6 +17,13 @@ export function ProjectModal() {
   if (!state.selectedProject) {
     return <></>;
   }
+
+  const navigateToProject = (slug: string) => {
+    dispatch({ type: "CLEAR_SELECTED_PROJECT" });
+    // setTimeout(() => {
+    //   router.push(`/project${slug}`);
+    // }, 500);
+  };
 
   const container = {
     hidden: {
@@ -45,19 +54,6 @@ export function ProjectModal() {
     },
   };
 
-  const nextImage = (e: any) => {
-    if (imageSelected < state.selectedProject.otherImages.length) {
-      setImageSelected(imageSelected + 1);
-    }
-    e.stopPropagation();
-  };
-  const prevImage = (e: any) => {
-    if (imageSelected > 0) {
-      setImageSelected(imageSelected - 1);
-    }
-    e.stopPropagation();
-  };
-
   return (
     <div
       onClick={(e) => {
@@ -84,19 +80,6 @@ export function ProjectModal() {
               imageSelected === 0 ? "opacity-100" : "opacity-0"
             } absolute top-0   object-contain`}
           />
-          {/* {state.selectedProject.otherImages?.map((img: any, idx: number) => {
-            return (
-              <img
-                key={idx}
-                src={state.selectedProject.otherImages[idx]}
-                className={`${
-                  imageSelected === idx + 1 && imageSelected !== 0
-                    ? "opacity-100"
-                    : "opacity-0"
-                } absolute top-0  object-contain`}
-              />
-            );
-          })} */}
         </motion.div>
         <motion.div
           initial={{
@@ -116,31 +99,7 @@ export function ProjectModal() {
             duration: 0.25,
           }}
           className="absolute left-0 top-0 z-[100] mt-4  flex h-[300px] w-[400px] items-center  justify-between  bg-opacity-60 sm:h-[375px]  sm:w-[500px] md:h-[450px] md:w-[600px]"
-        >
-          {/* <div className="absolute left-2 top-2 ">
-            <button
-              onClick={() => {
-                dispatch({ type: "CLEAR_SELECTED_PROJECT" });
-              }}
-              className="btn-sm btn-circle btn"
-            >
-              <HiX />
-            </button>
-          </div> */}
-          {/* <button
-            onClick={(e) => prevImage(e)}
-            className={` flex h-10 w-8 items-center justify-center bg-neutral bg-opacity-40 duration-150 hover:bg-opacity-100`}
-          >
-            <HiChevronLeft className="text-2xl font-bold text-white" />
-          </button>
-          <button
-            onClick={(e) => nextImage(e)}
-            className="flex h-10 w-8 items-center justify-center bg-neutral bg-opacity-40 duration-150 hover:bg-opacity-100"
-          >
-            <HiChevronRight className="text-2xl font-bold text-white" />
-          </button> */}
-        </motion.div>
-
+        ></motion.div>
         <motion.div
           className=" relative  mx-auto w-[400px]   sm:w-[500px] md:w-[600px] "
           initial={{
@@ -197,9 +156,12 @@ export function ProjectModal() {
               variants={containerInnerElements}
               className="flex justify-end gap-2 text-xs"
             >
-              <Link href={`/project${state.selectedProject.slug}`}>
+              <Link
+                href={`/project${state.selectedProject.slug}`}
+                scroll={false}
+              >
                 <button
-                  // onClick={() => dispatch({ type: "CLEAR_SELECTED_PROJECT" })}
+                  onClick={() => navigateToProject(state.selectedProject.slug)}
                   className=" btn-primary btn-xs btn cursor-pointer lowercase"
                 >
                   read more

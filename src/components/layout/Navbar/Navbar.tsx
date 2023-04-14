@@ -14,6 +14,8 @@ export function Navbar({ activeSection }: any) {
   const [selected, setSelected] = useState(0);
   const [hideNavUnderline, setHideNavUnderline] = useState(false);
 
+  const router = useRouter();
+
   const toggleDrawer = () => {
     if (!state.navDrawerOpen) {
       dispatch({ type: "OPEN_NAV_DRAWER" });
@@ -27,11 +29,16 @@ export function Navbar({ activeSection }: any) {
       duration: 50,
       delay: 0,
       smooth: false,
+      offset: -50,
     });
   };
 
   return (
-    <div className="fixed z-30 h-24 w-full bg-base-100 py-6 ">
+    <div
+      className={`fixed z-30 h-24 w-full bg-base-100 py-6 ${
+        state.navDrawerOpen || state.selectedProject ? "blur-bg " : ""
+      }`}
+    >
       <PageWrapper className="flex items-center justify-between">
         <div className="cursor-pointer text-3xl font-bold">
           <Link href="/">
@@ -59,9 +66,16 @@ export function Navbar({ activeSection }: any) {
                       className={`absolute -bottom-1 h-1 w-full bg-primary underline`}
                     />
                   )}
+
                   <Link
                     href={`/#${section}`}
-                    onClick={() => scrollToElement(section)}
+                    onClick={() => {
+                      if (router.pathname !== "/") {
+                        setTimeout(() => scrollToElement(section), 500);
+                      } else {
+                        scrollToElement(section);
+                      }
+                    }}
                   >
                     {section}
                   </Link>

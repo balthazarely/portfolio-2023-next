@@ -1,8 +1,9 @@
 import { UIContext } from "lib/context";
 import { useEscapeKeyPress } from "lib/hooks";
 import React, { useContext } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-export function Layout({ children }: any) {
+export function Layout({ children, route }: any) {
   const { state, dispatch } = useContext(UIContext);
 
   useEscapeKeyPress(() => {
@@ -20,13 +21,19 @@ export function Layout({ children }: any) {
             : "pointer-events-none"
         }`}
       ></div>
-      <div
-        className={`${
-          state.navDrawerOpen || state.selectedProject ? "blur-bg " : ""
-        } z-10 flex h-screen  flex-col transition-all duration-500`}
-      >
-        {children}
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={route}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.5 } }}
+          exit={{ opacity: 0 }}
+          className={`${
+            state.navDrawerOpen || state.selectedProject ? "blur-bg " : ""
+          } z-50 flex h-screen  flex-col `}
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }
