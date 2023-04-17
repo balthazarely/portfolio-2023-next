@@ -60,7 +60,7 @@ export function Hero() {
             variants={containerInnerElements}
             className="h-full text-center text-base leading-7 sm:text-left"
           >
-            I'm web developer with experience in front-end web development & graphic
+            I&apos;m web developer with experience in front-end web development & graphic
             design. I enjoy building web apps, beautiful user-interfaces, and
             anything that involves Javascript.
           </motion.div>
