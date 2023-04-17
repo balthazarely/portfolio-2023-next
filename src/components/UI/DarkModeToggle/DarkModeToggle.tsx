@@ -53,12 +53,12 @@ export function DarkModeToggle() {
   ];
 
   return (
-    <div className="relative h-8 w-8 ">
+    <div className="relative h-7 w-7 ">
       {colorIcons.map((icon: IColorIcons, idx: number) => {
         return (
           <button key={idx} onClick={() => toggleMode(icon.next)}>
             <icon.icons
-              className={` absolute left-0 top-0 h-8 w-8 transform text-xs  text-primary transition-all  duration-300 ${
+              className={` absolute left-0 top-0 h-7 w-7 transform text-xs  text-primary transition-all  duration-300 ${
                 state.colorMode === icon.title
                   ? "pointer-events-auto rotate-0 opacity-100"
                   : "pointer-events-none rotate-180 opacity-0"
