@@ -1,0 +1,76 @@
+// Carousel
+.embla {
+  position: relative;
+  @apply w-full;
+}
+
+.embla__viewport {
+  overflow: hidden;
+
+}
+
+.embla__viewport.is-draggable {
+  cursor: move;
+  cursor: grab;
+}
+
+.embla__viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.embla__viewport.is-wheel-dragging {
+  cursor: move;
+  cursor: grab;
+}
+
+.embla__container {
+  display: flex;
+  will-change: transform;
+  margin-left: -1rem;
+}
+
+
+.embla__slide {
+  flex: 0 0 auto;
+  @apply min-w-full w-full overflow-hidden;
+}
+
+.embla__slide__inner {
+  position: relative;
+  border-radius: 0.5rem;
+  font-size: 5rem;
+}
+
+
+
+.embla__slide__inner:before {
+  color: white;
+  font-weight: 300;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.embla__dots {
+  @apply absolute mt-0 list-none pl-0 justify-center left-0 right-0 top-full hidden md:flex;
+}
+
+.embla__dots__mobile {
+  @apply mt-0 list-none pl-0 justify-center left-0 right-0 top-full flex md:hidden;
+}
+
+.embla__dot {
+  @apply bg-transparent cursor-pointer relative w-12 h-12 p-0 mr-3 ml-3 border-none flex items-center;
+}
+
+.embla__dot:after {
+  @apply bg-primary opacity-20 w-full h-2;
+  content: "";
+}
+
+.embla__dot.is-selected:after {
+  @apply bg-primary opacity-100
+}

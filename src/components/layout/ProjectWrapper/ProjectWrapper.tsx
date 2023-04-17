@@ -3,12 +3,12 @@ import { PageWrapper } from "../PageWrapper";
 import { motion } from "framer-motion";
 import { useAnimation } from "framer-motion";
 import { HiChevronRight, HiChevronLeft } from "react-icons/hi";
-import { useCallback, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Image from "next/image";
-import useEmblaCarousel from "embla-carousel-react";
 import { NextSeo } from "next-seo";
 import { UIContext } from "lib/context";
 import { Project } from "lib/types";
+import { Carousel } from "@/components/UI";
 
 const container = {
   hidden: {
@@ -64,29 +64,7 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
   const [contentRef, contentRefInView] = useInView({ threshold: 0.2 });
   const [ref, inView] = useInView({ threshold: 0.2 });
   const animation = useAnimation();
-  const [emblaRef, emblaApi] = useEmblaCarousel();
   const { dispatch } = useContext(UIContext);
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (emblaApi) {
-      const onInit = () => {
-        console.log("EmblaCarousel initialized");
-      };
-      emblaApi.on("init", onInit);
-
-      return () => {
-        emblaApi.off("init", onInit);
-      };
-    }
-  }, [emblaApi]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -103,6 +81,7 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
   if (otherImages && otherImages.length > 0) {
     projectImages = [...projectImages, ...otherImages];
   }
+
   return (
     <>
       <NextSeo
@@ -196,45 +175,17 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
             >
               <motion.div
                 variants={containerInnerElementsRight}
-                className="embla relative overflow-hidden"
-                ref={emblaRef}
+                className="relative  "
               >
-                <div className="embla__container  z-0 flex  ">
-                  {projectImages?.map((image: string, idx: number) => {
-                    return (
-                      <div
-                        key={idx}
-                        style={{ flex: "0 0 100%" }}
-                        className="embla__slide  relative min-w-0 "
-                      >
-                        <Image
-                          className="mx-auto  cursor-pointer object-contain shadow-lg "
-                          src={image}
-                          alt="project image"
-                          width={500}
-                          height={500}
-                          onLoad={() => console.log("load")}
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="absolute left-1/2 top-0 flex h-full w-full max-w-[500px] -translate-x-1/2 cursor-pointer justify-between ">
-                  <button onClick={scrollPrev}>
-                    <HiChevronLeft className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
-                  </button>
-                  <button onClick={scrollNext}>
-                    <HiChevronRight className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
-                  </button>
-                </div>
-                {/* <div className="babsolute left-0 top-0 z-50 flex h-full  w-full justify-between ">
-                  <button onClick={scrollPrev}>
-                    <HiChevronLeft className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
-                  </button>
-                  <button onClick={scrollNext}>
-                    <HiChevronRight className="pointer-events-auto bg-neutral bg-opacity-50 text-3xl text-white" />
-                  </button>
-                </div> */}
+                <Carousel>
+                  {projectImages?.map((image: string, idx: number) => (
+                    <img
+                      className="mx-auto h-auto max-h-96 cursor-pointer "
+                      src={image}
+                      alt="project image"
+                    />
+                  ))}
+                </Carousel>
               </motion.div>
             </motion.div>
           </PageWrapper>

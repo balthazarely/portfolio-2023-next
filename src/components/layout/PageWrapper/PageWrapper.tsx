@@ -2,7 +2,7 @@ import React from "react";
 
 interface IPageWrapper {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
 export function PageWrapper({ children, className }: IPageWrapper) {

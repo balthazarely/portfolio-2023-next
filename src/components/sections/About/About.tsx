@@ -1,10 +1,9 @@
 import { PageWrapper } from "@/components/layout";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { HiCheck, HiArrowRight, HiCode } from "react-icons/hi";
+import { useEffect } from "react";
+import { HiCheck, HiCode } from "react-icons/hi";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
 import { MdDesignServices } from "react-icons/md";
 import { devskills, otherSkills } from "lib/content";
 
