@@ -76,21 +76,26 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
   }, [emblaApi]);
 
   useEffect(() => {
+    if (emblaApi) {
+      const onInit = () => {
+        console.log("EmblaCarousel initialized");
+      };
+      emblaApi.on("init", onInit);
+
+      return () => {
+        emblaApi.off("init", onInit);
+      };
+    }
+  }, [emblaApi]);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    // if (inView) {
     animation.start("visible");
     dispatch({ type: "SET_ACTIVE_SECTION", payload: project.title });
-    // }
   }, [animation]);
-
-  // useEffect(() => {
-  //   if (contentRefInView) {
-  //     dispatch({ type: "SET_ACTIVE_SECTION", payload: project.title });
-  //   }
-  // }, [contentRefInView]);
 
   const { url, otherImages } = project;
   let projectImages = [url];
@@ -208,6 +213,7 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
                           alt="project image"
                           width={500}
                           height={500}
+                          onLoad={() => console.log("load")}
                         />
                       </div>
                     );

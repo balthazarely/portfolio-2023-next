@@ -84,7 +84,7 @@ export const items = [
     year: "2022",
     client: "me",
     url: "/images/project-images/songdive.jpg",
-    slug: "/songdive",
+    slug: "/project//songdive",
     otherImages: ["/images/project-images/songdive-1.jpg"],
     title: "Song Dive",
     tagline: "create playlists based on what you love",

@@ -2,5 +2,5 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Plowops() {
-  return <ProjectWrapper project={items[5]}></ProjectWrapper>;
+  return <ProjectWrapper project={items[6]}></ProjectWrapper>;
 }
