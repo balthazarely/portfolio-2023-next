@@ -39,7 +39,7 @@ export function Navbar() {
         <div className="cursor-pointer text-3xl font-bold">
           <Link href="/">
             {/* offset={-100} to="hero" smooth={true} duration={350} */}
-            balthazar<span className="text-4xl text-primary">.</span>
+            balthazar<span className="text-primary">.dev</span>
           </Link>
         </div>
         <div className="block  sm:hidden">
