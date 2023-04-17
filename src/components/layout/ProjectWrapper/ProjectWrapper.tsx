@@ -179,7 +179,7 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
               >
                 <Carousel>
                   {projectImages?.map((image: string, idx: number) => (
-                    <img
+                    <img key={idx}
                       className="mx-auto h-auto max-h-96 cursor-pointer "
                       src={image}
                       alt="project image"
