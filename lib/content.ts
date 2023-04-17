@@ -182,14 +182,14 @@ export const items = [
   {
     id: 10,
     year: "2020",
-    client: "Dish Network",
+    client: "Dish Network/OneTen Creative",
     url: "/images/project-images/bannerbox.jpg",
     title: "Bannerbox",
     slug: "/bannerbox",
     tagline: "DCO animated banners",
     description:
-      "This portfolio site was developed to showcase some of the HTML5 web banners I've developed over the last year. The site was built with React, and the animations were created using GSAP and Framer Motion. The styles were built entirely using Styled Components and did not use any UI Frameworks.",
-    tech: ["React", "Firebase", "GSAP", "HTML Canvas", "DCO"],
+      "I created this portfolio site to showcase a selection of HTML5 web banners that I developed during my tenure at DISH Network. Using React as the framework and GSAP, CSS animations, and HTML Canvas as the tools, I crafted engaging and dynamic animations for banner sets in six different sizes, catering to both mobile and desktop users. These banners were designed for DISH and its affiliates, such as OnTech, SlingTV, and DISH Latino.\n\n Employing dynamic creative optimization (DCO), I ensured that the banners were flexible enough to undergo copy and image changes even after going live for testing purposes. While working at DISH/OneTen Creative, I spearheaded an initiative to update and optimize the banners, incorporating new ES6 features, HTML Canvas, and dynamic variables to GSAP animations. As a result, the average development time per banner set decreased from a week to just a day. ",
+    tech: ["GSAP", "CSS Animation", "HTML Canvas", "DCO" ],
     category: "professional",
     github: "https://github.com/balthazarely/bannerbox_2020",
     link: "https://bannerbin-552ae.web.app/",
