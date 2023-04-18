@@ -2,5 +2,13 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Portfolio() {
-  return <ProjectWrapper project={items[5]}></ProjectWrapper>;
+  const index = 5;
+
+  return (
+    <ProjectWrapper
+      project={items[index]}
+      prevProjectObj={items[index - 1]}
+      nextProjectObj={items[index + 1]}
+    ></ProjectWrapper>
+  );
 }

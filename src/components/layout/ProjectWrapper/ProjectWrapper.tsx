@@ -2,13 +2,13 @@ import { useInView } from "react-intersection-observer";
 import { PageWrapper } from "../PageWrapper";
 import { motion } from "framer-motion";
 import { useAnimation } from "framer-motion";
-import { HiChevronRight, HiChevronLeft } from "react-icons/hi";
 import { useContext, useEffect } from "react";
-import Image from "next/image";
 import { NextSeo } from "next-seo";
 import { UIContext } from "lib/context";
 import { Project } from "lib/types";
 import { Carousel } from "@/components/UI";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import Link from "next/link";
 
 const container = {
   hidden: {
@@ -58,9 +58,15 @@ const containerInnerElementsRight = {
 
 interface IProjectWrapper {
   project: Project;
+  prevProjectObj: Project | null;
+  nextProjectObj: Project | null;
 }
 
-export function ProjectWrapper({ project }: IProjectWrapper) {
+export function ProjectWrapper({
+  project,
+  nextProjectObj,
+  prevProjectObj,
+}: IProjectWrapper) {
   const [contentRef, contentRefInView] = useInView({ threshold: 0.2 });
   const [ref, inView] = useInView({ threshold: 0.2 });
   const animation = useAnimation();
@@ -128,7 +134,7 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
                 className=" mb-4 flex flex-wrap justify-center gap-2 text-sm  text-white md:justify-start"
               >
                 {project.tech.map((tech: string) => (
-                  <div key={tech} className="badge-primary badge badge-sm ">
+                  <div key={tech} className="badge badge-primary badge-sm ">
                     {tech}
                   </div>
                 ))}
@@ -164,7 +170,6 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
                 )}
               </motion.div>
             </motion.div>
-
             <motion.div
               className="relative "
               variants={container}
@@ -186,6 +191,44 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
                     />
                   ))}
                 </Carousel>
+              </motion.div>
+            </motion.div>
+          </PageWrapper>
+          <PageWrapper>
+            <motion.div
+              initial="hidden"
+              ref={ref}
+              animate={animation}
+              className="mb-8 flex justify-between "
+              variants={container}
+            >
+              <motion.div variants={containerInnerElementsRight}>
+                {prevProjectObj ? (
+                  <div>
+                    <Link href={`/project/${prevProjectObj.slug}`}>
+                      <button className="btn-ghost btn-sm btn">
+                        <HiChevronLeft />
+                        {prevProjectObj.title}
+                      </button>
+                    </Link>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+              </motion.div>
+              <motion.div variants={containerInnerElementsRight}>
+                {nextProjectObj ? (
+                  <div>
+                    <Link href={`/project/${nextProjectObj.slug}`}>
+                      <button className=" btn-ghost btn-sm btn flex items-center justify-center">
+                        {nextProjectObj.title}
+                        <HiChevronRight className=" text-xl" />
+                      </button>
+                    </Link>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
               </motion.div>
             </motion.div>
           </PageWrapper>

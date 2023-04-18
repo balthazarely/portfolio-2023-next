@@ -2,5 +2,12 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Bannerbox() {
-  return <ProjectWrapper project={items[9]}></ProjectWrapper>;
+  const index = 9;
+  return (
+    <ProjectWrapper
+      project={items[index]}
+      prevProjectObj={items[index - 1]}
+      nextProjectObj={items[index + 1]}
+    ></ProjectWrapper>
+  );
 }

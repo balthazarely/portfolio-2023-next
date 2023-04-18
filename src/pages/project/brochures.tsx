@@ -2,5 +2,13 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Brochures() {
-  return <ProjectWrapper project={items[11]}></ProjectWrapper>;
+  const index = 11;
+
+  return (
+    <ProjectWrapper
+      project={items[index]}
+      prevProjectObj={items[index - 1]}
+      nextProjectObj={null}
+    ></ProjectWrapper>
+  );
 }

@@ -2,5 +2,13 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function HartmanElyInvestment() {
-  return <ProjectWrapper project={items[1]}></ProjectWrapper>;
+  const index = 1;
+
+  return (
+    <ProjectWrapper
+      project={items[index]}
+      prevProjectObj={items[index - 1]}
+      nextProjectObj={items[index + 1]}
+    ></ProjectWrapper>
+  );
 }

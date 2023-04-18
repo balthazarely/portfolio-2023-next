@@ -2,5 +2,13 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Accuterra() {
-  return <ProjectWrapper project={items[2]}></ProjectWrapper>;
+  const index = 2;
+
+  return (
+    <ProjectWrapper
+      project={items[index]}
+      prevProjectObj={items[index - 1]}
+      nextProjectObj={items[index + 1]}
+    ></ProjectWrapper>
+  );
 }
