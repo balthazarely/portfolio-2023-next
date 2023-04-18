@@ -38,8 +38,7 @@ const singleCard = {
 };
 
 export function GihubActivity() {
-  const [recentPushes, setRecentPushes] = useState([]);
-  const [userProfile, setUserProfile] = useState<any>();
+  const [recentPushes, setRecentPushes] = useState<any>(null);
 
   const [ref, inView, entry] = useInView({ threshold: 0.2 });
   const animation = useAnimation();
@@ -58,8 +57,14 @@ export function GihubActivity() {
     const date = new Date(dateString);
     const now = new Date();
     const diffMs = now.getTime() - date.getTime();
-    const diffHrs = Math.round(diffMs / (1000 * 60 * 60));
-    return `${diffHrs} hr ago`;
+    const diffMins = Math.round(diffMs / (1000 * 60));
+
+    if (diffMins < 60) {
+      return `${diffMins} min ago`;
+    } else {
+      const diffHrs = Math.round(diffMs / (1000 * 60 * 60));
+      return `${diffHrs} hr ago`;
+    }
   }
 
   const fetchGithubData = async () => {
@@ -93,51 +98,62 @@ export function GihubActivity() {
     }
   };
 
-
-
   return (
-    <div className="bg-primary">
-      <PageWrapper className=" py-8 ">
-        <motion.div
-          variants={sectionContainer}
-          initial="hidden"
-          ref={ref}
-          animate={animation}
-          className="mb-4 flex gap-2 items-center justify-center text-center font-bold text-white"
-        >
-          <div> recenty github activity </div>
-        </motion.div>
-        <motion.div
-          variants={sectionContainer}
-          initial="hidden"
-          ref={ref}
-          animate={animation}
-          className="mx-auto  grid w-full  grid-cols-1 gap-2 sm:grid-cols-2  md:grid-cols-3"
-        >
-          {recentPushes?.map((push: any) => {
-            return (
-              <motion.div
-                variants={singleCard}
-                key={push.id}
-                className="mx-auto flex w-full flex-row items-center gap-4 rounded-lg  bg-base-100 p-2 shadow-md"
-              >
-                <div className="flex w-full flex-col gap-1">
-                  <div className="flex w-full justify-between h-4">
-                   <div className="flex gap-1 overflow-hidden">
-                      <RiGitRepositoryCommitsLine className="text-xl w-7" /> 
-                      <h2 className="text-xs font-semibold truncate">{push.commitMsg}</h2>
-                   </div>
-                    <p className="text-xs opacity-60">{push.timeSince}</p>
-                  </div>
-                  <a href={`https://github.com/${push.repo}`} target="_BLANK">
-                    <p className="text-xs text-primary">{push.repo}</p>
-                  </a>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </PageWrapper>
-    </div>
+    <>
+      {recentPushes ? (
+        <div className="bg-primary">
+          <PageWrapper className=" py-8 ">
+            <motion.div
+              variants={sectionContainer}
+              initial="hidden"
+              ref={ref}
+              animate={animation}
+              className="mb-4 flex items-center justify-center gap-2 text-center font-bold text-white"
+            >
+              <div> recenty github activity </div>
+            </motion.div>
+            <motion.div
+              variants={sectionContainer}
+              initial="hidden"
+              ref={ref}
+              animate={animation}
+              className="mx-auto  grid w-full  grid-cols-1 gap-2 sm:grid-cols-2 "
+            >
+              {recentPushes?.map((push: any) => {
+                return (
+                  <motion.div
+                    variants={singleCard}
+                    key={push.id}
+                    className="mx-auto flex w-full flex-row items-center gap-4 rounded-lg  bg-base-100 p-2 shadow-md"
+                  >
+                    <div className="flex w-full flex-col gap-1">
+                      <div className="flex h-4 w-full justify-between">
+                        <div className="flex gap-1 overflow-hidden">
+                          <RiGitRepositoryCommitsLine className="w-7 text-xl" />
+                          <h2 className="truncate text-xs font-semibold">
+                            {push.commitMsg}
+                          </h2>
+                        </div>
+                        <p className="w-20  text-right text-xs opacity-60">
+                          {push.timeSince}
+                        </p>
+                      </div>
+                      <a
+                        href={`https://github.com/${push.repo}`}
+                        target="_BLANK"
+                      >
+                        <p className="text-xs text-primary">{push.repo}</p>
+                      </a>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </PageWrapper>
+        </div>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
