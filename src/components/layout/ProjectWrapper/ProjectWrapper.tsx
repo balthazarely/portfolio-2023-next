@@ -115,7 +115,7 @@ export function ProjectWrapper({
               </motion.div>
               <motion.div
                 variants={containerInnerElementsLeft}
-                className="text-md mb-1 flex  justify-center gap-8 py-2  text-center text-sm font-bold leading-snug sm:text-left md:justify-start"
+                className="text-md mb-1 flex flex-wrap justify-center gap-8 py-2  text-center text-sm font-bold leading-snug sm:text-left md:justify-start"
               >
                 {project?.client && (
                   <div>
@@ -123,6 +123,7 @@ export function ProjectWrapper({
                     <span className="text-primary">{project.client}</span>
                   </div>
                 )}
+
                 {project?.year && (
                   <div>
                     year: <span className="text-primary">{project.year}</span>
