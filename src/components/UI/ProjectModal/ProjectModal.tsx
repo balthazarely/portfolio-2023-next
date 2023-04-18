@@ -75,12 +75,12 @@ export function ProjectModal() {
           >
             <HiX className="text-white" />
           </button>
-          <img
-            // width={500}
-            // height={500}
+          <Image
+            width={500}
+            height={500}
             alt="image"
             src={state.selectedProject.url}
-            className={` absolute top-0 w-full   object-contain`}
+            className={` absolute top-0 w-full object-contain`}
           />
         </motion.div>
 
