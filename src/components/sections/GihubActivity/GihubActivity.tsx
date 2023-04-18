@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { PageWrapper } from "@/components/layout";
+import { RiGitRepositoryCommitsLine } from "react-icons/ri";
 
 const sectionContainer = {
   hidden: {
@@ -102,9 +103,9 @@ export function GihubActivity() {
           initial="hidden"
           ref={ref}
           animate={animation}
-          className="mb-4 w-full text-center font-bold text-white"
+          className="mb-4 flex gap-2 items-center justify-center text-center font-bold text-white"
         >
-          recenty github activity
+          <div> recenty github activity </div>
         </motion.div>
         <motion.div
           variants={sectionContainer}
@@ -120,14 +121,12 @@ export function GihubActivity() {
                 key={push.id}
                 className="mx-auto flex w-full flex-row items-center gap-4 rounded-lg  bg-base-100 p-2 shadow-md"
               >
-                {/* <img
-                  className="h-8 w-8 rounded-full"
-                  src={userProfile?.avatar_url}
-                  alt="profile pic"
-                /> */}
                 <div className="flex w-full flex-col gap-1">
-                  <div className="flex w-full justify-between">
-                    <h2 className="text-xs font-semibold">{push.commitMsg}</h2>
+                  <div className="flex w-full justify-between h-4">
+                   <div className="flex gap-1 overflow-hidden">
+                      <RiGitRepositoryCommitsLine className="text-xl w-7" /> 
+                      <h2 className="text-xs font-semibold truncate">{push.commitMsg}</h2>
+                   </div>
                     <p className="text-xs opacity-60">{push.timeSince}</p>
                   </div>
                   <a href={`https://github.com/${push.repo}`} target="_BLANK">
