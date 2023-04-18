@@ -63,8 +63,11 @@
 }
 
 .embla__dot {
-  @apply bg-transparent cursor-pointer relative w-12 h-12 p-0 mr-3 ml-3 border-none flex items-center;
+  @apply bg-transparent cursor-pointer relative w-12 h-12 p-0 mr-1 ml-1 border-none flex items-center;
 }
+
+
+
 
 .embla__dot:after {
   @apply bg-primary opacity-20 w-full h-2;

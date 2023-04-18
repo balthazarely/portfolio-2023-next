@@ -4,12 +4,10 @@ import { useEffect } from "react";
 import { HiCheck, HiCode } from "react-icons/hi";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { MdDesignServices } from "react-icons/md";
-import { devskills, otherSkills } from "lib/content";
+import { devskills } from "lib/content";
 
 export function About() {
-  // const [flipped, setFlipped] = useState(true);
-  const [ref, inView, entry] = useInView({ threshold: 0.2 });
+  const [ref, inView, entry] = useInView({ threshold: 0.3 });
   const animation = useAnimation();
 
   useEffect(() => {
@@ -18,9 +16,6 @@ export function About() {
     }
   }, [animation, inView]);
 
-  // const handleFlip = () => {
-  //   setFlipped(!flipped);
-  // };
 
   const sectionContainer = {
     hidden: {

@@ -100,7 +100,6 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
               ref={ref}
               animate={animation}
               variants={container}
-              className=""
             >
               <motion.div
                 variants={containerInnerElementsLeft}
@@ -137,7 +136,7 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
 
               <motion.div
                 variants={containerInnerElementsLeft}
-                className=" text-center text-sm sm:text-left"
+                className="mx-auto  w-full max-w-md  text-center  text-sm md:text-left"
               >
                 {project.description.split("\n").map((line, index) => (
                   <div className="mt-4" key={index}>
@@ -179,7 +178,8 @@ export function ProjectWrapper({ project }: IProjectWrapper) {
               >
                 <Carousel>
                   {projectImages?.map((image: string, idx: number) => (
-                    <img key={idx}
+                    <img
+                      key={idx}
                       className="mx-auto h-auto max-h-96 cursor-pointer "
                       src={image}
                       alt="project image"
