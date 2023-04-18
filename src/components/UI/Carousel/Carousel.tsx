@@ -1,5 +1,4 @@
 import useEmblaCarousel from "embla-carousel-react";
-
 import React, { useCallback, useEffect, useState } from "react";
 import { DotButton, NextButton, PrevButton } from "@/components/UI";
 type Axis = "x" | "y";

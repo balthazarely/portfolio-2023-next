@@ -2,11 +2,8 @@ import { UIContext } from "lib/context";
 import React, { useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Cross as Hamburger } from "hamburger-react";
-// import { Link } from "react-scroll";
-import { Link as ScrollLink, scroller } from "react-scroll";
-
+import { scroller } from "react-scroll";
 import Link from "next/link";
-
 import { useWindowSize } from "react-use";
 import { DarkModeToggle } from "@/components/UI";
 import { useRouter } from "next/router";

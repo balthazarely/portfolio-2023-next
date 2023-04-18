@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { BsGithub, BsLinkedin, BsFileEarmarkArrowUpFill } from "react-icons/bs";
 
 export function NewLinks() {
-  const [ref, inView, entry] = useInView({ threshold: 0.2 });
+  const [ref, inView] = useInView({ threshold: 0.2 });
   const animation = useAnimation();
 
   useEffect(() => {

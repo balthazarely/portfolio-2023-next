@@ -2,7 +2,6 @@ import { UIContext } from "lib/context";
 import { useEscapeKeyPress } from "lib/hooks";
 import React, { useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Footer } from "../Footer";
 
 interface ILayout {
   children: React.ReactNode;

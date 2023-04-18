@@ -1,6 +1,6 @@
 import { BiCopyright } from "react-icons/bi";
 import { PageWrapper } from "../PageWrapper";
-import { BsGithub, BsLinkedin, BsFileEarmarkArrowUpFill } from "react-icons/bs";
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 
 export function Footer() {
   return (
@@ -15,10 +15,10 @@ export function Footer() {
           </div>
           <div className="flex justify-center gap-2 sm:justify-start">
             <a href="https://github.com/balthazarely" target="_BLANK">
-            <BsGithub className="text-white" />
+              <BsGithub className="text-white" />
             </a>
             <a href="https://www.linkedin.com/in/balthazarely" target="_BLANK">
-            <BsLinkedin className="text-white" />
+              <BsLinkedin className="text-white" />
             </a>
           </div>
         </div>

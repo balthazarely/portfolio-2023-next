@@ -1,7 +1,7 @@
 import { LayoutGroup, motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { PageWrapper } from "../PageWrapper";
-import { Link as ScrollLink, scroller } from "react-scroll";
+import { scroller } from "react-scroll";
 import { Cross as Hamburger } from "hamburger-react";
 import { UIContext } from "lib/context";
 import { DarkModeToggle } from "@/components/UI";
@@ -30,15 +30,11 @@ export function Navbar() {
     });
   };
 
-  // ${
-  //   state.navDrawerOpen || state.selectedProject ? "blur-bg " : ""
-  // }
   return (
     <div className={`fixed z-30 h-24 w-full bg-base-100 py-6 `}>
       <PageWrapper className="flex items-center justify-between">
         <div className="cursor-pointer text-3xl font-bold">
           <Link href="/">
-            {/* offset={-100} to="hero" smooth={true} duration={350} */}
             balthazar<span className="text-primary">.dev</span>
           </Link>
         </div>

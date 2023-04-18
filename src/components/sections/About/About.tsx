@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 import { devskills } from "lib/content";
 
 export function About() {
-  const [ref, inView, entry] = useInView({ threshold: 0.3 });
+  const [ref, inView] = useInView({ threshold: 0.3 });
   const animation = useAnimation();
 
   useEffect(() => {
@@ -16,14 +16,11 @@ export function About() {
     }
   }, [animation, inView]);
 
-
   const sectionContainer = {
     hidden: {
       opacity: 0,
-      // y: 40,
     },
     visible: {
-      // y: 0,
       opacity: 1,
       transition: {
         type: "spring",
@@ -59,7 +56,6 @@ export function About() {
     visible: {
       opacity: 1,
       transition: {
-        // delayChildren: 1.25,
         staggerChildren: 0.1,
       },
     },
@@ -124,85 +120,7 @@ export function About() {
                 </motion.li>
               ))}
             </motion.ul>
-            {/* <div className="absolute bottom-3 right-3  flex items-center justify-end">
-              <button
-                onClick={handleFlip}
-                className="flex items-center  gap-1 text-xs font-semibold text-primary"
-              >
-                other skills
-                <HiArrowRight />
-              </button>
-            </div> */}
           </div>
-          {/* <div
-            className={`relative h-full w-full  transition-transform duration-500 [transform-style:preserve-3d] ${
-              flipped ? "[transform:rotateY(180deg)]" : ""
-            }`}
-          >
-            <div className="absolute inset-0 rounded-xl bg-base-200 p-4 shadow-lg">
-              <div className="flex items-center gap-1 text-lg font-bold">
-                <MdDesignServices className="text-2xl font-bold text-primary" />
-                other skills.
-              </div>
-              <motion.ul
-                variants={listParentContainer}
-                className="mt-1 grid grid-cols-2 pl-2 text-sm leading-6"
-              >
-                {otherSkills.map((skill: string) => (
-                  <motion.li
-                    variants={listChildElement}
-                    key={skill}
-                    className="flex items-center gap-1"
-                  >
-                    <HiCheck className="text-primary" />
-                    <motion.div className="">{skill}</motion.div>
-                  </motion.li>
-                ))}
-              </motion.ul>
-              <div className="absolute bottom-3 right-3  flex items-center justify-end">
-                <button
-                  onClick={handleFlip}
-                  className="flex items-center  gap-1 text-xs font-semibold text-primary"
-                >
-                  other skills
-                  <HiArrowRight />
-                </button>
-              </div>
-            </div>
-            <div
-              style={{ backfaceVisibility: "hidden" }}
-              className="absolute inset-0  flex flex-col rounded-xl bg-base-200 p-4 shadow-lg [transform:rotateY(180deg)]"
-            >
-              <div className="flex items-center gap-1 text-lg font-bold">
-                <HiCode className="text-2xl font-bold text-primary" />
-                dev skills.
-              </div>
-              <motion.ul
-                variants={listParentContainer}
-                className="mt-1 grid grid-cols-2 pl-2 text-sm leading-6"
-              >
-                {devskills.map((skill: string) => (
-                  <motion.li
-                    variants={listChildElement}
-                    key={skill}
-                    className="flex items-center gap-1"
-                  >
-                    <HiCheck className="text-primary" />
-                    <motion.div className="">{skill}</motion.div>
-                  </motion.li>
-                ))}
-              </motion.ul>
-              <div className="absolute bottom-3 right-3  flex items-center justify-end">
-                <button
-                  onClick={handleFlip}
-                  className="flex items-center  gap-1 text-xs font-semibold text-primary"
-                >
-                  other skills
-                  <HiArrowRight />
-                </button>
-              </div>
-            </div>
-          </div> */}
         </motion.div>
       </PageWrapper>
     </motion.div>

@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 import { useForm, ValidationError } from "@formspree/react";
 
 export function Contact() {
-  const [ref, inView, entry] = useInView({ threshold: 0.2 });
+  const [ref, inView] = useInView({ threshold: 0.2 });
   const animation = useAnimation();
 
   useEffect(() => {
