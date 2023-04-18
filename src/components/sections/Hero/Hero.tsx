@@ -70,7 +70,13 @@ export function Hero() {
             variants={containerInnerElements}
           >
             <Link offset={-100} to="projects" smooth={true} duration={600}>
-              <button className="btn-primary btn mt-2 ">my work</button>
+              <button
+                aria-label="see-my-work"
+                role="button"
+                className="btn-primary btn mt-2 "
+              >
+                my work
+              </button>
             </Link>
           </motion.div>
         </motion.div>

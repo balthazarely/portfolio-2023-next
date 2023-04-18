@@ -9,6 +9,8 @@ export const DotButton = ({
   onClick(): void;
 }) => (
   <button
+    role="button"
+    aria-label="button"
     className={`embla__dot${selected ? " is-selected" : ""}`}
     onClick={onClick}
   />
@@ -22,6 +24,8 @@ export const PrevButton = ({
   onClick(): void;
 }) => (
   <button
+    role="button"
+    aria-label="prev"
     className={` ${
       enabled ? "bg-opacity-50" : " bg-opacity-30"
     } absolute left-0 top-1/2 -translate-y-1/2 bg-neutral bg-opacity-50`}
@@ -42,6 +46,8 @@ export const NextButton = ({
   onClick(): void;
 }) => (
   <button
+    role="button"
+    aria-label="next"
     className={` ${
       enabled ? "bg-opacity-50" : " bg-opacity-30"
     } absolute right-0 top-1/2 -translate-y-1/2 bg-neutral bg-opacity-50`}

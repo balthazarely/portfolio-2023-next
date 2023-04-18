@@ -68,6 +68,8 @@ export function ProjectModal() {
           layoutId={`card-${state.selectedProject.id}`}
         >
           <button
+            role="button"
+            aria-label="close-modal"
             onClick={(e) => {
               dispatch({ type: "CLEAR_SELECTED_PROJECT" });
             }}
@@ -133,6 +135,8 @@ export function ProjectModal() {
                 scroll={false}
               >
                 <button
+                  role="button"
+                  aria-label="go-to-project"
                   onClick={() => navigateToProject()}
                   className=" btn-primary btn-xs btn cursor-pointer lowercase"
                 >

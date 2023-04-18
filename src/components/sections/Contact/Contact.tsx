@@ -117,7 +117,12 @@ export function Contact() {
             </motion.div>
 
             <motion.div variants={singleCard} className="form-group">
-              <button type="submit" className="btn-primary btn lowercase">
+              <button
+                role="button"
+                type="submit"
+                aria-label="send-message"
+                className="btn-primary btn lowercase"
+              >
                 send message
               </button>
             </motion.div>

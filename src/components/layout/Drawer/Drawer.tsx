@@ -110,7 +110,11 @@ export function Drawer() {
                 href={`/#${section}`}
                 onClick={() => toggleDrawer(section)}
               >
-                <button className="btn-primary btn-ghost btn flex w-full  justify-start rounded-none lowercase">
+                <button
+                  role="button"
+                  aria-label="open-drawer"
+                  className="btn-primary btn-ghost btn flex w-full  justify-start rounded-none lowercase"
+                >
                   {section}
                 </button>
               </Link>

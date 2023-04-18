@@ -207,6 +207,8 @@ function ProjectFilter({ setFilterBy, filterBy }: IProjectFilter) {
     <motion.div className="mb-4 mt-6 flex justify-center gap-2">
       {projectTypes.map((proj: any, idx: number) => (
         <button
+          aria-label="filter-projects"
+          role="button"
           key={idx}
           onClick={() => setFilterBy(proj)}
           className={` btn-sm btn lowercase ${

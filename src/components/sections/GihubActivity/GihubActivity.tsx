@@ -39,8 +39,7 @@ const singleCard = {
 
 export function GihubActivity() {
   const [recentPushes, setRecentPushes] = useState<any>(null);
-
-  const [ref, inView, entry] = useInView({ threshold: 0.2 });
+  const [ref, inView] = useInView({ threshold: 0.2 });
   const animation = useAnimation();
 
   useEffect(() => {
@@ -93,9 +92,7 @@ export function GihubActivity() {
           };
         });
       setRecentPushes(pushData);
-    } catch (error) {
-      console.error(error);
-    }
+    } catch (error) {}
   };
 
   return (

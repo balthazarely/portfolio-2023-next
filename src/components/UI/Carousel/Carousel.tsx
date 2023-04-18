@@ -4,7 +4,7 @@ import { DotButton, NextButton, PrevButton } from "@/components/UI";
 type Axis = "x" | "y";
 
 export function Carousel({ children }: { children: React.ReactNode }) {
-  const [axis, setAxis] = useState<Axis>("x");
+  const [axis] = useState<Axis>("x");
   const [emblaRef, embla] = useEmblaCarousel(
     { loop: false, skipSnaps: true, axis },
     []

@@ -70,7 +70,13 @@ export default function Custom404() {
           </motion.div>
           <motion.div variants={listChildElement}>
             <Link href="/">
-              <button className="btn-primary btn">home</button>
+              <button
+                aria-label="home"
+                role="button"
+                className="btn-primary btn"
+              >
+                home
+              </button>
             </Link>
           </motion.div>
         </div>

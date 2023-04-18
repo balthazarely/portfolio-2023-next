@@ -135,7 +135,7 @@ export function ProjectWrapper({
                 className=" mb-4 flex flex-wrap justify-center gap-2 text-sm  text-white md:justify-start"
               >
                 {project.tech.map((tech: string) => (
-                  <div key={tech} className="badge badge-primary badge-sm ">
+                  <div key={tech} className="badge-primary badge badge-sm ">
                     {tech}
                   </div>
                 ))}
@@ -157,14 +157,22 @@ export function ProjectWrapper({
               >
                 {project.link && (
                   <a target="_BLANK" href={project.link}>
-                    <button className=" btn-primary btn cursor-pointer lowercase">
+                    <button
+                      aria-label="live-site"
+                      role="button"
+                      className=" btn-primary btn cursor-pointer lowercase"
+                    >
                       live site
                     </button>
                   </a>
                 )}
                 {project.github && (
                   <a target="_BLANK" href={project.github}>
-                    <button className=" btn-primary btn cursor-pointer lowercase">
+                    <button
+                      aria-label="github"
+                      role="button"
+                      className=" btn-primary btn cursor-pointer lowercase"
+                    >
                       Github
                     </button>
                   </a>
@@ -207,7 +215,11 @@ export function ProjectWrapper({
                 {prevProjectObj ? (
                   <div>
                     <Link href={`/project/${prevProjectObj.slug}`}>
-                      <button className="btn-ghost btn-sm btn">
+                      <button
+                        aria-label="project-link"
+                        role="button"
+                        className="btn-ghost btn-sm btn"
+                      >
                         <HiChevronLeft />
                         {prevProjectObj.title}
                       </button>
@@ -221,7 +233,11 @@ export function ProjectWrapper({
                 {nextProjectObj ? (
                   <div>
                     <Link href={`/project/${nextProjectObj.slug}`}>
-                      <button className=" btn-ghost btn-sm btn flex items-center justify-center">
+                      <button
+                        aria-label="project-link"
+                        role="button"
+                        className=" btn-ghost btn-sm btn flex items-center justify-center"
+                      >
                         {nextProjectObj.title}
                         <HiChevronRight className=" text-xl" />
                       </button>
