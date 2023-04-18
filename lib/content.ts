@@ -74,7 +74,7 @@ export const items = [
     tagline: "website for AccuTerra map overlay",
     description:
       "This website is for AccuTerra Maps, which is a map overlay that is used by a variety of different apps and websites. Accuterra is geared towards outdoor recreations, and offers extensive national park data to its users. This project was built using Gatsby and incorporates maps from Mapbox, MapLibre, Google Maps, Leaflet, and ArcGIS. This project was for NeoTreks Inc, a software company based in Castle Rock, CO.",
-    tech: ["GatsbyJs", "Maps"],
+    tech: ["GatsbyJs", "JS Maps"],
     category: "professional",
     github: null,
     link: "https://accuterra.com/",
@@ -189,7 +189,7 @@ export const items = [
     tagline: "DCO animated banners",
     description:
       "I created this portfolio site to showcase a selection of HTML5 web banners that I developed during my tenure at DISH Network. Using React as the framework and GSAP, CSS animations, and HTML Canvas as the tools, I crafted engaging and dynamic animations for banner sets in six different sizes, catering to both mobile and desktop users. These banners were designed for DISH and its affiliates, such as OnTech, SlingTV, and DISH Latino.\n\n Employing dynamic creative optimization (DCO), I ensured that the banners were flexible enough to undergo copy and image changes even after going live for testing purposes. While working at DISH/OneTen Creative, I spearheaded an initiative to update and optimize the banners, incorporating new ES6 features, HTML Canvas, and dynamic variables to GSAP animations. As a result, the average development time per banner set decreased from a week to just a day. ",
-    tech: ["GSAP", "CSS Animation", "HTML Canvas", "DCO" ],
+    tech: ["GSAP", "CSS Animation", "HTML Canvas", "DCO"],
     category: "professional",
     github: "https://github.com/balthazarely/bannerbox_2020",
     link: "https://bannerbin-552ae.web.app/",
