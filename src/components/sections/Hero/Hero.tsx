@@ -33,7 +33,7 @@ export function Hero() {
           animate={animation}
         >
           <Image
-            className="h-64 w-64 rounded-full object-cover shadow-lg sm:h-auto sm:w-auto"
+            className="h-56 w-56 rounded-full object-cover p-3 shadow-lg sm:h-auto sm:w-auto"
             src="/images/balthazar-headshot.jpeg"
             alt="balthazar headshot"
             width={200}
@@ -60,9 +60,9 @@ export function Hero() {
             variants={containerInnerElements}
             className="h-full text-center text-base leading-7 sm:text-left"
           >
-            I&apos;m web developer with experience in front-end web development & graphic
-            design. I enjoy building web apps, beautiful user-interfaces, and
-            anything that involves Javascript.
+            I&apos;m web developer with experience in front-end web development
+            & graphic design. I enjoy building web apps, beautiful
+            user-interfaces, and anything that involves Javascript.
           </motion.div>
           <motion.div
             className="flex justify-center sm:justify-start
