@@ -39,7 +39,7 @@ export const items = [
     tagline: "innovative snow operations software",
     description:
       "PlowOps is one of the world's first snow plow tracking applications and it is sold to cities around the country. In my role, I was responsible for designing and developing the marketing website, as well as creating the user interface for the customer dashboard. This dashboard allows users to view real-time information about plow locations, report crashes, and track plow operators' progress. The dashboard's frontend was developed with Angular and Material, while the website was created with GatbsyJS, TailwindCSS, and AWS serverless functions. This project was for NeoTreks Inc, a software company based in Castle Rock, CO.",
-    tech: ["Angular 10", "GatsbyJs", "Material UI", "TailwindCSS"],
+    tech: ["Angular 10", "GatsbyJs", "Material", "TailwindCSS", "Figma"],
     category: "professional",
     github: null,
     link: "https://plowops.com/",
@@ -55,7 +55,7 @@ export const items = [
     tagline: "sustainable investment company website",
     description:
       "This website was designed and built for a sustainable development company based in Boulder, Colorado to showcase their work and services. The site was built/designed on my own, with NextJS and TailwindCSS.",
-    tech: ["NextJS", "TailwindCSS"],
+    tech: ["NextJS", "TailwindCSS", "Figma"],
     category: "professional",
     github: "https://github.com/balthazarely/hartmanely.com",
     link: "https://www.hartmanely.com/",
@@ -74,7 +74,7 @@ export const items = [
     tagline: "website for AccuTerra map overlay",
     description:
       "This website is for AccuTerra Maps, which is a map overlay that is used by a variety of different apps and websites. Accuterra is geared towards outdoor recreations, and offers extensive national park data to its users. This project was built using Gatsby and incorporates maps from Mapbox, MapLibre, Google Maps, Leaflet, and ArcGIS. This project was for NeoTreks Inc, a software company based in Castle Rock, CO.",
-    tech: ["GatsbyJs", "JS Maps"],
+    tech: ["GatsbyJs", "Mapbox"],
     category: "professional",
     github: null,
     link: "https://accuterra.com/",
@@ -126,7 +126,7 @@ export const items = [
     tagline: "2023 Potfolio",
     category: "personal",
     description:
-      "This is the newest iteration of my portfolio, which I usually tinker with once a year. I tried to put most of my time into making a smooth and responsive experience, as well as add a couple fun features. All the animations were done with Framer Motion, with some help with TailwindCSS.",
+      "This is the newest iteration of my portfolio, which I usually rebuild with once a year. I tried to put most of my time into making a smooth and responsive experience, as well as add a couple fun features. All the animations were done with Framer Motion, with some help with TailwindCSS.",
     type: "Website",
     tech: ["NextJS", "Framer Motion", "DaisyUI", "TailwindCSS"],
     github: "https://github.com/balthazarely/portfolio-2023-next",
@@ -141,7 +141,7 @@ export const items = [
     slug: "/freebird",
     tagline: "high end women's shoes with Colorado flare.",
     description:
-      "Freebird Shoes creates unique handcrafted boots and footwear, and runs a large ecommerce site based in Shopify, My work included writing custom Javascript/jQuery/Liquid to make custom features, integrating Yotpo/Klaviyo plugins, and creating a fully functioning Hydrogen (Shopify's React-based framework) shop, which used the GraphQL to interface with the Storefront API, and TailwindCss for styling.",
+      "Freebird Shoes creates unique handcrafted boots and footwear, and runs a large ecommerce site based in Shopify, My work included writing custom Javascript/jQuery/Liquid to make custom features, integrating Yotpo/Klaviyo plugins, and creating a fully functioning Hydrogen (Shopify's React framework) shop, which used  GraphQL to interface with the Storefront API, Sanity CMS for static page data, and TailwindCSS for styling.",
     tech: ["Shopify", "HydrogenJS", "jQuery", "GraphQL", "SanityCMS"],
     category: "professional",
     github: null,
