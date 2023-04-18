@@ -46,6 +46,20 @@ export default function Home() {
       <NextSeo
         title="Balthazar Ely"
         description="Portfolio page for UI Engineer/Front End Developer Balthazar Ely"
+        openGraph={{
+          url: 'https://www.balthazar-ely.com',
+          title: "Balthazar Ely",
+          description: "Portfolio page for UI Engineer/Front End Developer Balthazar Ely",
+          images: [
+            {
+              url: '/images/project-images/portfolio-1.jpg',
+              width: 500,
+              height: 500,
+              alt: 'balthazar portfolio image',
+              type: 'image/jpeg',
+            },
+          ]
+        }}
       />
       <div id="hero" ref={heroRef}>
         <Hero />

@@ -175,7 +175,7 @@ export const items = [
     description:
       "This site was built with Gatsby and Sanity Headless CMS. The project goal was to create a responsive, slick, and fully-functional website using Gatsby and all of it’s templating power. The relationship between artist, releases, and genres were established in Sanity, allowing templates and a blog to be automatically created on build. The animations were done with Framer-Motion and GSAP.",
     tech: ["GatsbyJs", "Styled Components", "SanityCMS"],
-    category: "professional",
+    category: "personal",
     github: "https://github.com/balthazarely/identity-records",
     link: "https://determined-perlman-c1aee9.netlify.app/",
   },
