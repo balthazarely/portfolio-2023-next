@@ -33,7 +33,7 @@ export function Hero() {
           animate={animation}
         >
           <Image
-            className="h-56 w-56 rounded-full object-cover p-3 shadow-lg sm:h-auto sm:w-auto"
+            className="m-3 h-56 w-56 rounded-full object-cover shadow-lg sm:h-auto sm:w-auto"
             src="/images/balthazar-headshot.jpeg"
             alt="balthazar headshot"
             width={200}

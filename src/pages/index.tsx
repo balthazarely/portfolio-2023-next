@@ -4,6 +4,7 @@ import {
   Hero,
   NewLinks,
   ProjectsNew,
+  GihubActivity,
 } from "@/components/sections";
 import { useContext, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
@@ -60,6 +61,9 @@ export default function Home() {
       </div>
       <div id="contact" ref={contactRef}>
         <Contact />
+      </div>
+      <div id="contact" ref={contactRef}>
+        <GihubActivity />
       </div>
     </>
   );
