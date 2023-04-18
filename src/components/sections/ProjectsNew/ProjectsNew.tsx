@@ -6,6 +6,7 @@ import { projectContainerVariants, projectElements } from "lib/animations";
 import { UIContext } from "lib/context";
 import { items } from "lib/content";
 import { Project } from "lib/types";
+import Image from "next/image";
 
 interface ICard {
   item: Project;
@@ -64,15 +65,15 @@ const Card = ({ item, tempSelected }: ICard) => {
         transition={{ duration: 0.25 }}
         className={`relative  gap-6    `}
       >
-        <motion.img
+        <motion.div
           className=" cursor-pointer "
           layoutId={`card-${item.id}`}
-          alt={item.title}
-          src={item.url}
           onClick={() => {
             dispatch({ type: "SET_SELECTED_PROJECT", payload: item });
           }}
-        />
+        >
+          <Image width={500} height={500} alt={item.title} src={item.url} />
+        </motion.div>
         <motion.div
           className="pointer-events-none absolute bottom-0  left-0 z-30  flex h-1/2 w-full flex-col justify-end overflow-hidden  bg-gradient-to-t from-neutral to-transparent px-4 pb-4  sm:hidden  "
           variants={overlayVariants}
