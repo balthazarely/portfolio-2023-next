@@ -67,13 +67,19 @@ const Card = ({ item, tempSelected }: ICard) => {
         className={`relative  gap-6    `}
       >
         <motion.div
-          className=" cursor-pointer "
+          className="cursor-pointer "
           layoutId={`card-${item.id}`}
           onClick={() => {
             dispatch({ type: "SET_SELECTED_PROJECT", payload: item });
           }}
         >
-          <Image width={500} height={500} alt={item.title} src={item.url} />
+          <Image
+            width={500}
+            height={500}
+            className="w-full"
+            alt={item.title}
+            src={item.url}
+          />
         </motion.div>
         <motion.div
           className="pointer-events-none absolute bottom-0  left-0 z-30  flex h-1/2 w-full flex-col justify-end overflow-hidden  bg-gradient-to-t from-neutral to-transparent px-4 pb-4  sm:hidden  "
@@ -89,7 +95,7 @@ const Card = ({ item, tempSelected }: ICard) => {
           </div>
         </motion.div>
         <motion.div
-          className="pointer-events-none absolute left-0 top-0  z-30 hidden h-full w-full overflow-hidden bg-gradient-to-t from-neutral to-transparent sm:block  "
+          className="pointer-events-none absolute  left-0 top-0  z-30 hidden h-full w-full overflow-hidden bg-gradient-to-t from-neutral to-transparent sm:block  "
           initial="hidden"
           variants={overlayVariants}
           animate={isHovered ? "visible" : "hidden"}
@@ -97,10 +103,12 @@ const Card = ({ item, tempSelected }: ICard) => {
           <motion.div
             variants={textOverlayVariants}
             animate={isHovered ? "visible" : "hidden"}
-            className="absolute bottom-0 left-0 h-32 w-full p-4"
+            className="absolute bottom-0 left-0 flex h-32 w-full flex-col items-start justify-end p-4"
           >
-            <div className="text-2xl font-bold text-white">{item.title}</div>
-            <div className="text-sm text-white">{item.tagline}</div>
+            <div className="text-xl font-bold  text-white md:text-2xl">
+              {item.title}
+            </div>
+            <div className="text-xs text-white  md:text-sm">{item.tagline}</div>
             <div className="mt-2 flex flex-wrap gap-2 text-sm text-white">
               {item.tech.map((tech: string, idx: number) => (
                 <div key={idx} className="badge-primary badge badge-sm ">
@@ -117,7 +125,7 @@ const Card = ({ item, tempSelected }: ICard) => {
 
 export function ProjectsNew() {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
-  const threshold = isMobile ? 0.1 : 0.2;
+  const threshold = isMobile ? 0 : 0.1;
   const [ref, inView] = useInView({ threshold: threshold });
   const animation = useAnimation();
 
@@ -167,7 +175,7 @@ export function ProjectsNew() {
 
   return (
     <div className="bg-base-200">
-      <PageWrapper className=" py-16">
+      <PageWrapper className=" py-32">
         <motion.div
           initial="hidden"
           ref={ref}

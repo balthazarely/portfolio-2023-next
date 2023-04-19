@@ -12,7 +12,6 @@ export function Drawer() {
   const { state, dispatch } = useContext(UIContext);
   const { width } = useWindowSize();
   const menuItems = ["about", "projects", "links", "contact"];
-  const router = useRouter();
 
   useEffect(() => {
     if (width > 640) {
@@ -68,22 +67,13 @@ export function Drawer() {
     }
   };
 
-  const toggleDrawer = (section: string) => {
-    if (router.pathname !== "/") {
-      setTimeout(() => scrollToElement(section), 500);
-      dispatch({ type: "CLOSE_NAV_DRAWER" });
-    } else {
-      scrollToElement(section);
-      dispatch({ type: "CLOSE_NAV_DRAWER" });
-    }
-  };
-
   const scrollToElement = (elementId: string) => {
+    dispatch({ type: "CLOSE_NAV_DRAWER" });
     scroller.scrollTo(elementId, {
-      duration: 50,
+      duration: 500,
       delay: 0,
-      smooth: false,
-      offset: -50,
+      smooth: true,
+      offset: 0,
     });
   };
 
@@ -108,7 +98,7 @@ export function Drawer() {
               <Link
                 scroll={false}
                 href={`/#${section}`}
-                onClick={() => toggleDrawer(section)}
+                onClick={() => scrollToElement(section)}
               >
                 <button
                   role="button"
