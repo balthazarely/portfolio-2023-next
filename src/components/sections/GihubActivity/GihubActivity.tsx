@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { PageWrapper } from "@/components/layout";
 import { RiGitRepositoryCommitsLine } from "react-icons/ri";
 import { useMediaQuery } from "react-responsive";
+import { log } from "console";
 
 const sectionContainer = {
   hidden: {
@@ -72,7 +73,7 @@ export function GihubActivity() {
   const fetchGithubData = async () => {
     try {
       const response = await fetch(
-        `https://api.github.com/users/balthazarely/events?per_page=6`,
+        `https://api.github.com/users/balthazarely/events?per_page=30`,
         {
           headers: {
             Authorization: `Token ${process.env.NEXT_PUBLIC_GITHUB_KEY}`,
@@ -94,6 +95,8 @@ export function GihubActivity() {
             repoUrl: data.repo.url,
           };
         });
+      console.log(data);
+
       setRecentPushes(pushData);
     } catch (error) {}
   };
@@ -110,7 +113,7 @@ export function GihubActivity() {
               animate={animation}
               className="mb-4 flex items-center justify-center gap-2 text-center font-bold text-white"
             >
-              <div> recenty github activity </div>
+              <div> recenty github commits </div>
             </motion.div>
             <motion.div
               variants={sectionContainer}
@@ -119,7 +122,7 @@ export function GihubActivity() {
               animate={animation}
               className="mx-auto  grid w-full  grid-cols-1 gap-2 sm:grid-cols-2 "
             >
-              {recentPushes?.map((push: any) => {
+              {recentPushes?.slice(0, 6).map((push: any) => {
                 return (
                   <motion.div
                     variants={singleCard}
