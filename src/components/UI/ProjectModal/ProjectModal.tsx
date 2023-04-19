@@ -73,7 +73,7 @@ export function ProjectModal() {
             onClick={(e) => {
               dispatch({ type: "CLEAR_SELECTED_PROJECT" });
             }}
-            className="btn-neutral btn-circle btn absolute right-3 top-3 z-[500] cursor-pointer border-none bg-opacity-50"
+            className="btn-neutral btn-circle btn visible absolute right-3 top-3  z-[500] cursor-pointer border-none bg-opacity-50 sm:invisible"
           >
             <HiX className="text-white" />
           </button>

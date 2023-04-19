@@ -1,7 +1,6 @@
 import { LayoutGroup, motion } from "framer-motion";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { PageWrapper } from "../PageWrapper";
-import { scroller } from "react-scroll";
 import { Cross as Hamburger } from "hamburger-react";
 import { UIContext } from "lib/context";
 import { DarkModeToggle } from "@/components/UI";
@@ -21,21 +20,12 @@ export function Navbar() {
     }
   };
 
-  const scrollToElement = (elementId: string) => {
-    scroller.scrollTo(elementId, {
-      duration: 50,
-      delay: 0,
-      smooth: false,
-      offset: -50,
-    });
-  };
-
   return (
     <div className={`fixed z-30 h-24 w-full bg-base-100 py-6 `}>
       <PageWrapper className="flex items-center justify-between">
         <div className="cursor-pointer text-3xl font-bold">
           <Link href="/">
-            balthazar<span className="text-primary">.dev</span>
+            balthazar<span className="text-primary">.ely</span>
           </Link>
         </div>
         <div className="block  sm:hidden">
@@ -57,18 +47,7 @@ export function Navbar() {
                     />
                   )}
 
-                  <Link
-                    href={`/#${section}`}
-                    onClick={() => {
-                      if (router.pathname !== "/") {
-                        setTimeout(() => scrollToElement(section), 600);
-                      } else {
-                        scrollToElement(section);
-                      }
-                    }}
-                  >
-                    {section}
-                  </Link>
+                  <Link href={`/#${section}`}>{section}</Link>
                 </motion.li>
               ))}
             </ul>
