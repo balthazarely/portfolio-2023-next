@@ -4,9 +4,12 @@ import { useEffect } from "react";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useForm, ValidationError } from "@formspree/react";
+import { useMediaQuery } from "react-responsive";
 
 export function Contact() {
-  const [ref, inView] = useInView({ threshold: 0.2 });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const threshold = isMobile ? 0.1 : 0.2;
+  const [ref, inView] = useInView({ threshold: threshold });
   const animation = useAnimation();
 
   useEffect(() => {

@@ -7,6 +7,7 @@ import { UIContext } from "lib/context";
 import { items } from "lib/content";
 import { Project } from "lib/types";
 import Image from "next/image";
+import { useMediaQuery } from "react-responsive";
 
 interface ICard {
   item: Project;
@@ -115,12 +116,15 @@ const Card = ({ item, tempSelected }: ICard) => {
 };
 
 export function ProjectsNew() {
-  const { state } = useContext(UIContext);
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const threshold = isMobile ? 0.1 : 0.2;
+  const [ref, inView] = useInView({ threshold: threshold });
+  const animation = useAnimation();
 
-  const [ref, inView, entry] = useInView({ threshold: 0.1 });
+  // State
+  const { state } = useContext(UIContext);
   const [asAnimationHappened, setAnimationHappened] = useState<boolean>(false);
   const [tempSelected, setTempSelected] = useState<Project | null>(null);
-  const animation = useAnimation();
   const [filterBy, setFilterBy] = useState<string>("all");
   const [projects, setProjects] = useState<Project[]>(items);
 

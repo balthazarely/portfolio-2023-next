@@ -5,9 +5,12 @@ import { HiCheck, HiCode } from "react-icons/hi";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { devskills } from "lib/content";
+import { useMediaQuery } from "react-responsive";
 
 export function About() {
-  const [ref, inView] = useInView({ threshold: 0.3 });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const threshold = isMobile ? 0.1 : 0.3;
+  const [ref, inView] = useInView({ threshold: threshold });
   const animation = useAnimation();
 
   useEffect(() => {

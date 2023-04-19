@@ -27,6 +27,7 @@
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
     "react-intersection-observer": "^9.4.3",
+    "react-responsive": "^9.0.2",
     "react-scroll": "^1.8.9",
     "react-use": "^17.4.0",
     "typescript": "5.0.4"

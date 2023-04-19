@@ -100,7 +100,7 @@ export function ProjectWrapper({
         ref={contentRef}
       >
         <div className="bg-base-200 pt-0 ">
-          <PageWrapper className="grid grid-cols-1 gap-8 pb-32 pt-16  md:grid-cols-2">
+          <PageWrapper className="grid max-w-xl grid-cols-1 gap-8 pb-32 pt-16 md:max-w-4xl  md:grid-cols-2">
             <motion.div
               initial="hidden"
               ref={ref}
@@ -109,13 +109,13 @@ export function ProjectWrapper({
             >
               <motion.div
                 variants={containerInnerElementsLeft}
-                className="text-center text-3xl font-bold leading-snug md:text-left"
+                className="text-left text-3xl font-bold leading-snug"
               >
                 {project.title}
               </motion.div>
               <motion.div
                 variants={containerInnerElementsLeft}
-                className="text-md mb-1 flex flex-wrap justify-center gap-8 py-2  text-center text-sm font-bold leading-snug sm:text-left md:justify-start"
+                className="text-md mb-1 flex flex-wrap  justify-start gap-8  py-2 text-left text-sm font-bold leading-snug"
               >
                 {project?.client && (
                   <div>
@@ -132,7 +132,7 @@ export function ProjectWrapper({
               </motion.div>
               <motion.div
                 variants={containerInnerElementsLeft}
-                className=" mb-4 flex flex-wrap justify-center gap-2 text-sm  text-white md:justify-start"
+                className=" mb-4 flex flex-wrap justify-start gap-2  text-sm text-white"
               >
                 {project.tech.map((tech: string) => (
                   <div key={tech} className="badge-primary badge badge-sm ">
@@ -143,7 +143,7 @@ export function ProjectWrapper({
 
               <motion.div
                 variants={containerInnerElementsLeft}
-                className="mx-auto  w-full max-w-md  text-center  text-sm md:text-left"
+                className="mx-auto  w-full    text-left text-sm"
               >
                 {project.description.split("\n").map((line, index) => (
                   <div className="mt-4" key={index}>
@@ -152,7 +152,7 @@ export function ProjectWrapper({
                 ))}
               </motion.div>
               <motion.div
-                className="mt-4 flex justify-center gap-2 md:justify-start "
+                className="mt-4 flex justify-start gap-2 "
                 variants={containerInnerElementsLeft}
               >
                 {project.link && (

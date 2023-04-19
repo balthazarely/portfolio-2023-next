@@ -3,6 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { PageWrapper } from "@/components/layout";
 import { RiGitRepositoryCommitsLine } from "react-icons/ri";
+import { useMediaQuery } from "react-responsive";
 
 const sectionContainer = {
   hidden: {
@@ -39,7 +40,9 @@ const singleCard = {
 
 export function GihubActivity() {
   const [recentPushes, setRecentPushes] = useState<any>(null);
-  const [ref, inView] = useInView({ threshold: 0.2 });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const threshold = isMobile ? 0.1 : 0.2;
+  const [ref, inView] = useInView({ threshold: threshold });
   const animation = useAnimation();
 
   useEffect(() => {
