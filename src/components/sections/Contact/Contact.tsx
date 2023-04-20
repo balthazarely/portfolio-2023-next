@@ -12,11 +12,15 @@ export function Contact() {
   const [ref, inView] = useInView({ threshold: threshold });
   const animation = useAnimation();
 
+  // useEffect(() => {
+  //   if (inView) {
+  //     animation.start("visible");
+  //   }
+  // }, [animation, inView]);
+
   useEffect(() => {
-    if (inView) {
-      animation.start("visible");
-    }
-  }, [animation, inView]);
+    animation.start("visible");
+  }, [animation]);
 
   const sectionContainer = {
     hidden: {

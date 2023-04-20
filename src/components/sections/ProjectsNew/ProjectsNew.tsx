@@ -140,12 +140,16 @@ export function ProjectsNew() {
     filterBy !== "all" ? project.category === filterBy : project
   );
 
+  // useEffect(() => {
+  //   if (inView) {
+  //     animation.start("visible");
+  //     setAnimationHappened(true);
+  //   }
+  // }, [animation, inView]);
+
   useEffect(() => {
-    if (inView) {
-      animation.start("visible");
-      setAnimationHappened(true);
-    }
-  }, [animation, inView]);
+    animation.start("visible");
+  }, [animation]);
 
   useEffect(() => {
     if (state.selectedProject !== null) {

@@ -16,11 +16,14 @@ export function Hero() {
   const [headshotLoaded, setHeadshotLoaded] = useState(false);
   const animation = useAnimation();
 
+  // useEffect(() => {
+  //   if (inView && headshotLoaded) {
+  //     animation.start("visible");
+  //   }
+  // }, [animation, inView, headshotLoaded]);
   useEffect(() => {
-    if (inView && headshotLoaded) {
-      animation.start("visible");
-    }
-  }, [animation, inView, headshotLoaded]);
+    animation.start("visible");
+  }, [animation]);
 
   return (
     <div className="bg-base-200 pt-24 ">

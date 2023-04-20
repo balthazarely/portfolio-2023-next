@@ -4,7 +4,6 @@ import { useInView } from "react-intersection-observer";
 import { PageWrapper } from "@/components/layout";
 import { RiGitRepositoryCommitsLine } from "react-icons/ri";
 import { useMediaQuery } from "react-responsive";
-import { log } from "console";
 
 const sectionContainer = {
   hidden: {
@@ -46,11 +45,14 @@ export function GihubActivity() {
   const [ref, inView] = useInView({ threshold: threshold });
   const animation = useAnimation();
 
+  // useEffect(() => {
+  //   if (inView) {
+  //     animation.start("visible");
+  //   }
+  // }, [animation, inView]);
   useEffect(() => {
-    if (inView) {
-      animation.start("visible");
-    }
-  }, [animation, inView]);
+    animation.start("visible");
+  }, [animation]);
 
   useEffect(() => {
     fetchGithubData();
