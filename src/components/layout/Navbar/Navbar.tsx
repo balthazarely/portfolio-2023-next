@@ -5,10 +5,8 @@ import { Cross as Hamburger } from "hamburger-react";
 import { UIContext } from "lib/context";
 import { DarkModeToggle } from "@/components/UI";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 export function Navbar() {
-  const router = useRouter();
   const { state, dispatch } = useContext(UIContext);
   const menuItems = ["about", "projects", "links", "contact"];
 
@@ -24,7 +22,7 @@ export function Navbar() {
     <div className={`fixed z-30 h-24 w-full bg-base-100 py-6 `}>
       <PageWrapper className="flex items-center justify-between">
         <div className="cursor-pointer text-3xl font-bold">
-          <Link href="/">
+          <Link href="/" onClick={() => dispatch({ type: "CLOSE_NAV_DRAWER" })}>
             balthazar<span className="text-primary">.ely</span>
           </Link>
         </div>

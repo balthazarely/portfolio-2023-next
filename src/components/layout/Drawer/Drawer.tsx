@@ -6,7 +6,6 @@ import { scroller } from "react-scroll";
 import Link from "next/link";
 import { useWindowSize } from "react-use";
 import { DarkModeToggle } from "@/components/UI";
-import { useRouter } from "next/router";
 
 export function Drawer() {
   const { state, dispatch } = useContext(UIContext);

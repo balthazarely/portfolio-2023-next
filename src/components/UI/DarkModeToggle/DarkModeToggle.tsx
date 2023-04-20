@@ -4,6 +4,7 @@ import { HiMoon } from "react-icons/hi";
 import { BsSun, BsSnow, BsTreeFill } from "react-icons/bs";
 import { GiVampireDracula } from "react-icons/gi";
 import { IColorIcons } from "lib/types";
+import { SiWindows95 } from "react-icons/si";
 
 export function DarkModeToggle() {
   const { state, dispatch } = useContext(UIContext);

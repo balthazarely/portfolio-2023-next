@@ -89,7 +89,7 @@ export default function Home() {
       <div id="about" ref={aboutRef}>
         <About />
       </div>
-      <div id="projects" className="scroll-m-24" ref={projectsRef}>
+      <div id="projects" ref={projectsRef}>
         <ProjectsNew />
       </div>
       <div id="links" ref={linksRef}>
@@ -98,7 +98,7 @@ export default function Home() {
       <div id="contact" ref={contactRef}>
         <Contact />
       </div>
-      <div id="contact" ref={contactRef}>
+      <div>
         <GihubActivity />
       </div>
     </>
