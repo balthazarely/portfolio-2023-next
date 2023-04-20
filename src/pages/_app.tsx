@@ -5,6 +5,7 @@ import GlobalProvider from "lib/context";
 import type { AppProps } from "next/app";
 import { Poppins } from "next/font/google";
 import { useRouter } from "next/router";
+import { Analytics } from "@vercel/analytics/react";
 
 const poppins = Poppins({
   weight: ["400", "600", "700"],
@@ -28,6 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </Layout>
         <ProjectModal />
         <ModalBackground />
+        <Analytics />
       </GlobalProvider>
     </div>
   );
