@@ -2,17 +2,11 @@ import { UIContext } from "lib/context";
 import { useEscapeKeyPress } from "lib/hooks";
 import React, { useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Poppins } from "next/font/google";
 
 interface ILayout {
   children: React.ReactNode;
   route: string;
 }
-
-const poppins = Poppins({
-  weight: ["400", "600", "700"],
-  subsets: ["latin"],
-});
 
 export function Layout({ children, route }: ILayout) {
   const { state, dispatch } = useContext(UIContext);
