@@ -23,7 +23,7 @@ export function Hero() {
   }, [animation, inView, headshotLoaded]);
 
   return (
-    <div className="bg-base-200 pt-24 ">
+    <div className="flex items-center justify-center bg-base-200 pt-24 ">
       <PageWrapper className="grid grid-cols-1 gap-0 py-32 sm:grid-cols-12 sm:gap-6">
         <motion.div
           className="col-span-1 flex  w-full justify-center  sm:col-span-4  sm:aspect-square"
@@ -38,6 +38,7 @@ export function Hero() {
             alt="balthazar headshot"
             width={200}
             height={200}
+            priority
             onLoad={() => setHeadshotLoaded(true)}
           />
         </motion.div>

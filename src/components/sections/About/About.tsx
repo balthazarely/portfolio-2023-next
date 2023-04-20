@@ -9,7 +9,7 @@ import { useMediaQuery } from "react-responsive";
 
 export function About() {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
-  const threshold = isMobile ? 0.1 : 0.3;
+  const threshold = isMobile ? 0.1 : 0.4;
   const [ref, inView] = useInView({ threshold: threshold });
   const animation = useAnimation();
 

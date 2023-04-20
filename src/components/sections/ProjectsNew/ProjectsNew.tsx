@@ -78,6 +78,7 @@ const Card = ({ item, tempSelected }: ICard) => {
             height={500}
             className="w-full"
             alt={item.title}
+            loading="lazy"
             src={item.url}
           />
         </motion.div>

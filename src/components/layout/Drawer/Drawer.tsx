@@ -85,7 +85,11 @@ export function Drawer() {
         className="fixed -right-80  top-0 z-[70] h-screen w-full max-w-xs bg-base-100 p-5  shadow-lg"
       >
         <div className="mt-1 flex w-full justify-end px-4">
-          <Hamburger toggled={state.navDrawerOpen} toggle={toggleHamburger} />
+          <Hamburger
+            aria-label="toggle-menu"
+            toggled={state.navDrawerOpen}
+            toggle={toggleHamburger}
+          />
         </div>
         {menuItems.map((section: string, idx: number) => {
           return (

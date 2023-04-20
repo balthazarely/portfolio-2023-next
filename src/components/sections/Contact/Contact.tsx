@@ -57,6 +57,7 @@ export function Contact() {
       variants={sectionContainer}
       initial="hidden"
       ref={ref}
+      className="bg-base-200"
       animate={animation}
     >
       <PageWrapper className="flex flex-col items-center justify-center gap-6   py-32 text-center ">
