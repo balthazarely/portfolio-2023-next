@@ -57,16 +57,26 @@ export function GihubActivity() {
   }, []);
 
   function getTimeAgo(dateString: string) {
+    const MS_IN_MIN = 60 * 1000;
+    const MS_IN_HR = MS_IN_MIN * 60;
+    const MS_IN_DAY = MS_IN_HR * 24;
+
     const date = new Date(dateString);
     const now = new Date();
     const diffMs = now.getTime() - date.getTime();
-    const diffMins = Math.round(diffMs / (1000 * 60));
 
-    if (diffMins < 60) {
-      return `${diffMins} min ago`;
+    if (diffMs < MS_IN_MIN) {
+      const diffSecs = Math.round(diffMs / 1000);
+      return `${diffSecs} ${diffSecs === 1 ? "sec" : "secs"} ago`;
+    } else if (diffMs < MS_IN_HR) {
+      const diffMins = Math.round(diffMs / MS_IN_MIN);
+      return `${diffMins} ${diffMins === 1 ? "min" : "mins"} ago`;
+    } else if (diffMs < MS_IN_DAY) {
+      const diffHrs = Math.round(diffMs / MS_IN_HR);
+      return `${diffHrs} ${diffHrs === 1 ? "hr" : "hrs"} ago`;
     } else {
-      const diffHrs = Math.round(diffMs / (1000 * 60 * 60));
-      return `${diffHrs} hr ago`;
+      const diffDays = Math.round(diffMs / MS_IN_DAY);
+      return `${diffDays} ${diffDays === 1 ? "day" : "days"} ago`;
     }
   }
 
