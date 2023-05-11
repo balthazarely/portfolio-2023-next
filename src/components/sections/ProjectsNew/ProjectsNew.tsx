@@ -101,6 +101,10 @@ const Card = ({ item, tempSelected }: ICard) => {
           variants={overlayVariants}
           animate={isHovered ? "visible" : "hidden"}
         >
+          <div className=" badge  badge-sm absolute right-2 top-2 font-semibold capitalize text-base-content ">
+            {item.category}
+          </div>
+
           <motion.div
             variants={textOverlayVariants}
             animate={isHovered ? "visible" : "hidden"}
