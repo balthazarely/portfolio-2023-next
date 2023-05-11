@@ -2,7 +2,7 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Privett() {
-  const index = 7;
+  const index = 8;
 
   return (
     <ProjectWrapper

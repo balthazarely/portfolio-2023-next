@@ -2,7 +2,7 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function IdentityRecords() {
-  const index = 8;
+  const index = 9;
 
   return (
     <ProjectWrapper

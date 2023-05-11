@@ -2,7 +2,7 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Accuterra() {
-  const index = 2;
+  const index = 3;
 
   return (
     <ProjectWrapper

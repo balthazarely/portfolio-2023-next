@@ -2,7 +2,7 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function MovieMate() {
-  const index = 4;
+  const index = 5;
 
   return (
     <ProjectWrapper

@@ -2,7 +2,7 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Bannerbox() {
-  const index = 9;
+  const index = 10;
   return (
     <ProjectWrapper
       project={items[index]}

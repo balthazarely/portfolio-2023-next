@@ -1,8 +1,8 @@
 import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
-export default function Freebird() {
-  const index = 7;
+export default function MovieMate() {
+  const index = 2;
 
   return (
     <ProjectWrapper

@@ -2,7 +2,7 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Logos() {
-  const index = 10;
+  const index = 11;
 
   return (
     <ProjectWrapper
