@@ -164,7 +164,7 @@ export const items = [
     tech: ["Shopify", "HydrogenJS", "jQuery", "GraphQL", "SanityCMS"],
     category: "professional",
     github: null,
-    link: "https://www.balthazar-dev.com/freebird-shoes",
+    link: "https://www.freebirdstores.com/",
   },
   {
     id: 9,
