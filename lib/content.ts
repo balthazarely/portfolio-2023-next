@@ -8,7 +8,7 @@ export const devskills = [
   "GraphQL",
   "Shopify/HydrogenJS",
   "TailwindCSS",
-  "Bootstrap",
+  "Redux/NgRx",
   "ExpressJS",
   "Prisma",
   "Firebase",
