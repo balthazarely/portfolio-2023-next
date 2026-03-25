@@ -1,10 +1,5 @@
 import { createContext, useReducer } from "react";
-import {
-  GlobalProviderProps,
-  InitialStateType,
-  Project,
-  UIAction,
-} from "./types";
+import { GlobalProviderProps, InitialStateType, UIAction } from "./types";
 
 const UIReducer = (state: InitialStateType, action: UIAction) => {
   switch (action.type) {

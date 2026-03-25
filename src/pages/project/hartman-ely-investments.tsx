@@ -2,7 +2,7 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function HartmanElyInvestment() {
-  const index = 1;
+  const index = 2;
 
   return (
     <ProjectWrapper

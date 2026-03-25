@@ -7,7 +7,7 @@ export function Carousel({ children }: { children: React.ReactNode }) {
   const [axis] = useState<Axis>("x");
   const [emblaRef, embla] = useEmblaCarousel(
     { loop: false, skipSnaps: true, axis },
-    []
+    [],
   );
 
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -17,7 +17,7 @@ export function Carousel({ children }: { children: React.ReactNode }) {
 
   const scrollTo = useCallback(
     (index: number) => embla && embla.scrollTo(index),
-    [embla]
+    [embla],
   );
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
@@ -47,28 +47,35 @@ export function Carousel({ children }: { children: React.ReactNode }) {
               </div>
             ))}
           </div>
-        </div>
-        <div className="embla__dots">
-          {scrollSnaps.map((snap, index) => (
-            <DotButton
-              selected={index === selectedIndex}
-              onClick={() => scrollTo(index)}
-              key={index}
-            />
-          ))}
-        </div>
-        <div className="embla__dots__mobile ">
-          {scrollSnaps.map((snap, index) => (
-            <DotButton
-              selected={index === selectedIndex}
-              onClick={() => scrollTo(index)}
-              key={index}
-            />
-          ))}
-        </div>
-
-        <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
-        <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
+        </div>{" "}
+        {scrollSnaps.length > 1 && (
+          <div className="embla__dots">
+            {scrollSnaps.map((snap, index) => (
+              <DotButton
+                selected={index === selectedIndex}
+                onClick={() => scrollTo(index)}
+                key={index}
+              />
+            ))}
+          </div>
+        )}
+        {scrollSnaps.length > 1 && (
+          <div className="embla__dots__mobile ">
+            {scrollSnaps.map((snap, index) => (
+              <DotButton
+                selected={index === selectedIndex}
+                onClick={() => scrollTo(index)}
+                key={index}
+              />
+            ))}
+          </div>
+        )}
+        {scrollSnaps.length > 1 && (
+          <>
+            <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
+            <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
+          </>
+        )}
       </div>
     </>
   );

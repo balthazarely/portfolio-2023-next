@@ -18,7 +18,7 @@ export function Footer() {
           <div className="flex">
             <BiCopyright className="mr-1 text-white" />
             <div className="text-xs font-bold text-white">
-              balthazar ely 2023
+              balthazar ely {new Date().getFullYear()}
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Plowops() {
-  const index = 0;
+  const index = 1;
 
   return (
     <ProjectWrapper

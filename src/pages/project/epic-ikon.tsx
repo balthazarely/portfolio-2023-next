@@ -1,8 +1,8 @@
 import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
-export default function Privett() {
-  const index = 8;
+export default function EpicIkon() {
+  const index = 3;
 
   return (
     <ProjectWrapper

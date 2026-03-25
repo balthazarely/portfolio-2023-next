@@ -1,8 +1,8 @@
 import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
-export default function MovieMate() {
-  const index = 2;
+export default function SnowAgent() {
+  const index = 5;
 
   return (
     <ProjectWrapper

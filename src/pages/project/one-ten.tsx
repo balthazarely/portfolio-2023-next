@@ -1,14 +1,13 @@
 import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
-export default function MovieMate() {
-  const index = 5;
-
+export default function OneTen() {
+  const index = 9;
   return (
     <ProjectWrapper
       project={items[index]}
       prevProjectObj={items[index - 1]}
-      nextProjectObj={items[index + 1]}
+      nextProjectObj={null}
     ></ProjectWrapper>
   );
 }

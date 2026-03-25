@@ -2,7 +2,7 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Songdive() {
-  const index = 4;
+  const index = 6;
 
   return (
     <ProjectWrapper

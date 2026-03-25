@@ -2,7 +2,7 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Portfolio() {
-  const index = 6;
+  const index = 7;
 
   return (
     <ProjectWrapper
