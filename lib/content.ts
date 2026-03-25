@@ -182,7 +182,6 @@ export const items = [
     github: null,
     link: "https://www.freebirdstores.com/",
   },
-
   {
     id: 10,
     year: "2019 - 2021",
@@ -198,6 +197,7 @@ export const items = [
     github: "https://github.com/balthazarely/bannerbox_2020",
     link: "https://bannerbin-552ae.web.app/",
   },
+
   {
     id: 11,
     year: null,

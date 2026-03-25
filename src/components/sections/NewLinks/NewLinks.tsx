@@ -115,7 +115,7 @@ export function NewLinks() {
               <div className="text-sm font-bold">linkedin</div>
             </a>
             <a
-              href="/balthazar_ely_resume_2023.pdf"
+              href="/Balthazar_Ely_Resume_2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-transform duration-200 hover:-translate-y-2 hover:bg-base-200"
