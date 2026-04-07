@@ -1,15 +1,15 @@
 export const devskills = [
-  "JavaScript",
+  "JavaScript/TypeScript",
   "CSS/SCSS",
   "HTML5",
-  "React",
-  "NextJs/Gatsby",
+  "React/NextJs/Gatsby",
+  "HeadlessCMS",
   "Angular",
   "ArcGIS/Mapbox",
   "Shopify/HydrogenJS",
   "TailwindCSS",
   "Redux/NgRx",
-  "ExpressJS",
+  "NodeJs",
   "Prisma",
   "Firebase/Supabase",
   "MongoDB",
@@ -71,7 +71,7 @@ export const items = [
     tagline: "sustainable investment company website",
     description:
       "This website was designed and built for a sustainable development company based in Boulder, Colorado to showcase their work and services. The site was built/designed on my own, with NextJS and TailwindCSS.",
-    tech: ["NextJS", "TailwindCSS", "Figma"],
+    tech: ["NextJS", "PayloadCMS", "TailwindCSS", "Figma"],
     category: "professional",
     github: "https://github.com/balthazarely/hartmanely.com",
     link: "https://www.hartmanely.com/",
@@ -86,15 +86,42 @@ export const items = [
     title: "Epic vs Ikon",
     tagline: "explore the ski slopes",
     description:
-      "I developed Global Listen, an interactive full-stack web application for exploring ski resorts across the world through a real-time 3D globe visualization. Built with Next.js, React, Three.js, Mapbox GL, and TailwindCSS, the app allows skiers to discover and compare resorts across North America, Japan, and Australia — with rich filtering by pass type (Ikon and Epic), vertical drop, trail count, and lift access. At the core of the app is a custom Three.js globe with sprite-based resort markers, intelligent proximity clustering, and smooth animated camera transitions. I implemented a canvas-based texture generation system for cluster badges and glow effects, avoiding pre-rendered assets in favor of dynamic rendering. Detailed resort data — including trail difficulty breakdowns, lift infrastructure, and snowmaking coverage — is surfaced in a drawer view powered by streaming API routes and React Query for efficient caching. Considerable attention went into interaction design: the globe supports drag-to-rotate, region fly-to animations, and an eased intro camera arc on load. The app is fully responsive, with a dedicated mobile filter drawer and layout optimizations for smaller screens.",
+      "I developed Epic vs Ikon, an interactive web application for exploring ski resorts across the world through a real-time 3D globe visualization. Built with Next.js, React, Three.js, Mapbox GL, and TailwindCSS, the app allows skiers to discover and compare resorts across North America, Japan, and Australia — with rich filtering by pass type (Ikon and Epic), vertical drop, trail count, and lift access. At the core of the app is a custom Three.js globe with sprite-based resort markers, intelligent proximity clustering, and smooth animated camera transitions. I implemented a canvas-based texture generation system for cluster badges and glow effects, avoiding pre-rendered assets in favor of dynamic rendering. Detailed resort data — including trail difficulty breakdowns, lift infrastructure, and snowmaking coverage — is surfaced in a drawer view powered by streaming API routes and React Query for efficient caching. Considerable attention went into interaction design: the globe supports drag-to-rotate, region fly-to animations, and an eased intro camera arc on load. The app is fully responsive, with a dedicated mobile filter drawer and layout optimizations for smaller screens.",
     tech: ["React", "Three.js", "TailwindCSS", "Tanstack"],
     category: "personal",
     github: "https://github.com/balthazarely/epic-ikon",
-    link: "https://epic-ikon.vercel.app//",
+    link: "https://epic-ikon.vercel.app/",
   },
 
   {
     id: 5,
+    year: "2026",
+    client: "me",
+    url: "/images/project-images/lifts-1.png",
+    slug: "/lifts-workout-app",
+    otherImages: [
+      "/images/project-images/lifts-2.png",
+      "/images/project-images/lifts-3.png",
+    ],
+    title: "Lifts Workout",
+    tagline: "better workout tracking",
+    description:
+      "A full-stack fitness tracking application built with Next.js, Supabase, and the AI SDK. I built this to encorporate features that I wanted in my training routine, such as quick workout builder, AI workout features, and the ability to add custom exercises. Users can log workouts from a curated exercise library organized by muscle group, equipment, and movement pattern, with support for preferred weight units. The app leans heavily on Next.js server components — workout data, user profiles,  and exercise lists are all fetched server-side, with React Suspense used to stream dashboard charts independently without blocking page render. Workout history is persisted per user via Supabase Auth and a Postgres backend. The app integrates Anthropic's AI SDK for intelligent workout suggestions. Built with shadcn/ui, TailwindCSS v4, and Zod for schema validation, with a seed script for populating the exercise database.",
+    tech: [
+      "NextJs",
+      "Supabase",
+      "Shadcn/ui",
+      "Server-Side Rendering",
+      "AI SDK",
+      "Zod",
+    ],
+    category: "personal",
+    github: "https://github.com/balthazarely/ssr-auth-example",
+    link: "https://ssr-auth-example.vercel.app",
+  },
+
+  {
+    id: 6,
     year: "2021",
     client: "NeoTreks",
     url: "/images/project-images/accuterra.jpg",
@@ -113,7 +140,7 @@ export const items = [
     link: "https://accuterra.com/",
   },
   {
-    id: 6,
+    id: 7,
     year: "2026",
     client: "me",
     url: "/images/project-images/snow-agent.png",
@@ -134,7 +161,7 @@ export const items = [
     link: "https://snow-scrapper.vercel.app/",
   },
   {
-    id: 7,
+    id: 8,
     year: "2022",
     client: "me",
     url: "/images/project-images/songdive.jpg",
@@ -151,7 +178,7 @@ export const items = [
   },
 
   {
-    id: 8,
+    id: 9,
     year: "2023",
     client: "me",
     url: "/images/project-images/portfolio.jpg",
@@ -168,7 +195,7 @@ export const items = [
     link: null,
   },
   {
-    id: 9,
+    id: 10,
     year: "2022",
     client: "Freebird",
     url: "/images/project-images/freebird.jpg",
@@ -183,7 +210,7 @@ export const items = [
     link: "https://www.freebirdstores.com/",
   },
   {
-    id: 10,
+    id: 11,
     year: "2019 - 2021",
     client: "Dish Network/OneTen Creative",
     url: "/images/project-images/one-ten.png",
@@ -199,7 +226,7 @@ export const items = [
   },
 
   {
-    id: 11,
+    id: 12,
     year: null,
     client: null,
     url: "/images/project-images/logos.jpg",
@@ -242,7 +269,7 @@ export const items = [
     link: null,
   },
   {
-    id: 12,
+    id: 13,
     year: null,
     client: null,
     slug: "/brochures",

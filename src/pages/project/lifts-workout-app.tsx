@@ -1,8 +1,8 @@
 import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
-export default function HartmanElyInvestment() {
-  const index = items.findIndex((item) => item.slug === "/hartman-ely-investments");
+export default function LiftsWorkoutApp() {
+  const index = items.findIndex((item) => item.slug === "/lifts-workout-app");
   const prevProjectObj = index > 0 ? items[index - 1] : null;
   const nextProjectObj = index < items.length - 1 ? items[index + 1] : null;
 

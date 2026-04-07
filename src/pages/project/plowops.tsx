@@ -2,13 +2,15 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Plowops() {
-  const index = 1;
+  const index = items.findIndex((item) => item.slug === "/plowops");
+  const prevProjectObj = index > 0 ? items[index - 1] : null;
+  const nextProjectObj = index < items.length - 1 ? items[index + 1] : null;
 
   return (
     <ProjectWrapper
       project={items[index]}
-      prevProjectObj={null}
-      nextProjectObj={items[index + 1]}
+      prevProjectObj={prevProjectObj}
+      nextProjectObj={nextProjectObj}
     ></ProjectWrapper>
   );
 }

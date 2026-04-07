@@ -2,13 +2,15 @@ import { ProjectWrapper } from "@/components/layout";
 import { items } from "lib/content";
 
 export default function Credera() {
-  const index = 0;
+  const index = items.findIndex((item) => item.slug === "/credera");
+  const prevProjectObj = index > 0 ? items[index - 1] : null;
+  const nextProjectObj = index < items.length - 1 ? items[index + 1] : null;
 
   return (
     <ProjectWrapper
       project={items[index]}
-      prevProjectObj={items[index - 1]}
-      nextProjectObj={null}
+      prevProjectObj={prevProjectObj}
+      nextProjectObj={nextProjectObj}
     ></ProjectWrapper>
   );
 }
