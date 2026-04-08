@@ -8,11 +8,11 @@ export function Footer() {
       <PageWrapper className="flex flex-col items-center justify-between gap-1  sm:flex-row  ">
         <div className="flex flex-col gap-1">
           <div className="flex justify-center gap-2 sm:justify-start">
-            <a href="https://github.com/balthazarely" target="_BLANK">
-              <BsGithub className="text-white" />
+            <a href="https://github.com/balthazarely" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+              <BsGithub aria-hidden="true" className="text-white" />
             </a>
-            <a href="https://www.linkedin.com/in/balthazarely" target="_BLANK">
-              <BsLinkedin className="text-white" />
+            <a href="https://www.linkedin.com/in/balthazarely" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <BsLinkedin aria-hidden="true" className="text-white" />
             </a>
           </div>
           <div className="flex">

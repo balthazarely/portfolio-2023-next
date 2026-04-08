@@ -55,6 +55,7 @@ export function Carousel({ children }: { children: React.ReactNode }) {
                 selected={index === selectedIndex}
                 onClick={() => scrollTo(index)}
                 key={index}
+                index={index}
               />
             ))}
           </div>
@@ -66,6 +67,7 @@ export function Carousel({ children }: { children: React.ReactNode }) {
                 selected={index === selectedIndex}
                 onClick={() => scrollTo(index)}
                 key={index}
+                index={index}
               />
             ))}
           </div>

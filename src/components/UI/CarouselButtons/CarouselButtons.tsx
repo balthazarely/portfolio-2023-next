@@ -4,13 +4,16 @@ import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 export const DotButton = ({
   selected,
   onClick,
+  index,
 }: {
   selected: boolean;
   onClick(): void;
+  index?: number;
 }) => (
   <button
     role="button"
-    aria-label="button"
+    aria-label={`Go to slide ${index !== undefined ? index + 1 : ""}`}
+    aria-current={selected ? "true" : undefined}
     className={`embla__dot${selected ? " is-selected" : ""}`}
     onClick={onClick}
   />

@@ -28,7 +28,7 @@ export function Navbar() {
           </Link>
         </div>
         <div className="block  sm:hidden">
-          <Hamburger toggle={toggleDrawer} />
+          <Hamburger toggle={toggleDrawer} label={state.navDrawerOpen ? "Close navigation menu" : "Open navigation menu"} />
         </div>
         <div className="hidden items-center gap-8 sm:flex">
           <LayoutGroup>

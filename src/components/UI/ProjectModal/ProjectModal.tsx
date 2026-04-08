@@ -80,7 +80,7 @@ export function ProjectModal() {
           <Image
             width={500}
             height={500}
-            alt="image"
+            alt={`${state.selectedProject.title} preview`}
             src={state.selectedProject.url}
             className={` absolute top-0 w-full object-contain`}
           />

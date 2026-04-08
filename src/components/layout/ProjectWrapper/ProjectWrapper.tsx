@@ -156,10 +156,8 @@ export function ProjectWrapper({
                 variants={containerInnerElementsLeft}
               >
                 {project.link && (
-                  <a target="_BLANK" href={project.link}>
+                  <a target="_blank" rel="noopener noreferrer" href={project.link} aria-label={`Live site for ${project.title}`}>
                     <button
-                      aria-label="live-site"
-                      role="button"
                       className=" btn-primary btn cursor-pointer lowercase"
                     >
                       live site
@@ -167,10 +165,8 @@ export function ProjectWrapper({
                   </a>
                 )}
                 {project.github && (
-                  <a target="_BLANK" href={project.github}>
+                  <a target="_blank" rel="noopener noreferrer" href={project.github} aria-label={`GitHub repository for ${project.title}`}>
                     <button
-                      aria-label="github"
-                      role="button"
                       className=" btn-primary btn cursor-pointer lowercase"
                     >
                       Github
@@ -196,7 +192,7 @@ export function ProjectWrapper({
                       key={idx}
                       className="mx-auto h-auto max-h-96 cursor-pointer "
                       src={image}
-                      alt="project image"
+                      alt={`${project.title} screenshot ${idx + 1}`}
                     />
                   ))}
                 </Carousel>
@@ -216,11 +212,10 @@ export function ProjectWrapper({
                   <div>
                     <Link href={`/project/${prevProjectObj.slug}`}>
                       <button
-                        aria-label="project-link"
-                        role="button"
+                        aria-label={`Previous project: ${prevProjectObj.title}`}
                         className="btn-ghost btn-sm btn"
                       >
-                        <HiChevronLeft />
+                        <HiChevronLeft aria-hidden="true" />
                         {prevProjectObj.title}
                       </button>
                     </Link>
@@ -234,12 +229,11 @@ export function ProjectWrapper({
                   <div>
                     <Link href={`/project/${nextProjectObj.slug}`}>
                       <button
-                        aria-label="project-link"
-                        role="button"
+                        aria-label={`Next project: ${nextProjectObj.title}`}
                         className=" btn-ghost btn-sm btn flex items-center justify-center"
                       >
                         {nextProjectObj.title}
-                        <HiChevronRight className=" text-xl" />
+                        <HiChevronRight aria-hidden="true" className=" text-xl" />
                       </button>
                     </Link>
                   </div>
