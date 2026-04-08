@@ -1,5 +1,5 @@
 import { LayoutGroup, motion } from "framer-motion";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { PageWrapper } from "../PageWrapper";
 import { Cross as Hamburger } from "hamburger-react";
 import { UIContext } from "lib/context";
@@ -9,6 +9,7 @@ import Link from "next/link";
 export function Navbar() {
   const { state, dispatch } = useContext(UIContext);
   const menuItems = ["about", "projects", "links", "contact"];
+  const hasUnderlineAppeared = useRef(false);
 
   const toggleDrawer = () => {
     if (!state.navDrawerOpen) {
@@ -41,7 +42,10 @@ export function Navbar() {
                   {state.activeSection === section && (
                     <motion.div
                       layoutId="underline"
-                      className={`absolute -bottom-1 h-1 w-full bg-primary underline`}
+                      initial={{ opacity: hasUnderlineAppeared.current ? 1 : 0 }}
+                      animate={{ opacity: 1 }}
+                      onAnimationComplete={() => { hasUnderlineAppeared.current = true; }}
+                      className={`absolute -bottom-1 h-1 w-full bg-primary`}
                     />
                   )}
 

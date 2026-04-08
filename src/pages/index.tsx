@@ -34,7 +34,7 @@ export default function Home() {
   const threshold = 0.3;
   const [heroRef, heroInView] = useInView({ threshold: threshold });
   const [aboutRef, aboutInView] = useInView({ threshold: threshold });
-  const [projectsRef, projectsInView] = useInView({ threshold: threshold });
+  const [projectsRef, projectsInView] = useInView({ threshold: 0.1 });
   const [linksRef, linksInView] = useInView({ threshold: threshold });
   const [contactRef, contactInView] = useInView({ threshold: threshold });
 

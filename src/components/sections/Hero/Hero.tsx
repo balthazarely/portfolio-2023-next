@@ -53,21 +53,20 @@ export function Hero() {
             variants={containerInnerElements}
             className="h-full text-center text-4xl font-bold leading-snug sm:text-left"
           >
-            Hi, I&apos;m <span className="text-primary">Balthazar.</span> I am a
-            UI Engineer with a passion for building
+            Hi, I&apos;m <span className="text-primary">Balthazar.</span> I'm a
+            UI Engineer with a passion for{" "}
             <span className="text-primary"> beautiful things.</span>
           </motion.div>
           <motion.div
             variants={containerInnerElements}
             className="h-full text-center text-base leading-7 sm:text-left"
           >
-            I&apos;m web developer with experience in front-end web development
-            & graphic design. I enjoy building web apps, beautiful
-            user-interfaces, and anything that involves Javascript.
+            I&apos;m a web developer with experience in front-end web
+            development & interactive experiences. I enjoy building web apps,
+            beautiful user interfaces, and anything that involves JavaScript.
           </motion.div>
           <motion.div
-            className="flex justify-center sm:justify-start
-          "
+            className="flex justify-center sm:justify-start"
             variants={containerInnerElements}
           >
             <Link offset={-100} to="projects" smooth={true} duration={600}>

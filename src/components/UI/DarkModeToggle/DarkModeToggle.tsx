@@ -5,6 +5,7 @@ import { BsSun, BsSnow, BsTreeFill } from "react-icons/bs";
 import { GiVampireDracula } from "react-icons/gi";
 import { IColorIcons } from "lib/types";
 import { SiWindows95 } from "react-icons/si";
+import { MdCoffee } from "react-icons/md";
 
 export function DarkModeToggle() {
   const { state, dispatch } = useContext(UIContext);
@@ -48,6 +49,11 @@ export function DarkModeToggle() {
     {
       title: "emerald",
       icons: BsTreeFill,
+      next: "coffee",
+    },
+    {
+      title: "coffee",
+      icons: MdCoffee,
       next: "dark",
     },
   ];

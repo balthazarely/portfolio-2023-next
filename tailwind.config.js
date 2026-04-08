@@ -14,6 +14,7 @@ module.exports = {
       "dracula",
       "winter",
       "emerald",
+      "coffee",
       {
         light: {
           ...require("daisyui/src/colors/themes")["[data-theme=light]"],
