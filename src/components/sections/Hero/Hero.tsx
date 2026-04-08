@@ -9,7 +9,6 @@ import {
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
-import { Link } from "react-scroll";
 
 export function Hero() {
   const [ref, inView] = useInView({ threshold: 0.2 });
@@ -69,7 +68,14 @@ export function Hero() {
             className="flex justify-center sm:justify-start"
             variants={containerInnerElements}
           >
-            <Link offset={-100} to="projects" smooth={true} duration={600}>
+            <a
+              href="/#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById("projects");
+                if (el) window.scrollTo({ top: el.offsetTop - 100, behavior: "smooth" });
+              }}
+            >
               <button
                 aria-label="see-my-work"
                 role="button"
@@ -77,7 +83,7 @@ export function Hero() {
               >
                 my work
               </button>
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
       </PageWrapper>

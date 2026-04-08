@@ -100,27 +100,32 @@ export function NewLinks() {
           >
             <a
               href="https://github.com/balthazarely"
-              target="_BLANK"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub profile"
               className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-transform duration-200 hover:-translate-y-2 hover:bg-base-200"
             >
-              <BsGithub className="text-3xl group-hover:text-primary" />
+              <BsGithub aria-hidden="true" className="text-3xl group-hover:text-primary" />
               <div className="text-sm font-bold">github</div>
             </a>
             <a
               href="https://www.linkedin.com/in/balthazarely"
-              target="_BLANK"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn profile"
               className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-transform duration-200 hover:-translate-y-2 hover:bg-base-200"
             >
-              <BsLinkedin className="text-3xl group-hover:text-primary" />
+              <BsLinkedin aria-hidden="true" className="text-3xl group-hover:text-primary" />
               <div className="text-sm font-bold">linkedin</div>
             </a>
             <a
               href="/Balthazar_Ely_Resume_2025.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Download resume"
               className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-transform duration-200 hover:-translate-y-2 hover:bg-base-200"
             >
-              <BsFileEarmarkArrowUpFill className="text-3xl group-hover:text-primary" />
+              <BsFileEarmarkArrowUpFill aria-hidden="true" className="text-3xl group-hover:text-primary" />
               <div className="text-sm font-bold">resume</div>
             </a>
           </motion.div>
