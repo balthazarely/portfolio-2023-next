@@ -124,7 +124,7 @@ export function ProjectModal() {
               ))}
             </motion.div>
             <motion.div variants={containerInnerElements} className="text-sm">
-              {state.selectedProject.description.slice(0, 100)}...
+              {state.selectedProject.description.slice(0, 120)}...
             </motion.div>
             <motion.div
               variants={containerInnerElements}

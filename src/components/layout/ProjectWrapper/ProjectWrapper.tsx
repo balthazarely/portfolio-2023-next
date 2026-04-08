@@ -73,12 +73,8 @@ export function ProjectWrapper({
   const { dispatch } = useContext(UIContext);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
     animation.start("visible");
-    dispatch({ type: "SET_ACTIVE_SECTION", payload: project.title });
+    dispatch({ type: "SET_ACTIVE_SECTION", payload: "projects" });
   }, [animation]);
 
   const { url, otherImages } = project;
@@ -217,10 +213,8 @@ export function ProjectWrapper({
                 {prevProjectObj ? (
                   <div>
                     <Link
-                      href={`/project/${prevProjectObj.slug.replace(
-                        /^\//,
-                        "",
-                      )}`}
+                      scroll={false}
+                      href={`/project/${prevProjectObj.slug}`}
                     >
                       <button
                         aria-label={`Previous project: ${prevProjectObj.title}`}
@@ -239,10 +233,8 @@ export function ProjectWrapper({
                 {nextProjectObj ? (
                   <div>
                     <Link
-                      href={`/project/${nextProjectObj.slug.replace(
-                        /^\//,
-                        "",
-                      )}`}
+                      scroll={false}
+                      href={`/project/${nextProjectObj.slug}`}
                     >
                       <button
                         aria-label={`Next project: ${nextProjectObj.title}`}

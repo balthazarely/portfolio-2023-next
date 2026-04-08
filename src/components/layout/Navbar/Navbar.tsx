@@ -23,12 +23,19 @@ export function Navbar() {
     <div className={`fixed z-30 h-24 w-full bg-base-100  `}>
       <PageWrapper className="flex h-full items-center justify-between  ">
         <div className="cursor-pointer text-3xl font-bold">
-          <Link href="/" onClick={() => dispatch({ type: "CLOSE_NAV_DRAWER" })}>
+          <Link href="/" scroll={false} onClick={() => dispatch({ type: "CLOSE_NAV_DRAWER" })}>
             balthazar<span className="text-primary">.ely</span>
           </Link>
         </div>
         <div className="block  sm:hidden">
-          <Hamburger toggle={toggleDrawer} label={state.navDrawerOpen ? "Close navigation menu" : "Open navigation menu"} />
+          <Hamburger
+            toggle={toggleDrawer}
+            label={
+              state.navDrawerOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+            }
+          />
         </div>
         <div className="hidden items-center gap-8 sm:flex">
           <LayoutGroup>
@@ -42,14 +49,19 @@ export function Navbar() {
                   {state.activeSection === section && (
                     <motion.div
                       layoutId="underline"
-                      initial={{ opacity: hasUnderlineAppeared.current ? 1 : 0 }}
+                      initial={{
+                        opacity: hasUnderlineAppeared.current ? 1 : 0,
+                      }}
                       animate={{ opacity: 1 }}
-                      onAnimationComplete={() => { hasUnderlineAppeared.current = true; }}
-                      className={`absolute -bottom-1 h-1 w-full bg-primary`}
+                      onAnimationComplete={() => {
+                        hasUnderlineAppeared.current = true;
+                      }}
+                      className={`absolute -bottom-1 w-full bg-primary`}
+                      style={{ height: "3px" }}
                     />
                   )}
 
-                  <Link href={`/#${section}`}>{section}</Link>
+                  <Link href={`/#${section}`} scroll={false}>{section}</Link>
                 </motion.li>
               ))}
             </ul>

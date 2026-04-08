@@ -10,7 +10,7 @@ export const devskills = [
   "TailwindCSS",
   "Redux/NgRx",
   "NodeJs",
-  "LLM Integration & AI Tooling",
+  "LLM & AI Tooling",
   "Firebase/Supabase",
   "MongoDB/PostgreSQL",
   "Framer/GSAP",
@@ -80,23 +80,6 @@ export const items = [
     id: 4,
     year: "2026",
     client: "me",
-    url: "/images/project-images/epic-ikon-1.png",
-    slug: "/epic-ikon",
-    otherImages: ["/images/project-images/epic-ikon-2.png"],
-    title: "Epic vs Ikon",
-    tagline: "explore the ski slopes",
-    description:
-      "I developed Epic vs Ikon, an interactive web application for exploring ski resorts across the world through a real-time 3D globe visualization. Built with Next.js, React, Three.js, Mapbox GL, and TailwindCSS, the app allows skiers to discover and compare resorts across North America, Japan, and Australia — with rich filtering by pass type (Ikon and Epic), vertical drop, trail count, and lift access. At the core of the app is a custom Three.js globe with sprite-based resort markers, intelligent proximity clustering, and smooth animated camera transitions. I implemented a canvas-based texture generation system for cluster badges and glow effects, avoiding pre-rendered assets in favor of dynamic rendering. Detailed resort data — including trail difficulty breakdowns, lift infrastructure, and snowmaking coverage — is surfaced in a drawer view powered by streaming API routes and React Query for efficient caching. Considerable attention went into interaction design: the globe supports drag-to-rotate, region fly-to animations, and an eased intro camera arc on load. The app is fully responsive, with a dedicated mobile filter drawer and layout optimizations for smaller screens.",
-    tech: ["React", "Three.js", "TailwindCSS", "Tanstack"],
-    category: "personal",
-    github: "https://github.com/balthazarely/epic-ikon",
-    link: "https://epic-ikon.vercel.app/",
-  },
-
-  {
-    id: 5,
-    year: "2026",
-    client: "me",
     url: "/images/project-images/lifts-1.png",
     slug: "/lifts-workout-app",
     otherImages: [
@@ -118,6 +101,22 @@ export const items = [
     category: "personal",
     github: "https://github.com/balthazarely/ssr-auth-example",
     link: "https://ssr-auth-example.vercel.app",
+  },
+  {
+    id: 5,
+    year: "2026",
+    client: "me",
+    url: "/images/project-images/epic-ikon-1.png",
+    slug: "/epic-ikon",
+    otherImages: ["/images/project-images/epic-ikon-2.png"],
+    title: "Epic vs Ikon",
+    tagline: "explore the ski slopes",
+    description:
+      "I developed Epic vs Ikon, an interactive web application for exploring ski resorts across the world through a real-time 3D globe visualization. Built with Next.js, React, Three.js, Mapbox GL, and TailwindCSS, the app allows skiers to discover and compare resorts across North America, Japan, and Australia — with rich filtering by pass type (Ikon and Epic), vertical drop, trail count, and lift access. At the core of the app is a custom Three.js globe with sprite-based resort markers, intelligent proximity clustering, and smooth animated camera transitions. I implemented a canvas-based texture generation system for cluster badges and glow effects, avoiding pre-rendered assets in favor of dynamic rendering. Detailed resort data — including trail difficulty breakdowns, lift infrastructure, and snowmaking coverage — is surfaced in a drawer view powered by streaming API routes and React Query for efficient caching. Considerable attention went into interaction design: the globe supports drag-to-rotate, region fly-to animations, and an eased intro camera arc on load. The app is fully responsive, with a dedicated mobile filter drawer and layout optimizations for smaller screens.",
+    tech: ["React", "Three.js", "TailwindCSS", "Tanstack"],
+    category: "personal",
+    github: "https://github.com/balthazarely/epic-ikon",
+    link: "https://epic-ikon.vercel.app/",
   },
 
   {

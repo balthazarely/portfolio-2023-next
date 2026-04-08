@@ -26,7 +26,7 @@ export function Layout({ children, route }: ILayout) {
             : "pointer-events-none bg-opacity-0"
         }`}
       ></div>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
         <motion.main
           key={route}
           initial={{ opacity: 0 }}
