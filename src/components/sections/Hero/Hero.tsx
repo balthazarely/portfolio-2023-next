@@ -9,6 +9,7 @@ import {
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export function Hero() {
   const [ref, inView] = useInView({ threshold: 0.2 });
@@ -52,7 +53,7 @@ export function Hero() {
             variants={containerInnerElements}
             className="h-full text-center text-4xl font-bold leading-snug sm:text-left"
           >
-            Hi, I&apos;m <span className="text-primary">Balthazar.</span> I'm a
+            Hi, I&apos;m <span className="text-primary">Balthazar.</span> I&apos;m a
             UI Engineer with a passion for{" "}
             <span className="text-primary"> beautiful things.</span>
           </motion.div>
@@ -68,7 +69,7 @@ export function Hero() {
             className="flex justify-center sm:justify-start"
             variants={containerInnerElements}
           >
-            <a
+            <Link
               href="/#projects"
               onClick={(e) => {
                 e.preventDefault();
@@ -83,7 +84,7 @@ export function Hero() {
               >
                 my work
               </button>
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </PageWrapper>
