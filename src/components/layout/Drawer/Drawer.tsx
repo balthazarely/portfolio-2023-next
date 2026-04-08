@@ -86,7 +86,7 @@ export function Drawer() {
       >
         <div className="mt-1 flex w-full justify-end px-4">
           <Hamburger
-            aria-label="toggle-menu"
+            label={state.navDrawerOpen ? "Close navigation menu" : "Open navigation menu"}
             toggled={state.navDrawerOpen}
             toggle={toggleHamburger}
           />

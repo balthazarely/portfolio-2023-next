@@ -10,9 +10,9 @@ export const devskills = [
   "TailwindCSS",
   "Redux/NgRx",
   "NodeJs",
-  "Prisma",
+  "LLM Integration & AI Tooling",
   "Firebase/Supabase",
-  "MongoDB",
+  "MongoDB/PostgreSQL",
   "Framer/GSAP",
   "Adobe Suite/Figma",
 ];
@@ -30,7 +30,7 @@ export const otherSkills = [
 export const items = [
   {
     id: 1,
-    year: "2023 - 2026",
+    year: "2023 - Present",
     client: "Consulting",
     url: "/images/project-images/credera.png",
     slug: "/credera",
@@ -70,7 +70,7 @@ export const items = [
     title: "Hartman Ely Investments",
     tagline: "sustainable investment company website",
     description:
-      "This website was designed and built for a sustainable development company based in Boulder, Colorado to showcase their work and services. The site was built/designed on my own, with NextJS and TailwindCSS.",
+      "This website was designed and built for a sustainable development company based in Boulder, Colorado to showcase their work and services. The site was built/designed on my own, with NextJS, PayloadCMS, and TailwindCSS.",
     tech: ["NextJS", "PayloadCMS", "TailwindCSS", "Figma"],
     category: "professional",
     github: "https://github.com/balthazarely/hartmanely.com",

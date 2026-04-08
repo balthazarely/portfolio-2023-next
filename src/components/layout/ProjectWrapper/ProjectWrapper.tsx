@@ -119,7 +119,7 @@ export function ProjectWrapper({
               >
                 {project?.client && (
                   <div>
-                    client:{" "}
+                    client:{"  "}
                     <span className="text-primary">{project.client}</span>
                   </div>
                 )}
@@ -156,19 +156,25 @@ export function ProjectWrapper({
                 variants={containerInnerElementsLeft}
               >
                 {project.link && (
-                  <a target="_blank" rel="noopener noreferrer" href={project.link} aria-label={`Live site for ${project.title}`}>
-                    <button
-                      className=" btn-primary btn cursor-pointer lowercase"
-                    >
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={project.link}
+                    aria-label={`Live site for ${project.title}`}
+                  >
+                    <button className=" btn-primary btn cursor-pointer lowercase">
                       live site
                     </button>
                   </a>
                 )}
                 {project.github && (
-                  <a target="_blank" rel="noopener noreferrer" href={project.github} aria-label={`GitHub repository for ${project.title}`}>
-                    <button
-                      className=" btn-primary btn cursor-pointer lowercase"
-                    >
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={project.github}
+                    aria-label={`GitHub repository for ${project.title}`}
+                  >
+                    <button className=" btn-primary btn cursor-pointer lowercase">
                       Github
                     </button>
                   </a>
@@ -210,7 +216,12 @@ export function ProjectWrapper({
               <motion.div variants={containerInnerElementsRight}>
                 {prevProjectObj ? (
                   <div>
-                    <Link href={`/project/${prevProjectObj.slug}`}>
+                    <Link
+                      href={`/project/${prevProjectObj.slug.replace(
+                        /^\//,
+                        "",
+                      )}`}
+                    >
                       <button
                         aria-label={`Previous project: ${prevProjectObj.title}`}
                         className="btn-ghost btn-sm btn"
@@ -227,13 +238,21 @@ export function ProjectWrapper({
               <motion.div variants={containerInnerElementsRight}>
                 {nextProjectObj ? (
                   <div>
-                    <Link href={`/project/${nextProjectObj.slug}`}>
+                    <Link
+                      href={`/project/${nextProjectObj.slug.replace(
+                        /^\//,
+                        "",
+                      )}`}
+                    >
                       <button
                         aria-label={`Next project: ${nextProjectObj.title}`}
                         className=" btn-ghost btn-sm btn flex items-center justify-center"
                       >
                         {nextProjectObj.title}
-                        <HiChevronRight aria-hidden="true" className=" text-xl" />
+                        <HiChevronRight
+                          aria-hidden="true"
+                          className=" text-xl"
+                        />
                       </button>
                     </Link>
                   </div>

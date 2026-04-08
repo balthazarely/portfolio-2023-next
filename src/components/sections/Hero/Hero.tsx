@@ -53,8 +53,8 @@ export function Hero() {
             variants={containerInnerElements}
             className="h-full text-center text-4xl font-bold leading-snug sm:text-left"
           >
-            Hi, I&apos;m <span className="text-primary">Balthazar.</span> I&apos;m a
-            UI Engineer with a passion for{" "}
+            Hi, I&apos;m <span className="text-primary">Balthazar.</span>{" "}
+            I&apos;m a XD Engineer with a passion for{" "}
             <span className="text-primary"> beautiful things.</span>
           </motion.div>
           <motion.div
@@ -71,19 +71,19 @@ export function Hero() {
           >
             <Link
               href="/#projects"
+              aria-label="See my work"
               onClick={(e) => {
                 e.preventDefault();
                 const el = document.getElementById("projects");
-                if (el) window.scrollTo({ top: el.offsetTop - 100, behavior: "smooth" });
+                if (el)
+                  window.scrollTo({
+                    top: el.offsetTop - 100,
+                    behavior: "smooth",
+                  });
               }}
+              className="btn-primary btn mt-2 min-w-[6rem]"
             >
-              <button
-                aria-label="see-my-work"
-                role="button"
-                className="btn-primary btn mt-2 "
-              >
-                my work
-              </button>
+              my work
             </Link>
           </motion.div>
         </motion.div>
