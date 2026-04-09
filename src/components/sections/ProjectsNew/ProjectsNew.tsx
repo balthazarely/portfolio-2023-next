@@ -50,7 +50,7 @@ const Card = ({ item, tempSelected }: ICard) => {
 
   return (
     <motion.div
-      style={{}}
+      layout
       className={`${tempSelected?.id === item.id ? "z-50" : "z-10"}`}
       variants={projectElements}
     >
@@ -201,7 +201,7 @@ export function ProjectsNew() {
           className="mt-4 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-2 "
           exit={{ opacity: 0 }}
         >
-          <AnimatePresence>
+          <AnimatePresence mode="popLayout">
             {projectsForGrid.map((item) => (
               <Card key={item.id} tempSelected={tempSelected} item={item} />
             ))}
@@ -221,20 +221,26 @@ function ProjectFilter({ setFilterBy, filterBy }: IProjectFilter) {
   const projectTypes = ["all", "professional", "personal", "design"];
 
   return (
-    <motion.div className="mb-4 mt-6 flex justify-center gap-2">
-      {projectTypes.map((proj: any, idx: number) => (
+    <div className="mb-4 mt-6 flex justify-center gap-1">
+      {projectTypes.map((proj, idx) => (
         <button
-          aria-label="filter-projects"
-          role="button"
+          aria-label={`Filter by ${proj}`}
           key={idx}
           onClick={() => setFilterBy(proj)}
-          className={` btn-sm btn lowercase ${
-            filterBy === proj ? "btn-primary " : " btn-ghost"
-          }`}
+          className="btn-sm btn btn-ghost relative lowercase"
         >
-          {proj}
+          {filterBy === proj && (
+            <motion.div
+              layoutId="filter-pill"
+              className="absolute inset-0 rounded-[var(--rounded-btn,0.5rem)] bg-primary"
+              transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+            />
+          )}
+          <span className={`relative z-10 ${filterBy === proj ? "text-white" : ""}`}>
+            {proj}
+          </span>
         </button>
       ))}
-    </motion.div>
+    </div>
   );
 }

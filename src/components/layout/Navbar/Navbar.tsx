@@ -37,7 +37,17 @@ export function Navbar() {
     <div className={`fixed z-30 h-24 w-full bg-base-100  `}>
       <PageWrapper className="flex h-full items-center justify-between  ">
         <div className="cursor-pointer text-3xl font-bold">
-          <Link href="/" scroll={false} onClick={() => dispatch({ type: "CLOSE_NAV_DRAWER" })}>
+          <Link
+            href="/"
+            scroll={false}
+            onClick={(e) => {
+              dispatch({ type: "CLOSE_NAV_DRAWER" });
+              if (router.pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
             balthazar<span className="text-primary">.ely</span>
           </Link>
         </div>

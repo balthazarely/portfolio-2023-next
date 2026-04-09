@@ -1,6 +1,6 @@
 import { PageWrapper } from "@/components/layout";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   container,
   containerInnerElements,
@@ -15,6 +15,10 @@ export function Hero() {
   const [ref, inView] = useInView({ threshold: 0.2 });
   const [headshotLoaded, setHeadshotLoaded] = useState(false);
   const animation = useAnimation();
+
+  const { scrollY } = useScroll();
+  const imageY = useTransform(scrollY, [0, 600], [0, -150]);
+  const textY = useTransform(scrollY, [0, 600], [0, -80]);
 
   useEffect(() => {
     if (inView && headshotLoaded) {
@@ -31,6 +35,7 @@ export function Hero() {
           initial="hidden"
           ref={ref}
           animate={animation}
+          style={{ y: imageY }}
         >
           <Image
             className="m-3 h-56 w-56 rounded-full object-cover shadow-lg sm:h-auto sm:w-auto"
@@ -47,6 +52,7 @@ export function Hero() {
           ref={ref}
           animate={animation}
           variants={container}
+          style={{ y: textY }}
           className="col-span-3 mt-6 grid gap-2 sm:col-span-8  sm:mt-0  "
         >
           <motion.div

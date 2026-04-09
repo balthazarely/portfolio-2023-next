@@ -1,5 +1,5 @@
 export const devskills = [
-  "JavaScript/TypeScript",
+  "TypeScript",
   "CSS/SCSS",
   "HTML5",
   "React/NextJs/Gatsby",
