@@ -36,7 +36,7 @@ export const items = [
     slug: "/credera",
     otherImages: [],
     title: "Credera",
-    tagline: "senior UX constultant working in energy sector",
+    tagline: "senior XD consultant working across industries",
     description:
       "As a consultant with Credera, I helped lead the development of internal software for a large energy company operating across Texas and the Midwest. My work included real-time technician route optimization tools and technician management dashboards, contributing to a 600% increase in client revenue and elevating the account to a top-10 performer through consistent delivery and alignment with product strategy. Over 2.5 years, I worked across three products focused on increasing productivity, reducing technician drive time, and decreasing emergency response times.  ",
     tech: ["Angular", "ArcGIS", "Material", "SignalR", "NgRx"],
