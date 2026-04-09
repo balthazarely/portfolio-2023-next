@@ -8,12 +8,11 @@ import {
 } from "lib/animations";
 import { useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 
 export function Hero() {
   const [ref, inView] = useInView({ threshold: 0.2 });
-  const [headshotLoaded, setHeadshotLoaded] = useState(false);
   const animation = useAnimation();
 
   const { scrollY } = useScroll();
@@ -21,10 +20,10 @@ export function Hero() {
   const textY = useTransform(scrollY, [0, 600], [0, -80]);
 
   useEffect(() => {
-    if (inView && headshotLoaded) {
+    if (inView) {
       animation.start("visible");
     }
-  }, [animation, inView, headshotLoaded]);
+  }, [animation, inView]);
 
   return (
     <div className="flex items-center justify-center bg-base-200 pt-24 ">
@@ -44,7 +43,6 @@ export function Hero() {
             width={200}
             height={200}
             priority
-            onLoad={() => setHeadshotLoaded(true)}
           />
         </motion.div>
         <motion.div
