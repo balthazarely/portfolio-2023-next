@@ -120,8 +120,7 @@ export function NewLinks() {
             </a>
             <a
               href="/Balthazar_Ely_Resume_2025.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              download
               aria-label="Download resume"
               className="trasnform group flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg p-4 transition-transform duration-200 hover:-translate-y-2 hover:bg-base-200"
             >

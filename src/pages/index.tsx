@@ -22,9 +22,9 @@ export default function Home() {
   useEffectOnce(() => {
     if (fragmentIdentifier) {
       scroller.scrollTo(fragmentIdentifier, {
-        duration: 50,
+        duration: 600,
         delay: 0,
-        smooth: false,
+        smooth: "easeInOutQuart",
         offset: -50,
       });
     }

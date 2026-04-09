@@ -66,11 +66,15 @@ export const items = [
     client: "Hartman Ely Investments",
     url: "/images/project-images/hartman-ely.jpg",
     slug: "/hartman-ely-investments",
-    otherImages: ["/images/project-images/hartman-ely-1.jpg"],
+    otherImages: [
+      "/images/project-images/hartman-ely-1.jpg",
+      "/images/project-images/hei-investments-lighthouse-1.png",
+      "/images/project-images/hei-investments-lighthouse.png",
+    ],
     title: "Hartman Ely Investments",
     tagline: "sustainable investment company website",
     description:
-      "This website was designed and built for a sustainable development company based in Boulder, Colorado to showcase their work and services. The site was built/designed on my own, with NextJS, PayloadCMS, and TailwindCSS.",
+      "A full end-to-end build for a Boulder-based sustainable development company. Designed and developed solo using Next.js, Payload CMS, and Tailwind CSS, with 100% Lighthouse scores across every page.",
     tech: ["NextJS", "PayloadCMS", "TailwindCSS", "Figma"],
     category: "professional",
     github: "https://github.com/balthazarely/hartmanely.com",

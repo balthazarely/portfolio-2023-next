@@ -214,7 +214,7 @@ export function ProjectWrapper({
                   <div>
                     <Link
                       scroll={false}
-                      href={`/project/${prevProjectObj.slug}`}
+                      href={`/project/${prevProjectObj.slug.replace(/^\//, "")}`}
                     >
                       <button
                         aria-label={`Previous project: ${prevProjectObj.title}`}
@@ -234,7 +234,7 @@ export function ProjectWrapper({
                   <div>
                     <Link
                       scroll={false}
-                      href={`/project/${nextProjectObj.slug}`}
+                      href={`/project/${nextProjectObj.slug.replace(/^\//, "")}`}
                     >
                       <button
                         aria-label={`Next project: ${nextProjectObj.title}`}

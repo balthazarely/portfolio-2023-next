@@ -5,11 +5,25 @@ import { Cross as Hamburger } from "hamburger-react";
 import { UIContext } from "lib/context";
 import { DarkModeToggle } from "@/components/UI";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { scroller } from "react-scroll";
 
 export function Navbar() {
   const { state, dispatch } = useContext(UIContext);
   const menuItems = ["about", "projects", "links", "contact"];
   const hasUnderlineAppeared = useRef(false);
+  const router = useRouter();
+
+  const handleSectionClick = (e: React.MouseEvent, section: string) => {
+    if (router.pathname === "/") {
+      e.preventDefault();
+      scroller.scrollTo(section, {
+        duration: 600,
+        smooth: "easeInOutQuart",
+        offset: -50,
+      });
+    }
+  };
 
   const toggleDrawer = () => {
     if (!state.navDrawerOpen) {
@@ -61,7 +75,7 @@ export function Navbar() {
                     />
                   )}
 
-                  <Link href={`/#${section}`} scroll={false}>{section}</Link>
+                  <Link href={`/#${section}`} scroll={false} onClick={(e) => handleSectionClick(e, section)}>{section}</Link>
                 </motion.li>
               ))}
             </ul>
